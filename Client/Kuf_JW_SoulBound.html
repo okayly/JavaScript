@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	<style type="text/css">
+		.tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
+		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#333;background-color:#fff;}
+		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#fff;background-color:#f38630;}
+		.tg .tg-yw4l{vertical-align:top}
+	</style>
+	
+	<meta charset="utf-8">
+	<title>KUF - Hero</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+	<script type="text/javascript">
+		var jsfiles = [ './Main.js', './Account.js', './SoulBound.js', './Hero.js' ];
+
+		for (var i in jsfiles) {
+			console.log(jsfiles[i]);
+
+			var imported = document.createElement('script');
+			imported.src = jsfiles[i];
+			document.head.appendChild(imported);
+		}
+	</script>
+
+	</head>
+	<body>
+		<h3>SOUL BOUND</h3>
+		<p>
+			<div id="Display">
+				<h3>Display</h3>
+				<div id="output"></div>
+			</div>
+		</p>
+		<a href="./Kuf_JW_Account.html">BACK</a>
+		<br/>
+		<br/>
+		<table class="tg">
+			<tr>
+				<th class="tg-yw4l">SERVER PORT</th>
+				<td>
+					<div id="ConnectServer">
+						<select id="port">
+							<option value="7953">JW</option>
+							<option value="7952">JW_Test</option>
+							<option value="2016">Design</option>
+							<!-- <option value="3000">Contents</option>
+							<option value="4634">Build</option> -->
+						</select>
+						<input type="button" id="connect" value="Connect"/>
+						<input type="button" id="disconnect" value="Diconnect"/>
+					</div>
+				</td>			
+			<tr>
+				<th class="tg-yw4l">TEST</th>
+				<td class="tg-yw4l">
+					<div id="ReqTest">
+						ReqTest<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<th class="tg-yw4l">VERSION</th>
+				<td class="tg-yw4l">
+					<div id="ReqVersion">
+						ReqVersion<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l">ACCOUNT</th>
+				<td class="tg-yw4l">
+					<div id="ReqLogon">
+						ReqLogon<br/>
+						ACCOUNT:<input type="text" id="account" size="10" placeholder="ACCOUNT" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqUser">
+						ReqUser<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>			
+			<tr>
+				<th class="tg-yw4l"><label>SOUL BOUND</label></th>
+				<td class="tg-yw4l">
+					<div id="ReqHeroRuneSlotInfo">
+						ReqHeroRuneSlotInfo<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqHeroRuneInfo">
+						ReqHeroRuneInfo<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div><br/>
+					</div>
+				</td>
+				<td>
+					<div id="ReqHero">
+						ReqHero
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			<tr/>
+			<tr>
+				<th></th>
+				<td class="tg-yw4l">
+					<div id="ReqHeroRuneSlotOpen">
+						ReqHeroRuneSlotOpen<br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						RUNE_SLOT_ID:<select id="rune_slot_id">
+							<option value="1" selected>1(공격)</option>
+							<option value="2">2(공격)</option>
+							<option value="3">3(공격)</option>
+							<option value="4">4(공격)</option>
+							<option value="5">5(공격)</option>
+							<option value="6">6(방어)</option>
+							<option value="7">7(방어)</option>
+							<option value="8">8(방어)</option>
+							<option value="9">9(방어)</option>
+							<option value="10">10(방어)</option>
+							<option value="11">11(지원)</option>
+							<option value="12">12(지원)</option>
+							<option value="13">13(지원)</option>
+							<option value="14">14(지원)</option>
+							<option value="15">15(지원)</option>
+							<option value="16">16(특별)</option>
+							<option value="17">17(특별)</option>
+							<option value="18">18(특별)</option>
+							<option value="19">19(특별)</option>
+							<option value="20">20(특별)</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th></th>
+				<td class="tg-yw4l">
+					<div id="ReqHeroRuneCreate">
+						ReqHeroRuneCreate<br/>
+						RECIPE_ID: <select id="rune_recipe_id">
+							<option value="4019991">공격 룬(4019991)</option>
+							<option value="4019992">방어 룬(4019992)</option>
+							<option value="4019993">지원 룬(4019993)</option>
+							<option value="4019994">특수 룬(4019994)</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqHeroRuneSell">
+						ReqHeroRuneSell<br/>
+						RUID:<input type="text" id="ruid" size="10" placeholder="RUID" /><br/>
+						SELL_COUNT:<select id="sell_count">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th></th>
+				<td class="tg-yw4l">
+					<div id="ReqHeroRuneEquip">
+						ReqHeroRuneEquip<br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						RUNE_SLOT_ID:<select id="rune_slot_id">
+							<option value="1" selected>1(공격)</option>
+							<option value="2">2(공격)</option>
+							<option value="3">3(공격)</option>
+							<option value="4">4(공격)</option>
+							<option value="5">5(공격)</option>
+							<option value="6">6(방어)</option>
+							<option value="7">7(방어)</option>
+							<option value="8">8(방어)</option>
+							<option value="9">9(방어)</option>
+							<option value="10">10(방어)</option>
+							<option value="11">11(지원)</option>
+							<option value="12">12(지원)</option>
+							<option value="13">13(지원)</option>
+							<option value="14">14(지원)</option>
+							<option value="15">15(지원)</option>
+							<option value="16">16(특별)</option>
+							<option value="17">17(특별)</option>
+							<option value="18">18(특별)</option>
+							<option value="19">19(특별)</option>
+							<option value="20">20(특별)</option>
+						</select><br/>
+						RUID:<input id="ruid" type="text" size="10" placeholder="RUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqHeroRuneUnEquip">
+						ReqHeroRuneUnEquip<br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						RUNE_SLOT_ID:<select id="rune_slot_id">
+							<option value="1" selected>1(공격)</option>
+							<option value="2">2(공격)</option>
+							<option value="3">3(공격)</option>
+							<option value="4">4(공격)</option>
+							<option value="5">5(공격)</option>
+							<option value="6">6(방어)</option>
+							<option value="7">7(방어)</option>
+							<option value="8">8(방어)</option>
+							<option value="9">9(방어)</option>
+							<option value="10">10(방어)</option>
+							<option value="11">11(지원)</option>
+							<option value="12">12(지원)</option>
+							<option value="13">13(지원)</option>
+							<option value="14">14(지원)</option>
+							<option value="15">15(지원)</option>
+							<option value="16">16(특별)</option>
+							<option value="17">17(특별)</option>
+							<option value="18">18(특별)</option>
+							<option value="19">19(특별)</option>
+							<option value="20">20(특별)</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th></th>
+				<td class="tg-yw4l">
+					<div id="ReqHeroRuneLevelup">
+						ReqHeroRuneLevelup<br/>
+						RUID:<input id="ruid" type="text" size="10" placeholder="RUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqHeroEquipRuneLevelup">
+						ReqHeroEquipRuneLevelup<br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						RUNE_SLOT_ID:<select id="rune_slot_id">
+							<option value="1" selected>1(공격)</option>
+							<option value="2">2(공격)</option>
+							<option value="3">3(공격)</option>
+							<option value="4">4(공격)</option>
+							<option value="5">5(공격)</option>
+							<option value="6">6(방어)</option>
+							<option value="7">7(방어)</option>
+							<option value="8">8(방어)</option>
+							<option value="9">9(방어)</option>
+							<option value="10">10(방어)</option>
+							<option value="11">11(지원)</option>
+							<option value="12">12(지원)</option>
+							<option value="13">13(지원)</option>
+							<option value="14">14(지원)</option>
+							<option value="15">15(지원)</option>
+							<option value="16">16(특별)</option>
+							<option value="17">17(특별)</option>
+							<option value="18">18(특별)</option>
+							<option value="19">19(특별)</option>
+							<option value="20">20(특별)</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

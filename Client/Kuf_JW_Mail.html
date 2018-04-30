@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	<style type="text/css">
+		.tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
+		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#333;background-color:#fff;}
+		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#fff;background-color:#f38630;}
+		.tg .tg-yw4l{vertical-align:top}
+	</style>
+	
+	<meta charset="utf-8">
+	<title>KUF - Hero</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+	<script type="text/javascript">
+		var jsfiles = [ './Main.js', './Account.js', './Mail.js' ];
+
+		for (var i in jsfiles) {
+			console.log(jsfiles[i]);
+
+			var imported = document.createElement('script');
+			imported.src = jsfiles[i];
+			document.head.appendChild(imported);
+		}
+	</script>
+	</head>
+	<body>
+		<h3>MAIL</h3>
+		<p>
+			<div id="Display">
+				<h3>Display</h3>
+				<div id="output"></div>
+			</div>
+		</p>
+		<a href="./Kuf_JW_Account.html">BACK</a>
+		<br/>
+		<br/>
+		<table class="tg">
+			<tr>
+				<th class="tg-yw4l">SERVER PORT</th>
+				<td>
+					<div id="ConnectServer">
+						<select id="port">
+							<option value="7953">JW</option>
+							<option value="7952">JW_Test</option>
+							<option value="2016">Design</option>
+							<!-- <option value="3000">Contents</option>
+							<option value="4634">Build</option> -->
+						</select>
+						<input type="button" id="connect" value="Connect"/>
+						<input type="button" id="disconnect" value="Diconnect"/>
+					</div>
+				</td>			
+			<tr>
+				<th class="tg-yw4l">TEST</th>
+				<td class="tg-yw4l">
+					<div id="ReqTest">
+						ReqTest<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<th class="tg-yw4l">VERSION</th>
+				<td class="tg-yw4l">
+					<div id="ReqVersion">
+						ReqVersion<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l">ACCOUNT</th>
+				<td class="tg-yw4l">
+					<div id="ReqLogon">
+						ReqLogon<br/>
+						ACCOUNT:<input type="text" id="account" size="10" placeholder="ACCOUNT" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqUser">
+						ReqUser<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l">MAIL</th>
+				<td class="tg-yw4l">
+					<div id="ReqMailReadInfo">
+						ReqMailReadInfo<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqMailList">
+						ReqMailList<br/>
+						<select id="recv_all">
+							<option value="true">true</option>
+							<option value="false">false</option>
+						</select><br/>
+						MAIL1_ID:<input type="text" id="mail1_id" size="10" placeholder="MAIL1_ID" /><br/>
+						MAIL2_ID:<input type="text" id="mail2_id" size="10" placeholder="MAIL2_ID" /><br/>
+						MAIL3_ID:<input type="text" id="mail3_id" size="10" placeholder="MAIL3_ID" /><br/>
+						MAIL4_ID:<input type="text" id="mail4_id" size="10" placeholder="MAIL4_ID" /><br/>
+						MAIL5_ID:<input type="text" id="mail5_id" size="10" placeholder="MAIL5_ID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"></th>
+				<td class="tg-yw4l">
+					<div id="ReqMailRead">
+						ReqMailRead<br/>
+						MAIL_ID:<input type="text" id="mail_id" size="10" placeholder="MAIL_ID" /><br/>
+						<input type="button" id="send" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"></th>
+				<td class="tg-yw4l">
+					<div id="ReqMailReward">
+						ReqMailReward<br/>
+						MAIL_ID:<input type="text" id="mail_id" size="10" placeholder="MAIL_ID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqMailRewardAll">
+						ReqMailRewardAll<br/>
+						MAIL_ID:<input type="text" id="mail_id" size="10" placeholder="MAIL_ID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

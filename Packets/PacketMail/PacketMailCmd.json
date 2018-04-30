@@ -1,0 +1,20 @@
+{
+	"Req":
+	{
+		"ReadInfos":"ReqMailReadInfo"		
+		, "MailList":"ReqMailList"
+		, "MailRead":"ReqMailRead"
+		, "MailReward":"ReqMailReward"
+		, "MailRewardAll":"ReqMailRewardAll"
+		, "MailSend":"ReqMailSend"
+	}
+	, "Ack":
+	{
+		"ReadInfos":"AckMailReadInfo"
+		, "MailList":"AckMailList"
+		, "MailRead":"AckMailRead"
+		, "MailReward":"AckMailReward"
+		, "MailRewardAll":"AckMailRewardAll"
+		, "MailSend":"ReqMailSend"
+	}
+}

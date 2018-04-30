@@ -1,0 +1,17 @@
+{
+	"PC":
+	{
+		"Name":"JW",
+		"ServerID":"0",
+		"Account":"milkboy",
+		"Pass":"P@ssw0rd"
+	},
+	"DB":
+	{
+		"DBName":"mKUF",
+		"DBAcc":"root",
+		"DBPw":"P@ssw0rd",
+		"DBIP":"127.0.0.1",
+		"DBPort":"3306"
+	}
+}

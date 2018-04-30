@@ -1,0 +1,15 @@
+{
+	"Req":
+	{
+		
+		"AccountBuffInfo":"ReqAccountBuffInfo"
+		, "AccountBuffLevelup":"ReqAccountBuffLevelup"
+		, "AccountBuffReset":"ReqAccountBuffReset"		
+	}
+	, "Ack":
+	{
+		"AccountBuffInfo":"AckAccountBuffInfo"
+		, "AccountBuffLevelup":"AckAccountBuffLevelup"
+		, "AccountBuffReset":"AckAccountBuffReset"		
+	}
+}

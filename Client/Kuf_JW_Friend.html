@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	<style type="text/css">
+		.tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
+		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#333;background-color:#fff;}
+		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#fff;background-color:#f38630;}
+		.tg .tg-yw4l{vertical-align:top}
+	</style>
+	
+	<meta charset="utf-8">
+	<title>KUF - Hero</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+	<script type="text/javascript">
+		var jsfiles = [ './Main.js', './Account.js', './Friend.js' ];
+
+		for (var i in jsfiles) {
+			console.log(jsfiles[i]);
+
+			var imported = document.createElement('script');
+			imported.src = jsfiles[i];
+			document.head.appendChild(imported);
+		}
+	</script>
+
+	</head>
+	<body>
+		<h3>FRIEND</h3>
+		<p>
+			<div id="Display">
+				<h3>Display</h3>
+				<div id="output"></div>
+			</div>
+		</p>
+		<a href="./Kuf_JW_Account.html">BACK</a>
+		<br/>
+		<br/>
+		<table class="tg">
+			<tr>
+				<th class="tg-yw4l">SERVER PORT</th>
+				<td>
+					<div id="ConnectServer">
+						<select id="port">
+							<option value="7953">JW</option>
+							<option value="7952">JW_Test</option>
+							<option value="2016">Design</option>
+							<!-- <option value="3000">Contents</option>
+							<option value="4634">Build</option> -->
+						</select>
+						<input type="button" id="connect" value="Connect"/>
+						<input type="button" id="disconnect" value="Diconnect"/>
+					</div>
+				</td>			
+			<tr>
+				<th class="tg-yw4l">TEST</th>
+				<td class="tg-yw4l">
+					<div id="ReqTest">
+						ReqTest<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<th class="tg-yw4l">VERSION</th>
+				<td class="tg-yw4l">
+					<div id="ReqVersion">
+						ReqVersion<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l">ACCOUNT</th>
+				<td class="tg-yw4l">
+					<div id="ReqLogon">
+						ReqLogon<br/>
+						ACCOUNT:<input type="text" id="account" size="10" placeholder="ACCOUNT" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqUser">
+						ReqUser<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l">FRIEND</th>
+				<td class="tg-yw4l">
+					<div id="ReqFriendInfo">
+						ReqFriendInfo<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqFriendRecommandList">
+						ReqFriendRecommandList<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqFindFriend">
+						ReqFindFriend<br/>
+						NICK:<input type="text" id="nick" size="10" placeholder="NICK" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"></th>
+				<td class="tg-yw4l">
+					<div id="ReqFriendRequestSendList">
+						ReqFriendRequestSendList<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqFriendRequestRecvList">
+						ReqFriendRequestRecvList<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"></th>
+				<td class="tg-yw4l">
+					<div id="ReqFriendRequest">
+						ReqFriendRequest<br/>
+						REQUEST_UUID0:<input type="text" id="request_uuid0" size="10" placeholder="REQUEST_UUID0" /><br/>
+						REQUEST_UUID1:<input type="text" id="request_uuid1" size="10" placeholder="REQUEST_UUID1" /><br/>
+						REQUEST_UUID2:<input type="text" id="request_uuid2" size="10" placeholder="REQUEST_UUID2" /><br/>
+						REQUEST_UUID3:<input type="text" id="request_uuid3" size="10" placeholder="REQUEST_UUID3" /><br/>
+						REQUEST_UUID4:<input type="text" id="request_uuid4" size="10" placeholder="REQUEST_UUID4" /><br/>
+						REQUEST_UUID5:<input type="text" id="request_uuid5" size="10" placeholder="REQUEST_UUID5" /><br/>
+						REQUEST_UUID6:<input type="text" id="request_uuid6" size="10" placeholder="REQUEST_UUID6" /><br/>
+						REQUEST_UUID7:<input type="text" id="request_uuid7" size="10" placeholder="REQUEST_UUID7" /><br/>
+						REQUEST_UUID8:<input type="text" id="request_uuid8" size="10" placeholder="REQUEST_UUID8" /><br/>
+						REQUEST_UUID9:<input type="text" id="request_uuid9" size="10" placeholder="REQUEST_UUID9" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqFriendRequestAccept">
+						ReqFriendRequestAccept<br/>
+						ACCEPT_UUID:<input type="text" id="accept_uuid" size="10" placeholder="ACCEPT_UUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqFriendDelete">
+						ReqFriendDelete<br/>
+						DELETE_UUID0:<input type="text" id="delete_uuid0" size="10" placeholder="DELETE_UUID0" /><br/>
+						DELETE_UUID1:<input type="text" id="delete_uuid1" size="10" placeholder="DELETE_UUID1" /><br/>
+						DELETE_UUID2:<input type="text" id="delete_uuid2" size="10" placeholder="DELETE_UUID2" /><br/>
+						DELETE_UUID3:<input type="text" id="delete_uuid3" size="10" placeholder="DELETE_UUID3" /><br/>
+						DELETE_UUID4:<input type="text" id="delete_uuid4" size="10" placeholder="DELETE_UUID4" /><br/>
+						DELETE_UUID5:<input type="text" id="delete_uuid5" size="10" placeholder="DELETE_UUID5" /><br/>
+						DELETE_UUID6:<input type="text" id="delete_uuid6" size="10" placeholder="DELETE_UUID6" /><br/>
+						DELETE_UUID7:<input type="text" id="delete_uuid7" size="10" placeholder="DELETE_UUID7" /><br/>
+						DELETE_UUID8:<input type="text" id="delete_uuid8" size="10" placeholder="DELETE_UUID8" /><br/>
+						DELETE_UUID9:<input type="text" id="delete_uuid9" size="10" placeholder="DELETE_UUID9" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"></th>
+				<td class="tg-yw4l">
+					<div id="ReqFriendRequestCancel">
+						ReqFriendRequestCancel<br/>
+						CANCEL_UUID:<input type="text" id="cancel_uuid" size="10" placeholder="CANCEL_UUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqFriendRequestRefuse">
+						ReqFriendRequestRefuse<br/>
+						REFUSE_UUID:<input type="text" id="refuse_uuid" size="10" placeholder="REFUSE_UUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"></th>
+				<td class="tg-yw4l">
+					<div id="ReqFriendSendStamina">
+						ReqFriendSendStamina<br/>
+						FRIEND_UUID:<input type="text" id="friend_uuid" size="10" placeholder="FRIEND_UUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqFriendTakeStamina">
+						ReqFriendTakeStamina<br/>
+						FRIEND_UUID:<input type="text" id="friend_uuid" size="10" placeholder="FRIEND_UUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"></th>
+				<td class="tg-yw4l">
+					<div id="ReqFriendRequestAcceptAll">
+						ReqFriendRequestAcceptAll<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqFriendRequestCancelAll">
+						ReqFriendRequestCancelAll<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqFriendRequestRefuseAll">
+						ReqFriendRequestRefuseAll<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"></th>
+				<td class="tg-yw4l">
+					<div id="ReqFriendSendStaminaAll">
+						ReqFriendSendStaminaAll<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqFriendTakeStaminaAll">
+						ReqFriendTakeStaminaAll<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"></th>
+				<td class="tg-yw4l">
+					<div id="ReqFriendSendMemo">
+						ReqFriendSendMemo<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						FRIEND_UUID:<input type="text" id="friend_uuid" size="10" placeholder="FRIEND_UUID" /><br/>
+						MEMO:<input type="text" id="memo" size="10" placeholder="MEMO" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>				
+			</tr>
+		</table>
+	</body>
+</html>

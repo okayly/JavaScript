@@ -1,0 +1,12 @@
+{
+	"Req":
+	{
+		  "Reward":"ReqMissionReward"
+		, "Progress":"ReqMissionProgress"
+	}
+	, "Ack":
+	{
+		  "Reward":"AckMissionReward"
+		, "Progress":"AckMissionProgress"
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"Req":
+	{
+		  "Start":"ReqBattleStart"
+		, "Finish":"ReqBattleFinish"
+		, "Sweep":"ReqBattleSweep"
+	}
+	, "Ack":
+	{
+		  "Start":"AckBattleStart"
+		, "Finish":"AckBattleFinish"
+		, "Sweep":"AckBattleSweep"
+	}
+}

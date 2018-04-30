@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	<style type="text/css">
+		.tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
+		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#333;background-color:#fff;}
+		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#fff;background-color:#f38630;}
+		.tg .tg-yw4l{vertical-align:top}
+	</style>
+	
+	<meta charset="utf-8">
+	<title>KUF - Hero</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+	<script type="text/javascript">
+		var jsfiles = [ './Main.js', './Account.js', './Guild.js' ];
+
+		for (var i in jsfiles) {
+			console.log(jsfiles[i]);
+
+			var imported = document.createElement('script');
+			imported.src = jsfiles[i];
+			document.head.appendChild(imported);
+		}
+	</script>
+
+	</head>
+	<body>
+		<h3>GUILD</h3>
+		<p>
+			<div id="Display">
+				<h3>Display</h3>
+			</div>
+		</p>
+		<a href="./Kuf_JW_Account.html">BACK</a>
+		<br/>
+		<br/>
+		<table class="tg">
+			<tr>
+				<th class="tg-yw4l">SERVER PORT</th>
+				<td>
+					<div id="ConnectServer">
+						<select id="port">
+							<option value="7953">JW</option>
+							<option value="7952">JW_Test</option>
+							<option value="2016">Design</option>
+							<option value="2542">Dongsu</option>
+							<!-- <option value="3000">Contents</option>
+							<option value="4634">Build</option> -->
+						</select>
+						<input type="button" id="connect" value="Connect"/>
+						<input type="button" id="disconnect" value="Diconnect"/>
+					</div>
+				</td>			
+			<tr>
+				<th class="tg-yw4l">TEST</th>
+				<td class="tg-yw4l">
+					<div id="ReqTest">
+						ReqTest<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l">ACCOUNT</th>
+				<td class="tg-yw4l">
+					<div id="ReqLogon">
+						ReqLogon<br/>
+						ACCOUNT:<input type="text" id="account" size="10" placeholder="ACCOUNT" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqUser">
+						ReqUser<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label>GUILD</label></th>
+				<td class="tg-yw4l">
+					<div id="ReqGuildInfo">
+							ReqGuildInfo -
+						<input type="button" id="send" value="SEND" /><br/>
+					</div>
+					<br/>
+					<div id="ReqGuildDetailInfo">
+						ReqGuildDetailInfo - 
+						GUILD_ID : <input type="text" id="guild_id" size="10" placeholder="GUILD_ID" value=1 /><br/>
+						<input type="button" id="send" value="SEND" />
+					</div>
+				</td>
+				<td>
+					<div id="ReqCreateGuild">
+						ReqCreateGuild - 
+						GUILD_NAME : <input type="text" id="guild_name" size="10" placeholder="GUILD_NAME" /><br/>
+						GUILD_MARD : <input type="text" id="guild_mark" size="10" placeholder="GUILD_MARK" value=1 /><br/>
+						<input type="button" id="send" value="SEND" />
+						<br/>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqGuildPointDonation">
+						ReqGuildPointDonation<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						GUILD_ID:<input type="text" id="guild_id" size="10" placeholder="GUILD_ID" value=1 /><br/>
+						DONATION_ID:<input type="text" id="donation_id" size="10" placeholder="DONATION_ID" value=1 /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label>JOIN / LEAVE</label></th>
+				<td>
+					<div id="ReqGuildJoin">
+						ReqGuildJoin -<br> 
+						GUILD_ID : <input type="text" id="guild_id" size="10" placeholder="GUILD_ID" value=1 /><br/>
+						<input type="button" id="send" value="SEND" />
+						<br/>
+					</div>
+				</td>
+				<td>
+					<div id="ReqLeaveGuild">
+						ReqLeaveGuild - 
+						<input type="button" id="send" value="SEND" />
+						<br/>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label>GUILD MASTER</label></th>
+				<td>
+					<div id="ReqGuildMemberBan">
+						ReqGuildMemberBan -<br> 
+						TARGET_UUID : <input type="text" id="target_uuid" size="10" placeholder="TARGET_UUID" value=1 /><br/>
+						<input type="button" id="send" value="SEND" />
+						<br/>
+					</div><br.>
+					<div id="ReqForceChangeAuth">
+						ReqForceChangeAuth -<br> 
+						MASTER_UUID : <input type="text" id="master_uuid" size="10" placeholder="MASTER_UUID" value=1 /><br/>
+						<input type="button" id="send" value="SEND" />
+						<br/>
+					</div>
+				</td>
+				<td>
+					<div id="ReqGuildSkillLevelUp">
+						ReqGuildSkillLevelUp -<br> 
+						SKILL_ID : <select id="skill_id">
+							<option value="50001">50001</option>
+							<option value="50002">50002</option>
+							<option value="50003">50003</option>
+							<option value="50004">50004</option>
+						</select>
+						<input type="button" id="send" value="SEND" />
+						<br/>
+					</div>
+				</td>
+				<td>
+					<div id="ReqGuildPendingApprovalList">
+						ReqGuildPendingApprovalList - 
+						<input type="button" id="send" value="SEND" />
+						<br/>
+					</div>
+					<br/>
+					<div id="ReqGuildPendingApprovalProcess">
+						ReqGuildPendingApprovalProcess - 
+						TARGET_UUID : <input type="text" id="target_uuid" size="10" placeholder="TARGET_UUID" value=1 /><br/>
+						PROCESS_TYPE : <select id="process_type">
+							<option value="1">ACCEPT</option>
+							<option value="2">REJECT</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" />
+						<br/>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label></label></th>
+				<td>
+					<div id="ReqChangeGuildInfo">
+						ReqChangeGuildInfo - 
+						GUILD_MARK : <input type="text" id="guild_mark" size="10" placeholder="GUILD_MARK" value=1 /><br/>
+						GUILD_NOTICE : <input type="text" id="guild_notice" size="10" placeholder="GUILD_NOTICE" value="그런거 없다." /><br/>
+						JOIN_OPTION :
+						<select id="join_option">
+							<option value="1" selected>자유가입</option>
+							<option value="2">승인가입</option>
+							<option value="3">가입불가</option>
+						</select><br/>
+						AUTO_MASTER_CHANGE :
+						<select id="auto_master_change">
+							<option value="true" selected>true</option>
+							<option value="false">false</option>
+						</select><br/>
+						ELDER_RAID_OPEN :
+						<select id="elder_raid_open">
+							<option value="true" selected>true</option>
+							<option value="false">false</option>
+						</select>
+						<input type="button" id="send" value="SEND" />
+						<br/>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqGuildLevelup">
+						ReqGuildLevelup<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						GUILD_ID:<input type="text" id="guild_id" size="10" placeholder="GUILD_ID" value=1 /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label></label></th>
+				<td>
+					<div id="ReqGuildInvitation">
+						ReqGuildInvitation - 
+						USER_NICK : <input type="text" id="user_nick" size="10" placeholder="USER_NICK" /><br/>
+						<input type="button" id="send" value="SEND" />
+						<br/>
+					</div>
+				</td>
+				<td>
+					<div id="ReqGuildInvitationList">
+						ReqGuildInvitationList - 
+						<input type="button" id="send" value="SEND" />
+						<br/>
+					</div>
+				</td>
+				<td>
+					<div id="ReqGuildInvitationProcess">
+						ReqGuildInvitationProcess - 
+						GUILD_ID : <input type="text" id="guild_id" size="10" placeholder="GUILD_ID" /><br/>
+						PROCESS_TYPE : <select id="process_type">
+							<option value="true">수락</option>
+							<option value="false">거절</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" />
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label>GUILD RAID</label></th>
+				<td>
+					<div id="ReqGuildRaidInfo">
+						ReqGuildRaidInfo - 
+						GUILD_ID : <input type="text" id="guild_id" size="10" placeholder="GUILD_ID" /><br/>
+						<input type="button" id="send" value="SEND" />
+						<br/>
+					</div>
+					<br/>
+					<div id="ReqGuildRaidOpen">
+						ReqGuildRaidOpen - 
+						GUILD_ID : <input type="text" id="guild_id" size="10" placeholder="GUILD_ID" /><br/>
+						CHAPTER_ID : <input type="text" id="chapter_id" size="10" placeholder="CHAPTER_ID" /><br/>
+						STAGE_ID : <input type="text" id="stage_id" size="10" placeholder="STAGE_ID" /><br/>
+						<input type="button" id="send" value="SEND" />
+						<br/>
+					</div>
+					<br>
+					<div id="ReqGuildRaidRank">
+						ReqGuildRaidRank - 
+						GUILD_ID : <input type="text" id="guild_id" size="10" placeholder="GUILD_ID" /><br/>
+						RANK_TYPE : <input type="text" id="rank_type" size="10" placeholder="RANK_TYPE" /><br/>
+						STAGE_ID : <input type="text" id="stage_id" size="10" placeholder="STAGE_ID" /><br/>
+						<input type="button" id="send" value="SEND" />
+						<br/>
+					</div>
+				</td>
+				<td>
+					<div id="ReqGuildRaidBattleStart">
+						ReqGuildRaidBattleStart - 
+						GUILD_ID : <input type="text" id="guild_id" size="10" placeholder="GUILD_ID" /><br/>
+						CHAPTER_ID : <input type="text" id="chapter_id" size="10" placeholder="CHAPTER_ID" /><br/>
+						STAGE_ID : <input type="text" id="stage_id" size="10" placeholder="STAGE_ID" /><br/>
+						<input type="button" id="send" value="SEND" />
+						<br/>
+					</div>
+					<br/>
+					<div id="ReqGuildRaidBattleFinish">
+						ReqGuildRaidBattleFinish - 
+						GUILD_ID : <input type="text" id="guild_id" size="10" placeholder="GUILD_ID" /><br/>
+						CHAPTER_ID : <input type="text" id="chapter_id" size="10" placeholder="CHAPTER_ID" /><br/>
+						STAGE_ID : <input type="text" id="stage_id" size="10" placeholder="STAGE_ID" /><br/>
+						RET_BOSS_HP : <input type="text" id="ret_boss_hp" size="10" placeholder="RET_BOSS_HP" /><br/>
+						ATTACK_DAMAGE : <input type="text" id="attack_damage" size="10" placeholder="ATTACK_DAMAGE" /><br/>
+						<input type="button" id="send" value="SEND" />
+						<br/>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label></label></th>
+				<td>
+					<div id="ReqChangeAuth">
+						ReqChangeAuth - 
+						TARGET_UUID : <input type="text" id="target_uuid" size="10" placeholder="TARGET_UUID" /><br/>
+						AUTH_TYPE : <select id="auth_type">
+							<option value="1">길드장 양도</option>
+							<option value="2">장로 임명</option>
+							<option value="3">장로 해임</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" />
+					</div>
+				</td>
+				<td>
+					<div id="ReqChangeAuthConfirm">
+						ReqChangeAuthConfirm - 
+						<input type="button" id="send" value="SEND" />
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"></th>
+				<td>
+					<div id="ReqRecommandGuild">
+						ReqRecommandGuild - 
+						<input type="button" id="send" value="SEND" />
+						<br/>
+					</div>
+					<br/>
+					<div id="ReqFindGuild">
+						ReqFindGuild - 
+						GUILD_NAME : <input type="text" id="guild_name" size="10" placeholder="GUILD_NAME" /><br/>
+						<input type="button" id="send" value="SEND" />
+						<br/>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,10 @@
+{
+	"Req":
+	{
+		"Change":"ReqChangeTeam"
+	}
+	, "Ack":
+	{
+		"Change":"AckChangeTeam"
+	}
+}

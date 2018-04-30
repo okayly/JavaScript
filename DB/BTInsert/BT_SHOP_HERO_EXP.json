@@ -1,0 +1,32 @@
+{
+	"WorksheetName":"BT_SHOP_HERO_EXP",
+	"ExportDate":"2016/04/19 17:34:15",
+	"ExportUser":"MSDN-SPECIAL",
+	"Rows":
+	[
+		{
+			"ItemID":1030001, 
+			"LimitUserLevel":10
+		},
+		{
+			"ItemID":1030002, 
+			"LimitUserLevel":20
+		},
+		{
+			"ItemID":1030003, 
+			"LimitUserLevel":30
+		},
+		{
+			"ItemID":1030004, 
+			"LimitUserLevel":40
+		},
+		{
+			"ItemID":1030005, 
+			"LimitUserLevel":50
+		},
+		{
+			"ItemID":1030006, 
+			"LimitUserLevel":0
+		}
+	]
+}

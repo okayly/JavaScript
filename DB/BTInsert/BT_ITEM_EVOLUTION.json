@@ -1,0 +1,44 @@
+{
+	"WorksheetName":"BT_ITEM_EVOLUTION",
+	"ExportDate":"2016/04/25 22:22:29",
+	"ExportUser":"김기인-PC",
+	"Rows":
+	[
+		{
+			"Step":1, 
+			"NeedResource_ID":0, 
+			"NeedResource_Count":0, 
+			"NeedGold":0
+		},
+		{
+			"Step":2, 
+			"NeedResource_ID":1010001, 
+			"NeedResource_Count":5, 
+			"NeedGold":10000
+		},
+		{
+			"Step":3, 
+			"NeedResource_ID":1010002, 
+			"NeedResource_Count":5, 
+			"NeedGold":40000
+		},
+		{
+			"Step":4, 
+			"NeedResource_ID":1010003, 
+			"NeedResource_Count":5, 
+			"NeedGold":90000
+		},
+		{
+			"Step":5, 
+			"NeedResource_ID":1010004, 
+			"NeedResource_Count":5, 
+			"NeedGold":160000
+		},
+		{
+			"Step":6, 
+			"NeedResource_ID":1010005, 
+			"NeedResource_Count":5, 
+			"NeedGold":250000
+		}
+	]
+}

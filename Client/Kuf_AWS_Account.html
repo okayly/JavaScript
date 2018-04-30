@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	<style type="text/css">
+		.tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
+		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#333;background-color:#fff;}
+		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#fff;background-color:#f38630;}
+		.tg .tg-yw4l{vertical-align:top}
+	</style>
+	
+	<meta charset="utf-8">
+	<title>KUF - Hero</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+	<script type="text/javascript">
+		var jsfiles = [ './Main_AWS.js', './Account.js' ];
+
+		for (var i in jsfiles) {
+			console.log(jsfiles[i]);
+
+			var imported = document.createElement('script');
+			imported.src = jsfiles[i];
+			document.head.appendChild(imported);
+		}
+	</script>
+
+	</head>
+	<body>
+		<h3>ACCOUNT</h3>
+		<p>
+			<div id="Display">
+				<h3>Display</h3>
+				<div id="output"></div>
+			</div>
+		</p>
+		<a href="./Kuf_AWS_Account.html">Account</a>		
+		<a href="./Kuf_AWS_Battle.html">Battle</a>
+		<br/>
+		<br/>
+		<table class="tg">
+			<tr>
+				<th class="tg-yw4l">SERVER PORT</th>
+				<td>
+					<div id="ConnectServer">
+						<select id="port">
+							<option value="7953">AWS</option>
+						</select>
+						<input type="button" id="connect" value="Connect"/>
+						<input type="button" id="disconnect" value="Diconnect"/>
+					</div>
+				</td>			
+			<tr>
+				<th class="tg-yw4l">TEST</th>
+				<td class="tg-yw4l">
+					<div id="ReqTest">
+						ReqTest<br/>
+						TEMP:<input type="text" id="temp" size="10" placeholder="TEMP VALUE" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<th class="tg-yw4l">VERSION</th>
+				<td class="tg-yw4l">
+					<div id="ReqVersion">
+						ReqVersion<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l">ACCOUNT</th>
+				<td class="tg-yw4l">
+					<div id="ReqLogon">
+						ReqLogon<br/>
+						ACCOUNT:<input type="text" id="account" size="10" placeholder="ACCOUNT" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqUser">
+						ReqUser<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label>CHARGE</label></th>
+				<td class="tg-yw4l">
+					<div id="ReqChargeSkillPoint">
+						ReqChargeSkillPoint<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqChargeStamina">
+						ReqChargeStamina<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label>CHANGE</label></th>
+				<td class="tg-yw4l">
+					<div id="ReqChangeNick">
+						ReqChangeNick<br/>
+						NICK:<input type="text" id="nick" size="10" placeholder="NICK" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqChangeUserIcon">
+						ReqChangeUserIcon<br/>
+						ICON_ID:<input type="text" id="icon_id" size="10" placeholder="ICON_ID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr><th class="tg-yw4l"><label>USER</label></th></tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqVersion">
+						ReqVersion<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+					<div id="ReqLogon">
+						ReqLogon<br/>
+						ACCOUNT:<input type="text" id="account" size="10" placeholder="ACCOUNT" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqUser">
+						ReqUser<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqInventory">
+						ReqInventory<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" />
+						<input type="button" id="send" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqHeroBases">
+						ReqHeroBases<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqTeam">
+						ReqTeam<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<!-- <td class="tg-yw4l">
+					<div id="ReqChangeTeam">
+						ReqChangeTeam<br/>
+						TEAM_ID:<input type="text" id="team_id" size="10" placeholder="TEAM_ID" /><br/>
+						SLOT01:<input type="text" id="slot01" size="20" placeholder="HERO_ID" /><br/>
+						SLOT02:<input type="text" id="slot02" size="20" placeholder="HERO_ID" /><br/>
+						SLOT03:<input type="text" id="slot03" size="20" placeholder="HERO_ID" /><br/>
+						SLOT04:<input type="text" id="slot04" size="20" placeholder="HERO_ID" /><br/>
+						<input type="button" id="reqChangeTeam" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td> -->
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqVip">
+						ReqVip<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqVipReward">
+						ReqVipReward<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						STEP:<input type="text" id="step" size="10" placeholder="STEP" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqAttendInfo">
+						ReqAttendInfo<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+
+			<tr><th class="tg-yw4l"><label>STAGE</label></th>
+				<td class="tg-yw4l">
+					<div id="ReqStageInfo">
+						ReqStageInfo<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td>
+					<div id="ReqChapterReward">
+						ReqChapterReward -
+						CHAPTER_ID : <input type="text" id="chapter_id" size="10" placeholder="CHAPTER_ID" /><br/>
+						STAGE_TYPE : <input type="text" id="stage_type" size="10" placeholder="STAGE_TYPE" /><br/>
+						REWARD_BOX_ID : <input type="text" id="reward_box_id" size="10" placeholder="REWARD_BOX_ID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			<tr>
+			</tr>
+			<tr><th class="tg-yw4l"><label>ACCOUNT BUFF</label></th>
+				<td class="tg-yw4l">
+					<div id="ReqAccountBuffReset">
+						ReqAccountBuffReset<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqAccountBuffInfo">
+						ReqAccountBuffInfo<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqAccountBuffLevelup">
+						ReqAccountBuffLevelup<br/>
+						ENHANCE ID: <select id="account_buff_id">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr><th class="tg-yw4l"><label>ETC</label></th>
+				<td>
+					<div id="ReqGachaInfo">
+						ReqGachaInfo -
+						<input type="button" id="send" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td>
+					<div id="ReqGacha">
+						ReqGacha -
+						GACHA_ID : <input type="text" id="gacha_id" size="10" placeholder="GACHA_ID" /><br/>
+						<input type="button" id="send" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td>
+					<div id="ReqWeeklyDungeonExecCount">
+						ReqWeeklyDungeonExecCount -
+						<input type="button" id="send" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td>
+					<div id="ReqGuildInfo">
+						ReqGuildInfo -
+						<input type="button" id="send" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="ReqMissionInfo">
+						ReqMissionInfo -
+						<input type="button" id="send" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

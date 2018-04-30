@@ -1,0 +1,36 @@
+{
+	"WorksheetName":"BT_S_GACHA_VIP",
+	"ExportDate":"2016/11/29 14:34:17",
+	"ExportUser":"DESKTOP-0EGEOLA",
+	"Rows":
+	[
+		{
+			"ItemID":3020003, 
+			"ItemType":2, 
+			"ValueMin":1, 
+			"ValueMax":10, 
+			"Percent":50
+		},
+		{
+			"ItemID":3020006, 
+			"ItemType":2, 
+			"ValueMin":1, 
+			"ValueMax":10, 
+			"Percent":50
+		},
+		{
+			"ItemID":3020023, 
+			"ItemType":2, 
+			"ValueMin":1, 
+			"ValueMax":10, 
+			"Percent":50
+		},
+		{
+			"ItemID":3020025, 
+			"ItemType":2, 
+			"ValueMin":1, 
+			"ValueMax":10, 
+			"Percent":50
+		}
+	]
+}

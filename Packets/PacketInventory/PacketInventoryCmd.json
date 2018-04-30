@@ -1,0 +1,14 @@
+{
+	"Req":
+	{
+		"UseItem":"ReqUseItem"
+		, "UseRandomBox":"ReqUseRandomBox"
+		, "SellItem":"ReqSellItem"
+	}
+	, "Ack":
+	{
+		"UseItem":"AckUseItem"
+		, "UseRandomBox":"AckUseRandomBox"
+		, "SellItem":"AckSellItem"
+	}
+}

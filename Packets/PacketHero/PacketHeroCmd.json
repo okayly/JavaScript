@@ -1,0 +1,24 @@
+{
+	"Req":
+	{
+		  "Summon":"ReqHeroSummon"
+		, "Levelup":"ReqHeroLevelup"
+		, "Evolution":"ReqHeroEvolution"
+		, "Reinforce":"ReqHeroReinforce"
+		, "Skills":"ReqHeroSkills"
+		, "SkillLevelup":"ReqHeroSkillLevelup"
+		, "ArmySkill":"ReqHeroArmySkill"
+		, "CombiBuff":"ReqHeroCombiBuff"
+	}
+	, "Ack":
+	{
+		  "Summon":"AckHeroSummon"
+		, "Levelup":"AckHeroLevelup"
+		, "Evolution":"AckHeroEvolution"
+		, "Reinforce":"AckHeroReinforce"
+		, "Skills":"AckHeroSkills"
+		, "SkillLevelup":"AckHeroSkillLevelup"
+		, "ArmySkill":"AckHeroArmySkill"
+		, "CombiBuff":"AckHeroCombiBuff"
+	}
+}

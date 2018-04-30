@@ -1,0 +1,10 @@
+{
+	"Req":
+	{
+		  "Gacha":"ReqGacha"
+	}
+	, "Ack":
+	{
+		  "Gacha":"AckGacha"
+	}
+}

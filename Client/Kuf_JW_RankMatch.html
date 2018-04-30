@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	<style type="text/css">
+		.tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
+		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#333;background-color:#fff;}
+		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#fff;background-color:#f38630;}
+		.tg .tg-yw4l{vertical-align:top}
+	</style>
+	
+	<meta charset="utf-8">
+	<title>KUF - RankMatch</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+	<script type="text/javascript">
+		var jsfiles = [ './Main.js', './Account.js', './RankMatch.js' ];
+
+		for (var i in jsfiles) {
+			console.log(jsfiles[i]);
+
+			var imported = document.createElement('script');
+			imported.src = jsfiles[i];
+			document.head.appendChild(imported);
+		}
+	</script>
+
+	</head>
+	<body>
+		<h3>RANK MATCH</h3>
+		<p>
+			<div id="Display">
+				<h3>Display</h3>
+				<div id="output"></div>
+			</div>
+		</p>
+		<a href="./Kuf_JW_Account.html">BACK</a>
+		<br/>
+		<br/>
+		<table class="tg">
+			<tr>
+				<th class="tg-yw4l">SERVER PORT</th>
+				<td>
+					<div id="ConnectServer">
+						<select id="port">
+							<option value="7953">JW</option>
+							<option value="7952">JW_Test</option>
+							<option value="2542">Dongsu</option>
+							<option value="2016">Design</option>
+							<!-- <option value="3000">Contents</option>
+							<option value="4634">Build</option> -->
+						</select>
+						<input type="button" id="connect" value="Connect"/>
+						<input type="button" id="disconnect" value="Diconnect"/>
+					</div>
+				</td>			
+			<tr>
+				<th class="tg-yw4l">TEST</th>
+				<td class="tg-yw4l">
+					<div id="ReqTest">
+						ReqTest<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<th class="tg-yw4l">VERSION</th>
+				<td class="tg-yw4l">
+					<div id="ReqVersion">
+						ReqVersion<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l">ACCOUNT</th>
+				<td class="tg-yw4l">
+					<div id="ReqLogon">
+						ReqLogon<br/>
+						ACCOUNT:<input type="text" id="account" size="10" placeholder="ACCOUNT" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqUser">
+						ReqUser<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+					<div id="ReqPvpInfo">
+						ReqPvpInfo<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l">RANK MATCH</th>
+				<td class="tg-yw4l">
+					<div id="ReqPvpInfoUpdate">
+						ReqPvpInfoUpdate<br/>
+						EXCEPT_UUID_1 : <input type="text" id="except_uuid_1" size="10" placeholder="EXCEPT_UUID_1" value=0 /><br/>
+						EXCEPT_UUID_2 : <input type="text" id="except_uuid_2" size="10" placeholder="EXCEPT_UUID_2" value=0 /><br/>
+						EXCEPT_UUID_3 : <input type="text" id="except_uuid_3" size="10" placeholder="EXCEPT_UUID_3" value=0 /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqFindMatchPlayer">
+						ReqFindMatchPlayer<br/>
+						EXCEPT_UUID_1 : <input type="text" id="except_uuid_1" size="10" placeholder="EXCEPT_UUID_1" value=0 /><br/>
+						EXCEPT_UUID_2 : <input type="text" id="except_uuid_2" size="10" placeholder="EXCEPT_UUID_2" value=0 /><br/>
+						EXCEPT_UUID_3 : <input type="text" id="except_uuid_3" size="10" placeholder="EXCEPT_UUID_3" value=0 /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqPvpStart">
+						ReqPvpStart<br/>
+						TARGET_UUID : <input type="text" id="target_uuid" size="10" placeholder="TARGET_UUID" value=0 /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqPvpFinish">
+						ReqPvpFinish<br/>
+						TARGET_UUID : <input type="text" id="target_uuid" size="10" placeholder="TARGET_UUID" value=0 /><br/>
+						BATTLE_RESULT : <input type="text" id="battle_result" size="10" placeholder="BATTLE_RESULT" value=0 /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqPvpAchievementReward">
+						ReqPvpAchievementReward<br/>
+						LEAGUE_ID:<input type="text" id="league_id" size="10" placeholder="LEAGUE_ID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqPvpLeagueRankList">
+						ReqPvpLeagueRankList<br/>
+						LEAGUE_ID:<input type="text" id="league_id" size="10" placeholder="LEAGUE_ID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqPvpGroupRankList">
+						ReqPvpGroupRankList<br/>
+						LEAGUE_ID : <input type="text" id="league_id" size="10" placeholder="LEAGUE_ID" /><br/>
+						GROUP_ID : <input type="text" id="group_id" size="10" placeholder="GROUP_ID" /><br/>
+						PAGE_NUM : <input type="text" id="page_num" size="10" placeholder="PAGE_NUM" /><br/>
+						<input type="button" id="send" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqPvpRecord">
+						ReqPvpRecord<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,12 @@
+{
+	"Req":
+	{
+		  "WeeklyDungeonStart":"ReqWeeklyDungeonStart"
+		, "WeeklyDungeonFinish":"ReqWeeklyDungeonFinish"
+	}
+	, "Ack":
+	{
+		  "WeeklyDungeonStart":"AckWeeklyDungeonStart"
+		, "WeeklyDungeonFinish":"AckWeeklyDungeonFinish"
+	}
+}

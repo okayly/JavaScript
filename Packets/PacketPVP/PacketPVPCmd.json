@@ -1,0 +1,24 @@
+{
+	"Req":
+	{
+		"InfoUpdate":"ReqPvpInfoUpdate"
+		, "FindMatchPlayer":"ReqFindMatchPlayer"
+		, "PvpLeagueRankList":"ReqPvpLeagueRankList"
+		, "PvpGroupRankList":"ReqPvpGroupRankList"
+		, "PvpStart":"ReqPvpStart"
+		, "PvpFinish":"ReqPvpFinish"
+		, "PvpAchievementReward":"ReqPvpAchievementReward"
+		, "PvpRecord":"ReqPvpRecord"
+	}
+	, "Ack":
+	{
+		"InfoUpdate":"AckPvpInfoUpdate"
+		, "FindMatchPlayer":"AckFindMatchPlayer"
+		, "PvpLeagueRankList":"AckPvpLeagueRankList"
+		, "PvpGroupRankList":"AckPvpGroupRankList"
+		, "PvpStart":"AckPvpStart"
+		, "PvpFinish":"AckPvpFinish"
+		, "PvpAchievementReward":"AckPvpAchievementReward"
+		, "PvpRecord":"AckPvpRecord"
+	}
+}

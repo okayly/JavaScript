@@ -1,0 +1,12 @@
+{
+	"Req":
+	{
+		"ChargeStamina":"ReqChargeStamina"
+		, "ChargeSkillPoint":"ReqChargeSkillPoint"
+	}
+	, "Ack":
+	{
+		"ChargeStamina":"AckChargeStamina"
+		, "ChargeSkillPoint":"AckChargeSkillPoint"
+	}
+}

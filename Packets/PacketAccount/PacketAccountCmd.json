@@ -1,0 +1,44 @@
+{
+	"Req":
+	{
+		"Logon":"ReqLogon",
+		"User":"ReqUser",
+		"Inventory":"ReqInventory",
+		"HeroBases":"ReqHeroBases",
+		"Team":"ReqTeam",
+		"ChapterReward":"ReqChapterReward",
+		"StageInfo":"ReqStageInfo",
+		"Vip":"ReqVip",
+		"VipReward":"ReqVipReward",
+		"Gacha":"ReqGachaInfo",
+		"WeeklyDungeon":"ReqWeeklyDungeonExecCount",
+		"Attend":"ReqAttendInfo",
+		"Mission":"ReqMissionInfo",
+		"Guild":"ReqGuildInfo",
+		"ReConnect":"ReqReConnect",
+		"ChangeNick":"ReqChangeNick",
+		"ChangeUserIcon":"ReqChangeUserIcon",
+		"PvpInfo":"ReqPvpInfo"
+	},
+	"Ack":
+	{
+		"Logon":"AckLogon",
+		"User": "AckUser",
+		"Inventory":"AckInventory",
+		"HeroBases":"AckHeroBases",
+		"Team":"AckTeam",
+		"ChapterReward":"AckChapterReward",
+		"StageInfo":"AckStageInfo",
+		"Vip":"AckVip",
+		"VipReward":"AckVipReward",
+		"Gacha":"AckGachaInfo",
+		"WeeklyDungeon":"AckWeeklyDungeonExecCount",
+		"Attend":"AckAttendInfo",
+		"Mission":"AckMissionInfo",
+		"Guild":"AckGuildInfo",
+		"ReConnect":"AckReConnect",
+		"ChangeNick":"AckChangeNick",
+		"ChangeUserIcon":"AckChangeUserIcon",
+		"PvpInfo":"AckPvpInfo"
+	}
+}

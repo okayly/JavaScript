@@ -1,0 +1,23 @@
+{
+	"Req":
+	{
+		"Equipment":"ReqEquipment"
+		, "EquipItem":"ReqEquipItem"
+		, "EquipItemOne":"ReqEquipItemOne"
+		, "Levelup":"ReqEquipItemLevelup"
+		, "Reinforce":"ReqEquipItemReinforce"
+		, "Lock":"ReqEquipItemLock"
+		, "Sell":"ReqEquipItemSell"
+		
+	}
+	, "Ack":
+	{
+		"Equipment":"AckEquipment"
+		, "EquipItem":"AckEquipItem"
+		, "EquipItemOne":"AckEquipItemOne"
+		, "Levelup":"AckEquipItemLevelup"
+		, "Reinforce":"AckEquipItemReinforce"
+		, "Lock":"AckEquipItemLock"
+		, "Sell":"AckEquipItemSell"
+	}
+}

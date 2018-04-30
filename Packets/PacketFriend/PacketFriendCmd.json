@@ -1,0 +1,52 @@
+{
+	"Req":
+	{
+		"FriendInfo":"ReqFriendInfo",
+		"FriendRecommandList":"ReqFriendRecommandList",
+		"FriendRequestSendList":"ReqFriendRequestSendList",
+		"FriendRequestRecvList":"ReqFriendRequestRecvList",
+		"FriendSendStamina":"ReqFriendSendStamina",
+		"FriendTakeStamina":"ReqFriendTakeStamina",
+		"FriendSearch":"ReqFriendSearch",
+		"FriendRequest":"ReqFriendRequest",
+		"FriendRequestAccept":"ReqFriendRequestAccept",
+		"FriendRequestCancel":"ReqFriendRequestCancel",
+		"FriendRequestRefuse":"ReqFriendRequestRefuse",
+		"FriendDelete":"ReqFriendDelete",
+		"UserInfo":"ReqUserInfo",
+		"FindFriend":"ReqFindFriend",
+		"FriendSendMemo":"ReqFriendSendMemo",
+
+		"FriendRequestAll":"ReqFriendRequestAll",
+		"FriendRequestAcceptAll":"ReqFriendRequestAcceptAll",
+		"FriendRequestCancelAll":"ReqFriendRequestCancelAll",
+		"FriendRequestRefuseAll":"ReqFriendRequestRefuseAll",
+		"FriendSendStaminaAll":"ReqFriendSendStaminaAll",
+		"FriendTakeStaminaAll":"ReqFriendTakeStaminaAll"
+	},
+	"Ack":
+	{
+		"FriendInfo":"AckFriendInfo",
+		"FriendRecommandList":"AckFriendRecommandList",
+		"FriendRequestSendList":"AckFriendRequestSendList",
+		"FriendRequestRecvList":"AckFriendRequestRecvList",
+		"FriendSendStamina":"AckFriendSendStamina",
+		"FriendTakeStamina":"AckFriendTakeStamina",
+		"FriendSearch":"AckFriendSearch",
+		"FriendRequest":"AckFriendRequest",
+		"FriendRequestAccept":"AckFriendRequestAccept",
+		"FriendRequestCancel":"AckFriendRequestCancel",
+		"FriendRequestRefuse":"AckFriendRequestRefuse",
+		"FriendDelete":"AckFriendDelete",
+		"UserInfo":"AckUserInfo",
+		"FindFriend":"AckFindFriend",
+		"FriendSendMemo":"AckFriendSendMemo",
+
+		"FriendRequestAll":"AckFriendRequestAll",
+		"FriendRequestAcceptAll":"AckFriendRequestAcceptAll",
+		"FriendRequestCancelAll":"AckFriendRequestCancelAll",
+		"FriendRequestRefuseAll":"AckFriendRequestRefuseAll",
+		"FriendSendStaminaAll":"AckFriendSendStaminaAll",
+		"FriendTakeStaminaAll":"AckFriendTakeStaminaAll"
+	}
+}

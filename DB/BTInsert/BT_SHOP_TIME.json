@@ -1,0 +1,28 @@
+{
+	"WorksheetName":"BT_SHOP_TIME",
+	"ExportDate":"2016/04/19 17:34:37",
+	"ExportUser":"MSDN-SPECIAL",
+	"Rows":
+	[
+		{
+			"TimeID":1, 
+			"ResetTime":"06:00"
+		},
+		{
+			"TimeID":2, 
+			"ResetTime":"09:00"
+		},
+		{
+			"TimeID":3, 
+			"ResetTime":"12:00"
+		},
+		{
+			"TimeID":4, 
+			"ResetTime":"18:00"
+		},
+		{
+			"TimeID":5, 
+			"ResetTime":"21:00"
+		}
+	]
+}

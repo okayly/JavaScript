@@ -1,0 +1,95 @@
+HeroPromotion.js
+TowerBotInfo.js
+TowerMgr.js
+PVPInfo.js
+PVPMatchMgr.js
+PVPRecord.js
+Hero.js
+LoadGTHero.js
+GTMgr.js
+SetGTTower.js
+ItemLevelup.js
+
+
+BT_C_STAGE_BATTLEGROUP_BASE
+[컬럼] MonsterPromotion1 → MonsterReinforce1
+[컬럼] MonsterPromotion2 → MonsterReinforce2
+[컬럼] MonsterPromotion3 → MonsterReinforce3
+[컬럼] MonsterPromotion4 → MonsterReinforce4
+[컬럼] MonsterPromotion5 → MonsterReinforce5
+
+-------------------------------------------------------
+
+BT_COMMON
+[수치] Hero_PromotionStatus_Factor → Hero_ReinforceStatus_Factor
+[수치] Item_PromotionStatus_Factor → Item_ReinforceStatus_Factor
+
+-------------------------------------------------------
+
+BT_HERO_PROMOTION
+[테이블명] BT_HERO_PROMOTION → BT_HERO_REINFORCE
+[컬럼] PromotionID → ReinforceID
+
+-------------------------------------------------------
+
+BT_ITEM_BASE
+[컬럼] IconPromotionID → IconReinforceID
+[컬럼] PromotionID → ReinforceID
+
+-------------------------------------------------------
+
+BT_PROMOTION_UI
+[테이블명] BT_PROMOTION_UI → BT_REINFORCE_UI
+[컬럼] PromotionID → ReinforceID
+[컬럼] PromotionStringID → ReinforceStringID
+
+-------------------------------------------------------
+
+BT_HERO_BASE
+[컬럼] PromotionID → ReinforceID
+
+-------------------------------------------------------
+
+BT_C_BOT_RANKER
+[컬럼] Hero1_Promotion → Hero1_Reinforce
+[컬럼] Hero2_Promotion → Hero2_Reinforce
+[컬럼] Hero3_Promotion → Hero3_Reinforce
+[컬럼] Hero4_Promotion → Hero4_Reinforce
+[컬럼] Hero5_Promotion → Hero5_Reinforce
+[컬럼] Hero6_Promotion → Hero6_Reinforce
+[컬럼] Hero7_Promotion → Hero7_Reinforce
+[컬럼] Hero8_Promotion → Hero8_Reinforce
+
+-------------------------------------------------------
+
+BT_INFINITY_TOWER_BOT_RANKER
+[컬럼] Hero1_Promotion → Hero1_Reinforce
+[컬럼] Hero2_Promotion → Hero2_Reinforce
+[컬럼] Hero3_Promotion → Hero3_Reinforce
+[컬럼] Hero4_Promotion → Hero4_Reinforce
+
+로 테이블 변경했습니다
+
+
+npm ERR! Linux 3.13.0-74-generic
+npm ERR! argv "/usr/bin/nodejs" "/usr/bin/npm" "start"
+npm ERR! node v6.9.5
+npm ERR! npm  v3.10.10
+npm ERR! code ELIFECYCLE
+npm ERR! myapp@0.0.0 start: `nodemon ./bin/www`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the myapp@0.0.0 start script 'nodemon ./bin/www'.
+npm ERR! Make sure you have the latest version of node.js and npm installed.
+npm ERR! If you do, this is most likely a problem with the myapp package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     nodemon ./bin/www
+npm ERR! You can get information on how to open an issue for this project with:
+npm ERR!     npm bugs myapp
+npm ERR! Or if that isn't available, you can get their info via:
+npm ERR!     npm owner ls myapp
+npm ERR! There is likely additional logging output above.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /home/ubuntu/myapp/npm-debug.log

@@ -1,0 +1,24 @@
+{
+	"Req":
+	{
+		"DarkDungeon":"ReqDarkDungeon"
+		, "DarkDungeonCreate":"ReqDarkDungeonCreate"
+		, "DarkDungeonChapter":"ReqDarkDungeonChapter"
+		, "DarkDungeonBattleStart":"ReqDarkDungeonBattleStart"
+		, "DarkDungeonBattleFinish":"ReqDarkDungeonBattleFinish"
+		, "DarkDungeonReward":"ReqDarkDungeonReward"
+		, "DarkDungeonNextStage":"ReqDarkDungeonNextStage"
+		, "DarkDungeonChapterReset":"ReqDarkDungeonChapterReset"
+	}
+	, "Ack":
+	{
+		"DarkDungeon":"AckDarkDungeon"
+		, "DarkDungeonCreate":"AckDarkDungeonCreate"
+		, "DarkDungeonChapter":"AckDarkDungeonChapter"
+		, "DarkDungeonBattleStart":"AckDarkDungeonBattleStart"
+		, "DarkDungeonBattleFinish":"AckDarkDungeonBattleFinish"
+		, "DarkDungeonReward":"AckDarkDungeonReward"
+		, "DarkDungeonNextStage":"AckDarkDungeonNextStage"
+		, "DarkDungeonChapterReset":"AckDarkDungeonChapterReset"
+	}
+}

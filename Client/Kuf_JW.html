@@ -1,0 +1,1841 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<style type="text/css">
+			.tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
+			.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#333;background-color:#fff;}
+			.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#fff;background-color:#f38630;}
+			.tg .tg-yw4l{vertical-align:top}
+		</style>
+		
+		<meta charset="utf-8">
+		<title>KUF - Test</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+		<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+		<script type="text/javascript">
+			// var socket = io.connect('http://172.20.70.61:4634');		// Build
+			// var socket = io.connect('http://172.20.70.61:3000');		// Contents
+			// var socket = io.connect('http://172.20.70.61:2016');		// Design
+			// var socket = io.connect('http://172.20.70.61:7952');		// JWTest
+			var socket = io.connect('http://172.20.70.61:7953');		// JW
+			socket.on('connect', function() { console.log('connected server...'); });
+			
+			socket.on('RecvError', function (recv) {
+				Acklog(recv);
+				$('#error > #output').html(recv);
+			});
+			
+			// notice
+			socket.on('evt_notice', function (recv) { console.log(recv); });
+		</script>
+
+		<script type="text/javascript">
+			global_packet_srl = 0;
+			
+			var jsfiles = [ './Account.js', './Hero.js', './Team.js', './Battle.js'
+			, './EquipItem.js', './Buy.js', './Shop.js', './Common.js', './Inventory.js', 'Challenge.js'
+			, './Mail.js', './Attend.js', './Summon.js', './SoulBound.js', './Duck.js'
+			, './Guild.js', 'RankMatch.js' ];
+
+			for (var i in jsfiles) {
+				console.log(jsfiles[i]);
+
+				var imported = document.createElement('script');
+				imported.src = jsfiles[i];
+				document.head.appendChild(imported);
+			}
+
+			function Reqlog(packet) {
+				console.log('Req -', JSON.stringify(packet));
+			}
+
+			function Acklog(packet) {
+				console.log('Ack -', packet);
+			}
+
+		</script>
+	</head>
+	<body>
+		<p>
+			<div id="error">
+				<label>ERROR</label>
+				<div id="output"></div>
+			</div>
+		</p>
+	
+		<table class="tg">
+			<tr>
+				<th class="tg-yw4l">
+					<label>TEST</label>
+				</th>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="test">
+						<label>TEST</label>
+						req_Test<br/>
+						<input type="button" id="reqTest" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr><th class="tg-yw4l"><label>ACCOUNT</label></th></tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqVersion">
+						ReqVersion<br/>
+						<input type="button" id="reqVersion" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+					<div id="ReqLogon">
+						ReqLogon<br/>
+						ACCOUNT:<input type="text" id="account" size="10" placeholder="ACCOUNT" /><br/>
+						<input type="button" id="reqLogon" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqUser">
+						ReqUser<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="reqUser" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqInventory">
+						ReqInventory<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" />
+						<input type="button" id="reqInvetory" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqHeroBases">
+						ReqHeroBases<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="reqHeroBases" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqAllGameModeTeam">
+						ReqAllGameModeTeam<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="reqAllGameModeTeam" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqVip">
+						ReqVip<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="reqVip" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqVipReward">
+						ReqVipReward<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						STEP:<input type="text" id="step" size="10" placeholder="STEP" /><br/>
+						<input type="button" id="reqVipReward" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqAttendInfo">
+						ReqAttendInfo<br/>
+						<input type="button" id="reqAttendInfo" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			
+			<tr><th class="tg-yw4l"><label>GUILD</label></th></tr>
+			<tr>
+				<td id="ReqGuildJoin">
+					ReqGuildJoin<br/>
+					GUILD_ID : <input type="text" id="guild_id" size="10" placeholder="GUILD_ID" value=1 /><br/>
+					<input type="button" id="reqGuildJoin" value="SEND" /><br/>
+					<div id="output"></div>
+				</td>
+				<td id="ReqRecommandGuild">
+					ReqRecommandGuild<br/>
+					<input type="button" id="reqRecommandGuild" value="SEND" /><br/>
+					<div id="output"></div>
+				</td>
+				<td id="ReqWithdrawalAtGuild">
+					ReqWithdrawalAtGuild<br/>
+					<input type="button" id="reqWithdrawalAtGuild" value="SEND" /><br/>
+					<div id="output"></div>
+				</td>
+			</tr>
+			<tr>
+				<td id="ReqChangeGuildInfo">
+					ReqChangeGuildInfo<br/>
+					GUILD_MARK : <select id="guild_mark">
+							<opt ion value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+					</select>
+					GUILD_NOTICE : <input type="text" id="guild_notice" size="10" placeholder="GUILD_NOTICE" value=1 /><br/>
+					AUTO_GUILD_MASTER_CHANGE : <input type="text" id="auto_master_change" size="10" placeholder="AUTO_GUILD_MASTER_CHANGE" value=1 /><br/>
+					GUILD_JOIN_OPTION : <select id="join_option">
+							<option value="1">자유가입</option>
+							<option value="2">승인가입</option>
+							<option value="3">가입불가</option>
+					</select><br/>
+					<input type="button" id="reqChangeGuildInfo" value="SEND" /><br/>
+					<div id="output"></div>
+				</td>
+			</tr>
+			<tr>
+				<td id="ReqGuildInvitation">
+					ReqGuildInvitation<br/>
+					USER_NICK : <input type="text" id="user_nick" size="10" placeholder="USER_NICK" value=1 /><br/>
+					<input type="button" id="reqGuildInvitation" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</td>
+				<td id="ReqGuildInvitationList">
+					ReqGuildInvitationList<br/>
+					<input type="button" id="reqGuildInvitationList" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</td>
+			</tr>
+			<tr>
+				<td id="ReqGuildPendingApprovalProcess">
+					ReqGuildPendingApprovalProcess<br/>
+					TARGET_UUID : <input type="text" id="target_uuid" size="10" placeholder="TARGET_UUID" value=1 /><br/>
+					PROCESS_TYPE : <select id="process_type">
+							<option value="0">승인대기</option>
+							<option value="1">승인</option>
+							<option value="2">거부</option>
+					</select><br/>
+					<input type="button" id="reqGuildPendingApprovalProcess" value="SEND" /><br/>
+					<div id="output"></div>
+				</td>
+			</tr>
+			<tr>
+				<td id="ReqCreateGuild">
+					ReqCreateGuild<br/>
+					GUILD_NAME : <input type="text" id="guild_name" size="10" placeholder="GUILD_ID" value='guild test' /><br/>
+					GUILD_MARK: <select id="guild_mark">
+							<opt ion value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+					</select><br/>
+					<input type="button" id="reqCreateGuild" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</td>
+				<td id="ReqGuildDetailInfo">
+					ReqGuildDetailInfo<br/>
+					GUILD_ID : <input type="text" id="guild_id" size="10" placeholder="GUILD_ID" value=1 /><br/>
+					<input type="button" id="reqGuildDetailInfo" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</td>
+			</tr>
+			<tr>
+				<td id="ReqGuildRaidChapter">
+					ReqGuildRaidChapter<br/>
+					GUILD_ID : <input type="text" id="guild_id" size="10" placeholder="GUILD_ID" value=1 /><br/>
+					<input type="button" id="reqGuildRaidChapter" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</td>
+				<td id="ReqGuildRaidStage">
+					ReqGuildRaidStage<br/>
+					GUILD_ID : <input type="text" id="guild_id" size="10" placeholder="GUILD_ID" value=1 /><br/>
+					CHAPTER_ID:<select id="guild_raid_chapter_id">
+							<option value="301">301</option>
+							<option value="302">302</option>
+							<option value="303">303</option>
+							<option value="304">304</option>
+							<option value="305">305</option>
+						</select><br/>
+					<input type="button" id="reqGuildRaidStage" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</td>				
+			<tr/>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqGuildPointDonation">
+						ReqGuildPointDonation<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						GUILD_ID:<input type="text" id="guild_id" size="10" placeholder="GUILD_ID" value=1 /><br/>
+						DONATION_ID:<input type="text" id="donation_id" size="10" placeholder="DONATION_ID" value=1 /><br/>
+						<input type="button" id="reqGuildPointDonation" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqGuildLevelup">
+						ReqGuildLevelup<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						GUILD_ID:<input type="text" id="guild_id" size="10" placeholder="GUILD_ID" value=1 /><br/>
+						<input type="button" id="reqGuildLevelup" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqGuildRaidChapterOpen">
+						ReqGuildRaidChapterOpen<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						GUILD_ID:<input type="text" id="guild_id" size="10" placeholder="GUILD_ID" value=1 /><br/>
+						CHAPTER_ID:<select id="guild_raid_chapter_id">
+							<option value="301">301</option>
+							<option value="302">302</option>
+							<option value="303">303</option>
+							<option value="304">304</option>
+							<option value="305">305</option>
+						</select><br/>
+						<input type="button" id="reqGuildRaidChapterOpen" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td>
+					<div id="ReqGuildRaidChapterReset">
+						ReqGuildRaidChapterReset<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						GUILD_ID:<input type="text" id="guild_id" size="10" placeholder="GUILD_ID" value=1 /><br/>
+						CHAPTER_ID:<select id="guild_raid_chapter_id">
+							<option value="301">301</option>
+							<option value="302">302</option>
+							<option value="303">303</option>
+							<option value="304">304</option>
+							<option value="305">305</option>
+						</select><br/>
+						<input type="button" id="reqGuildRaidChapterReset" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqGuildRaidBattleStart">
+						ReqGuildRaidBattleStart<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						GUILD_ID:<input type="text" id="guild_id" size="10" placeholder="GUILD_ID" value=1 /><br/>
+						CHAPTER_ID:<select id="guild_raid_chapter_id">
+							<option value="301">301</option>
+							<option value="302">302</option>
+							<option value="303">303</option>
+							<option value="304">304</option>
+							<option value="305">305</option>
+						</select><br/>
+						STAGE_ID:<select id="guild_raid_stage_id">
+							<option value="30101">30101</option>
+							<option value="30102">30102</option>
+							<option value="30103">30103</option>
+							<option value="30104">30104</option>
+							<option value="30105">30105</option>
+							<option value="30106">30106</option>
+						</select><br/>
+						<input type="button" id="reqGuildRaidBattleStart" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqGuildRaidBattleFinish">
+						ReqGuildRaidBattleFinish<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						GUILD_ID:<input type="text" id="guild_id" size="10" placeholder="GUILD_ID" value=1 /><br/>
+						CHAPTER_ID:<select id="guild_raid_chapter_id">
+							<option value="301">301</option>
+							<option value="302">302</option>
+							<option value="303">303</option>
+							<option value="304">304</option>
+							<option value="305">305</option>
+						</select>
+						STAGE_ID:<select id="guild_raid_stage_id">
+							<option value="30101">30101</option>
+							<option value="30102">30102</option>
+							<option value="30103">30103</option>
+							<option value="30104">30104</option>
+							<option value="30105">30105</option>
+							<option value="30106">30106</option>
+						</select><br/>
+						ATTACK_DAMAGE:<select id="attack_damage">
+							<option value="100">100</option>
+							<option value="200">200</option>
+							<option value="300">300</option>
+							<option value="400">400</option>
+							<option value="500">500</option>
+						</select>
+						BOSS_HP:<select id="boss_hp">
+							<option value="100">100</option>
+							<option value="50">50</option>
+							<option value="0">0</option>
+						</select><br/>
+						<input type="button" id="reqGuildRaidBattleFinish" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqGuildRaidStageDamageRank">
+						ReqGuildRaidStageDamageRank<br/>
+						GUILD_ID:<input type="text" id="guild_id" size="10" placeholder="GUILD_ID" value=1 /><br/>						
+						STAGE_ID:<select id="guild_raid_stage_id">
+							<option value="30101">30101</option>
+							<option value="30102">30102</option>
+							<option value="30103">30103</option>
+							<option value="30104">30104</option>
+							<option value="30105">30105</option>
+							<option value="30106">30106</option>
+						</select><br/>
+						<input type="button" id="reqGuildRaidStageDamageRank" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+					<div id="ReqGuildRaidChapterDamageRank">
+						ReqGuildRaidChapterDamageRank<br/>
+						GUILD_ID:<input type="text" id="guild_id" size="10" placeholder="GUILD_ID" value=1 /><br/>			
+						CHAPTER_ID:<select id="guild_raid_chapter_id">
+							<option value="301">301</option>
+							<option value="302">302</option>
+						</select><br/>
+						<input type="button" id="reqGuildRaidChapterDamageRank" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+					<div id="ReqGuildRaidChapterClearRank">
+						ReqGuildRaidChapterClearRank<br/>
+						GUILD_ID:<input type="text" id="guild_id" size="10" placeholder="GUILD_ID" value=1 /><br/>
+						CHAPTER_ID:<select id="guild_raid_chapter_id">
+							<option value="301">301</option>
+							<option value="302">302</option>
+						</select><br/>
+						<input type="button" id="reqGuildRaidChapterClearRank" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr><th class="tg-yw4l"><label>STAGE</label></th></tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqStageInfo">
+						ReqStageInfo<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="reqStageInfo" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>				
+			</tr>
+				<td>
+					<div id="ReqChapterReward">
+						ReqChapterReward -
+						CHAPTER_ID : <input type="text" id="chapter_id" size="10" placeholder="CHAPTER_ID" /><br/>
+						REWARD_BOX_ID : <input type="text" id="reward_box_id" size="10" placeholder="REWARD_BOX_ID" /><br/>
+						<input type="button" id="reqChapterReward" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			<tr>
+			</tr>
+			
+			<tr><th class="tg-yw4l"><label>RANK MATCH</label></th></tr>
+			<tr>
+				<td id="ReqRankList">
+					ReqRankList<br/>
+					PAGE_NUM: <select id="page_num">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select><br/>
+					<input type="button" id="reqRankList" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</td>				
+			</tr>
+			<tr>
+				<th class="tg-yw4l">
+					<label>SHOP</label>
+				</th>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqShopBuyHeroExp">
+						ReqShopBuyHeroExp<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						ITEM_ID:<input type="text" id="item_id" size="10" placeholder="ITEM_ID" /><br/>
+						ITEM_COUNT:<input type="text" id="item_count" size="10" placeholder="ITEM_COUNT" value=1 /><br/>
+						<input type="button" id="reqShopBuyHeroExp" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqShopIDs">
+						ReqShopIDs<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="reqShopIDs" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqShopBuy">
+						ReqShopBuy<br/>
+						uuid:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						shop_id:<input type="text" id="shop_id" size="10" placeholder="shop_id" /><br/>
+						item_slot:<input type="text" id="item_slot" size="10" placeholder="item_slot" value=1 /><br/>
+						shop_type: <select id="shop_type">
+							<option value="1">NORMAL</option>
+							<option value="2">RANDOM</option>
+							<option value="3">PVP</option>
+							<option value="4">GUILD</option>
+							<option value="5">CHALLENGE</option>
+						</select><br/>
+						<input type="button" id="reqShopBuy" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqShopReset">
+						ReqShopReset<br/>
+						uuid:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						shop_type: <select id="shop_type">
+							<option value="1">NORMAL</option>
+							<option value="2">RANDOM</option>
+							<option value="3">PVP</option>
+							<option value="4">GUILD</option>
+							<option value="5">CHALLENGE</option>
+						</select><br/>
+						<input type="button" id="reqShopReset" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqShopResetCount">
+						ReqShopResetCount<br/>
+						<input type="button" id="reqShopResetCount" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqRandomShopIsOpen">
+						ReqRandomShopIsOpen<br/>
+						uuid:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="reqRandomShopIsOpen" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqRandomShopOpen">
+						ReqRandomShopOpen<br/>
+						<input type="button" id="reqRandomShopOpen" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr><th class="tg-yw4l"><label>INFINITY TOWER</label></th></tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerReset">
+						ReqInfinityTowerReset<br/>
+						<input type="button" id="reqInfinityTowerReset" value="SEND" />
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="ReqInfinityTowerScoreRankList">
+						ReqInfinityTowerScoreRankList<br/>
+						PAGE_NUM:<select id="page_num">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select><br/>
+						<input type="button" id="reqInfinityTowerScoreRankList" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td>
+					<div id="ReqInfinityTowerRankerDetailInfo">
+						ReqInfinityTowerRankerDetailInfo<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>						
+						<input type="button" id="reqInfinityTowerRankerDetailInfo" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="ReqInfinityTowerAllClear">
+						ReqInfinityTowerAllClear<br/>
+						<input type="button" id="reqInfinityTowerAllClear" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerUser">
+						ReqInfinityTowerUser<br/>
+						<input type="button" id="reqInfinityTowerUser" value="SEND" />
+						<div id="output"></div>
+					</div>
+					<div id="ReqInfinityTowerHero">
+						ReqInfinityTowerHero<br/>
+						<input type="button" id="reqInfinityTowerHero" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+					<div id="ReqInfinityTowerBot">
+						ReqInfinityTowerBot<br/>
+						<input type="button" id="reqInfinityTowerBot" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerClear">
+						ReqInfinityTowerClear<br/>
+						<input type="button" id="reqInfinityTowerClear" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+					<div id="ReqInfinityTowerProcess">
+						ReqInfinityTowerProcess<br/>
+						<input type="button" id="reqInfinityTowerProcess" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerAccumScoreReward">
+						ReqInfinityTowerAccumScoreReward<br/>
+						REWARD_ID:<select id="reward_id">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select><br/>
+						<input type="button" id="reqInfinityTowerAccumScoreReward" value="SEND" />
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerBattleSkip">
+						ReqInfinityTowerBattleSkip<br/>
+						FLOOR:<select id="floor">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select><br/>
+						<input type="button" id="reqInfinityTowerBattleSkip" value="SEND" />
+						<div id="output"></div>
+					</div>
+				</td>
+				<td>
+					<div id="ReqInfinityTowerBattleAllSkip">
+						ReqInfinityTowerBattleAllSkip<br/>
+						START_FLOOR:<select id="start_floor">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select><br/>
+						<input type="button" id="reqInfinityTowerBattleAllSkip" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerSecretMazeType">
+						ReqInfinityTowerSecretMazeType<br/>
+						FLOOR:<select id="floor">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5" selected>5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select><br/>
+						SECRET_MAZE_TYPE:<select id="secret_maze_type">
+							<option value="1">BATTLE</option>
+							<option value="2">REWARD_BOX</option>
+							<option value="3">BUFF</option>
+						</select><br/>
+						SECRET_MAZE_BATTLE_ID:<select id="secret_maze_battle_id">
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select><br/>
+						<input type="button" id="reqInfinityTowerSecretMazeType" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerSecretMazeReset">
+						ReqInfinityTowerSecretMazeReset<br/>
+						FLOOR:<select id="floor">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5" selected>5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select><br/>
+						SECRET_MAZE_TYPE:<select id="secret_maze_type">
+							<option value="1">BATTLE</option>
+							<option value="2">REWARD_BOX</option>
+							<option value="3">BUFF</option>
+						</select><br/>
+						SECRET_MAZE_BATTLE_ID:<select id="secret_maze_battle_id">
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select><br/>
+						<input type="button" id="reqInfinityTowerSecretMazeReset" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerSecretMazeEntrance">
+						ReqInfinityTowerSecretMazeEntrance<br/>
+						FLOOR:<select id="floor">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5" selected>5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select><br/>
+						<input type="button" id="reqInfinityTowerSecretMazeEntrance" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerBattleFloorEntrance">
+						ReqInfinityTowerBattleFloorEntrance<br/>
+						FLOOR:<select id="floor">
+							<option value="1" selected>1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">21</option>
+							<option value="32">22</option>
+							<option value="33">23</option>
+							<option value="34">24</option>
+							<option value="35">25</option>
+							<option value="36">26</option>
+							<option value="37">27</option>
+							<option value="38">28</option>
+							<option value="39">29</option>
+							<option value="40">20</option>
+							<option value="41">21</option>
+							<option value="42">22</option>
+							<option value="43">23</option>
+							<option value="44">24</option>
+							<option value="45">25</option>
+							<option value="46">26</option>
+							<option value="47">27</option>
+							<option value="48">28</option>
+							<option value="49">29</option>
+							<option value="50">20</option>
+						</select><br/>
+						BATTLE_TYPE:<select id="battle_type">
+							<option value="0">0(선택안함)</option>
+							<option value="3" selected>3(상급)</option>
+							<option value="2">2(중급)</option>
+							<option value="1">1(하급)</option>
+							<option value="4">4(각성)</option>
+						</select><br/>
+						<input type="button" id="reqInfinityTowerBattleFloorEntrance" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerBattleSelect">
+						ReqInfinityTowerBattleSelect<br/>
+						FLOOR:<select id="floor">
+							<option value="1" selected>1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">21</option>
+							<option value="32">22</option>
+							<option value="33">23</option>
+							<option value="34">24</option>
+							<option value="35">25</option>
+							<option value="36">26</option>
+							<option value="37">27</option>
+							<option value="38">28</option>
+							<option value="39">29</option>
+							<option value="40">20</option>
+							<option value="41">21</option>
+							<option value="42">22</option>
+							<option value="43">23</option>
+							<option value="44">24</option>
+							<option value="45">25</option>
+							<option value="46">26</option>
+							<option value="47">27</option>
+							<option value="48">28</option>
+							<option value="49">29</option>
+							<option value="50">20</option>
+						</select><br/>
+						BATTLE_TYPE:<select id="battle_type">
+							<option value="0">0(선택안함)</option>
+							<option value="3" selected>3(상급)</option>
+							<option value="2">2(중급)</option>
+							<option value="1">1(하급)</option>
+							<option value="4">4(각성)</option>
+						</select><br/>
+						<input type="button" id="reqInfinityTowerBattleSelect" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerBattleFinish">
+						ReqInfinityTowerBattleFinish<br/>
+						FLOOR:<select id="floor">
+							<option value="1" selected>1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">21</option>
+							<option value="32">22</option>
+							<option value="33">23</option>
+							<option value="34">24</option>
+							<option value="35">25</option>
+							<option value="36">26</option>
+							<option value="37">27</option>
+							<option value="38">28</option>
+							<option value="39">29</option>
+							<option value="40">20</option>
+							<option value="41">21</option>
+							<option value="42">22</option>
+							<option value="43">23</option>
+							<option value="44">24</option>
+							<option value="45">25</option>
+							<option value="46">26</option>
+							<option value="47">27</option>
+							<option value="48">28</option>
+							<option value="49">29</option>
+							<option value="50">20</option>
+						</select><br/>
+						BATTLE_TYPE:<select id="battle_type">
+							<option value="0">0(선택안함)</option>
+							<option value="3" selected>3(상급)</option>
+							<option value="2">2(중급)</option>
+							<option value="1">1(하급)</option>
+							<option value="4">4(각성)</option>
+						</select><br/>
+						CLEAR_GRADE:<select id="clear_grade">
+							<option value="3" selected>3(상)</option>
+							<option value="2">2(중)</option>
+							<option value="1" >1(하)</option>
+						</select><br/>
+						<input type="button" id="reqInfinityTowerBattleFinish" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerBuffList">
+						ReqInfinityTowerBuffList<br/>
+						FLOOR:<select id="floor">
+							<option value="1">1</option>
+							<option value="2" selected>2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select><br/>
+						<input type="button" id="reqInfinityTowerBuffList" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerBuyBuff">
+						ReqInfinityTowerBuyBuff<br/>
+						FLOOR:<select id="floor">
+							<option value="1">1</option>
+							<option value="2" selected>2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select><br/>
+						SLOT_ID:<select id='slot_id'>
+							<option value="1" selected>1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select><br/>
+						BUFF_ID:<select id='buff_id'>
+							<option value="1" selected>1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+						</select><br/>
+						<input type="button" id="reqInfinityTowerBuyBuff" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerRewardBox">
+						ReqInfinityTowerRewardBox<br/>
+						FLOOR:<select id="floor">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3" selected>3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select><br/>
+						<input type="button" id="reqInfinityTowerRewardBox" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerCashRewardBox">
+						ReqInfinityTowerCashRewardBox<br/>
+						FLOOR:<select id="floor">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3" selected>3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select><br/>
+						<input type="button" id="reqInfinityTowerCashRewardBox" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr><th class="tg-yw4l"><label>SOUL BOUND</label></th></tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqHeroRuneSlotInfo">
+						ReqHeroRuneSlotInfo<br/>
+						<input type="button" id="reqHeroRuneSlotInfo" value="SEND" /><br/>
+						<div id="output"></div>
+					</div><br/>
+					<div id="ReqHeroRuneInfo">
+						ReqHeroRuneInfo<br/>
+						<input type="button" id="reqHeroRuneInfo" value="SEND" /><br/>
+						<div id="output"></div><br/>
+					</div>
+					<div id="ReqHeroRuneSell">
+						ReqHeroRuneSell<br/>
+						RUID:<input type="text" id="ruid" size="10" placeholder="RUID" /><br/>
+						SELL_COUNT:<select id="sell_count">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select><br/>
+						<input type="button" id="reqHeroRuneSell" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqHeroRuneSlotOpen">
+						ReqHeroRuneSlotOpen<br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						RUNE_SLOT_ID:<select id="rune_slot_id">
+							<option value="1" selected>1(공격)</option>
+							<option value="2">2(공격)</option>
+							<option value="3">3(공격)</option>
+							<option value="4">4(공격)</option>
+							<option value="5">5(공격)</option>
+							<option value="6">6(방어)</option>
+							<option value="7">7(방어)</option>
+							<option value="8">8(방어)</option>
+							<option value="9">9(방어)</option>
+							<option value="10">10(방어)</option>
+							<option value="11">11(지원)</option>
+							<option value="12">12(지원)</option>
+							<option value="13">13(지원)</option>
+							<option value="14">14(지원)</option>
+							<option value="15">15(지원)</option>
+							<option value="16">16(특별)</option>
+							<option value="17">17(특별)</option>
+							<option value="18">18(특별)</option>
+							<option value="19">19(특별)</option>
+							<option value="20">20(특별)</option>
+						</select><br/>
+						<input type="button" id="reqHeroRuneSlotOpen" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqHeroRuneCreate">
+						ReqHeroRuneCreate<br/>
+						RECIPE_ID: <select id="rune_recipe_id">
+							<option value="4019991">공격 룬(4019991)</option>
+							<option value="4019992">방어 룬(4019992)</option>
+							<option value="4019993">지원 룬(4019993)</option>
+							<option value="4019994">특수 룬(4019994)</option>
+						</select><br/>
+						<input type="button" id="reqHeroRuneCreate" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="ReqHeroRuneEquip">
+						ReqHeroRuneEquip<br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						RUNE_SLOT_ID:<select id="rune_slot_id">
+							<option value="1" selected>1(공격)</option>
+							<option value="2">2(공격)</option>
+							<option value="3">3(공격)</option>
+							<option value="4">4(공격)</option>
+							<option value="5">5(공격)</option>
+							<option value="6">6(방어)</option>
+							<option value="7">7(방어)</option>
+							<option value="8">8(방어)</option>
+							<option value="9">9(방어)</option>
+							<option value="10">10(방어)</option>
+							<option value="11">11(지원)</option>
+							<option value="12">12(지원)</option>
+							<option value="13">13(지원)</option>
+							<option value="14">14(지원)</option>
+							<option value="15">15(지원)</option>
+							<option value="16">16(특별)</option>
+							<option value="17">17(특별)</option>
+							<option value="18">18(특별)</option>
+							<option value="19">19(특별)</option>
+							<option value="20">20(특별)</option>
+						</select><br/>
+						RUID:<input id="ruid" type="text" size="10" placeholder="RUID" /><br/>
+						<input type="button" id="reqHeroRuneEquip" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td>
+					<div id="ReqHeroRuneUnEquip">
+						ReqHeroRuneUnEquip<br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						RUNE_SLOT_ID:<select id="rune_slot_id">
+							<option value="1" selected>1(공격)</option>
+							<option value="2">2(공격)</option>
+							<option value="3">3(공격)</option>
+							<option value="4">4(공격)</option>
+							<option value="5">5(공격)</option>
+							<option value="6">6(방어)</option>
+							<option value="7">7(방어)</option>
+							<option value="8">8(방어)</option>
+							<option value="9">9(방어)</option>
+							<option value="10">10(방어)</option>
+							<option value="11">11(지원)</option>
+							<option value="12">12(지원)</option>
+							<option value="13">13(지원)</option>
+							<option value="14">14(지원)</option>
+							<option value="15">15(지원)</option>
+							<option value="16">16(특별)</option>
+							<option value="17">17(특별)</option>
+							<option value="18">18(특별)</option>
+							<option value="19">19(특별)</option>
+							<option value="20">20(특별)</option>
+						</select><br/>
+						<input type="button" id="reqHeroRuneUnEquip" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="ReqHeroRuneLevelup">
+						ReqHeroRuneLevelup<br/>
+						RUID:<input id="ruid" type="text" size="10" placeholder="RUID" /><br/>
+						<input type="button" id="reqHeroRuneLevelup" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td>
+					<div id="ReqHeroEquipRuneLevelup">
+						ReqHeroEquipRuneLevelup<br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						RUNE_SLOT_ID:<select id="rune_slot_id">
+							<option value="1" selected>1(공격)</option>
+							<option value="2">2(공격)</option>
+							<option value="3">3(공격)</option>
+							<option value="4">4(공격)</option>
+							<option value="5">5(공격)</option>
+							<option value="6">6(방어)</option>
+							<option value="7">7(방어)</option>
+							<option value="8">8(방어)</option>
+							<option value="9">9(방어)</option>
+							<option value="10">10(방어)</option>
+							<option value="11">11(지원)</option>
+							<option value="12">12(지원)</option>
+							<option value="13">13(지원)</option>
+							<option value="14">14(지원)</option>
+							<option value="15">15(지원)</option>
+							<option value="16">16(특별)</option>
+							<option value="17">17(특별)</option>
+							<option value="18">18(특별)</option>
+							<option value="19">19(특별)</option>
+							<option value="20">20(특별)</option>
+						</select><br/>
+						<input type="button" id="reqHeroEquipRuneLevelup" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr><th class="tg-yw4l"><label>ACCOUNT BUFF</label></th></tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqAccountBuffReset">
+						ReqAccountBuffReset<br/>
+						<input type="button" id="reqAccountBuffReset" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqAccountBuffInfo">
+						ReqAccountBuffInfo<br/>
+						<input type="button" id="reqAccountBuffInfo" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqAccountBuffLevelup">
+						ReqAccountBuffLevelup<br/>
+						ENHANCE ID: <select id="account_buff_id">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+						</select><br/>
+						<input type="button" id="reqAccountBuffLevelup" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr><th class="tg-yw4l"><label>TEAM</label></th></tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqChangeTeam">
+						ReqChangeTeam<br/>
+						GAME_MODE:<input type="text" id="game_mode" size="10" placeholder="GAME_MODE" /><br/>
+						SLOT01:<input type="text" id="slot01" size="20" placeholder="SLOT1 HERO_ID" /><br/>
+						SLOT02:<input type="text" id="slot02" size="20" placeholder="SLOT2 HERO_ID" /><br/>
+						SLOT03:<input type="text" id="slot03" size="20" placeholder="SLOT3 HERO_ID" /><br/>
+						SLOT04:<input type="text" id="slot04" size="20" placeholder="SLOT4 HERO_ID" /><br/>
+						SLOT05:<input type="text" id="slot05" size="20" placeholder="SLOT5 HERO_ID" /><br/>
+						<input type="button" id="reqChangeTeam" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr><th class="tg-yw4l"><label>SUMMON</label></th></tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqSummonGage">
+						ReqSummonGage<br/>
+						BATTLE_CLEAR: <select id="battle_clear">
+							<option value="true">true</option>
+							<option value="false">false</option>
+						</select><br/>
+						USE_SUMMON: <select id="use_summon">
+							<option value="true">true</option>
+							<option value="false">false</option>
+						</select><br/>
+						<input type="button" id="reqSummonGage" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqSummonInfo">
+						ReqSummonInfo<br/>
+						<input type="button" id="reqSummonInfo" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqSummonOpen">
+						ReqSummonOpen<br/>
+						SUMMON_ID: <select id="summon_id">
+							<option value="1001">1001</option>
+							<option value="1002">1002</option>
+							<option value="1003">1003</option>
+							<option value="1004">1004</option>
+						</select><br/>
+						<input type="button" id="reqSummonOpen" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqSummonUse">
+						ReqSummonUse<br/>
+						SUMMON_ID: <select id="summon_id">
+							<option value="1001">1001</option>
+							<option value="1002">1002</option>
+							<option value="1003">1003</option>
+							<option value="1004">1004</option>
+						</select><br/>
+						<input type="button" id="reqSummonUse" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqSummonLevelup">
+						ReqSummonLevelup<br/>
+						SUMMON_ID: <select id="summon_id">
+							<option value="1001">1001</option>
+							<option value="1002">1002</option>
+							<option value="1003">1003</option>
+							<option value="1004">1004</option>
+						</select><br/>
+						<input type="button" id="reqSummonLevelup" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqSummonLevelupCash">
+						ReqSummonLevelupCash<br/>
+						SUMMON_ID: <select id="summon_id">
+							<option value="1001">1001</option>
+							<option value="1002">1002</option>
+							<option value="1003">1003</option>
+							<option value="1004">1004</option>
+						</select><br/>
+						<input type="button" id="reqSummonLevelupCash" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqSummonTraitLevelup">
+						ReqSummonTraitLevelup<br/>
+						SUMMON_ID: <select id="summon_id">
+							<option value="1001">1001</option>
+							<option value="1002">1002</option>
+							<option value="1003">1003</option>
+							<option value="1004">1004</option>
+						</select><br/>
+						TRAIT_SKILL_ID: <select id="trait_skill_id">
+							<option value="10015">1001 - 10015</option>
+							<option value="10016">1001 - 10016</option>
+							<option value="10025">1002 - 10025</option>
+							<option value="10026">1002 - 10026</option>
+							<option value="10035">1003 - 10035</option>
+							<option value="10036">1003 - 10036</option>
+							<option value="10045">1004 - 10045</option>
+							<option value="10046">1004 - 10046</option>
+						</select><br/>
+						<input type="button" id="reqSummonTraitLevelup" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqSummonTraitLevelupCash">
+						ReqSummonTraitLevelupCash<br/>
+						SUMMON_ID: <select id="summon_id">
+							<option value="1001">1001</option>
+							<option value="1002">1002</option>
+							<option value="1003">1003</option>
+							<option value="1004">1004</option>
+						</select><br/>
+						TRAIT_SKILL_ID: <select id="trait_skill_id">
+							<option value="10015">1001 - 10015</option>
+							<option value="10016">1001 - 10016</option>
+							<option value="10025">1002 - 10025</option>
+							<option value="10026">1002 - 10026</option>
+							<option value="10035">1003 - 10035</option>
+							<option value="10036">1003 - 10036</option>
+							<option value="10045">1004 - 10045</option>
+							<option value="10046">1004 - 10046</option>
+						</select><br/>
+						<input type="button" id="reqSummonTraitLevelupCash" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr><th class="tg-yw4l"><label>ATTEND</label></th></tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqAttendDailyReward">
+						ReqAttendDailyReward<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						REWARD_DAY:<input type="text" id="reward_day" size="10" placeholder="DAY" /><br/>
+						<input type="button" id="reqAttendDailyReward" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqAddAttendDailyReward">
+						ReqAddAttendDailyReward<br/>
+						<input type="button" id="reqAddAttendDailyReward" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqAttendAccumReward">
+						ReqAttendAccumReward<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						REWARD_DAY:<input type="text" id="reward_day" size="10" placeholder="DAY" /><br/>
+						<input type="button" id="reqAttendAccumReward" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr><th class="tg-yw4l"><label>MAIL</label></th></tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqMailReadInfo">
+						ReqMailReadInfo<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="reqMailReadInfo" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqMailRewardAll">
+						ReqMailRewardAll<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="reqMailRewardAll" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqMailReward">
+						ReqMailReward<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						MAIL_ID:<input type="text" id="mail_id" size="10" placeholder="MAIL_ID" /><br/>
+						<input type="button" id="reqMailReward" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqMailRead">
+						ReqMailRead<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						MAIL_ID:<input type="text" id="mail_id" size="10" placeholder="MAIL_ID" /><br/>
+						<input type="button" id="reqMailRead" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqMailList">
+						ReqMailList<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						RECV_ALL: <select id="recv_all">
+							<option value="true">true</option>
+							<option value="false">false</option>
+						</select><br/>
+						MAIL1_ID:<input type="text" id="mail1_id" size="3" placeholder="MAIL1" /><br/>
+						MAIL2_ID:<input type="text" id="mail2_id" size="3" placeholder="MAIL2" /><br/>
+						MAIL3_ID:<input type="text" id="mail3_id" size="3" placeholder="MAIL3" /><br/>
+						MAIL4_ID:<input type="text" id="mail4_id" size="3" placeholder="MAIL4" /><br/>
+						MAIL5_ID:<input type="text" id="mail5_id" size="3" placeholder="MAIL5" /><br/>
+						<input type="button" id="reqMailList" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l">
+					<label>COMMON</label>
+				</th>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqChargeSkillPoint">
+						ReqChargeSkillPoint<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="reqChargeSkillPoint" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqChargeStamina">
+						ReqChargeStamina<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="reqChargeStamina" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l">
+					<label>INVENTORY</label>
+				</th>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqUseRandomBox">
+						ReqUseRandomBox<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						IUID:<input type="text" id="iuid" size="10" placeholder="IUID" /><br/>
+						COUNT:<input type="text" id="use_count" size="10" placeholder="COUNT" value=1 /><br/>
+						<input type="button" id="reqUseRandomBox" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqUseItem">
+						ReqUseItem<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						IUID:<input type="text" id="iuid" size="10" placeholder="IUID" /><br/>
+						<input type="button" id="reqUseItem" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqSellItem">
+						ReqSellItem<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						IUID:<input type="text" id="iuid" size="10" placeholder="IUID" /><br/>
+						COUNT:<input type="text" id="sell_count" size="10" placeholder="COUNT" /><br/>
+						<input type="button" id="reqSellItem" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l">
+					<label>BUY</label>
+				</th>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqBuyCash">
+						ReqBuyCash<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						CASH_ID:<input type="text" id="cash_id" size="10" placeholder="CASH ID" value=1 /><br/>
+						<input type="button" id="reqBuyCash" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqBuyGold">
+						ReqBuyGold<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="reqBuyGold" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqBuyStamina">
+						ReqBuyStamina<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="reqBuyStamina" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqBuySkillPoint">
+						ReqBuySkillPoint<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="reqBuySkillPoint" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l">
+					<label>HERO</label>
+				</th>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqHeroSkills">
+						ReqHeroSkills<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						<input type="button" id="reqHeroSkills" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqHeroSkillLevelup">
+						ReqHeroSkillLevelup<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						SKILL_ID:<input type="text" id="skill_id" size="10" placeholder="SKILL_ID" /><br/>
+						<input type="button" id="reqHeroSkillLevelup" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqHeroSummon">
+						ReqHeroSummon<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						IUID:<input type="text" id="iuid" size="10" placeholder="IUID" /><br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						<input type="button" id="reqHeroSummon" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqHeroEvolution">
+						ReqHeroEvolution<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						IUID:<input type="text" id="iuid" size="10" placeholder="IUID" /><br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						<input type="button" id="reqHeroEvolution" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqHeroLevelup">
+						ReqHeroLevelup<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						IUID:<input type="text" id="iuid" size="10" placeholder="IUID" /><br/>
+						ITEM_COUNT:<input type="text" id="item_count" size="10" placeholder="ITEM_COUNT" /><br/>
+						<input type="button" id="reqHeroLevelup" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqHeroPromotion">
+						ReqHeroPromotion<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						NEED_ITEM_IUID1:<input type="text" id="need_item_iuid1" size="10" placeholder="IUID1" /><br/>
+						NEED_ITEM_IUID2:<input type="text" id="need_item_iuid2" size="10" placeholder="IUID2" /><br/>
+						NEED_ITEM_IUID3:<input type="text" id="need_item_iuid3" size="10" placeholder="IUID3" /><br/>
+						NEED_ITEM_IUID4:<input type="text" id="need_item_iuid4" size="10" placeholder="IUID4" /><br/>
+						NEED_ITEM_IUID5:<input type="text" id="need_item_iuid5" size="10" placeholder="IUID5" /><br/>
+						NEED_ITEM_IUID6:<input type="text" id="need_item_iuid6" size="10" placeholder="IUID6" /><br/>
+						<input type="button" id="reqHeroPromotion" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l">
+					<label>BATTLE</label>
+				</th>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="req_battle_start">
+						req_battle_start<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						TEAM_ID:<input type="text" id="team_id" size="10" placeholder="TEAM_ID" /><br/>
+						CHAPTER_ID:<input type="text" id="chapter_id" size="10" placeholder="CHAPTER_ID" /><br/>
+						STAGE_ID:<input type="text" id="stage_id" size="10" placeholder="STAGE_ID" /><br/>
+						<input type="button" id="reqBattleStart" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="req_battle_finish">
+						req_battle_finish<br/>						
+						CLEAR_GRADE:<input type="text" id="clear_grade" size="10" placeholder="CLEAR_GRADE" /><br/>
+						<input type="button" id="reqBattleFinish" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="req_battle_sweep">
+						req_battle_sweep - 
+						CHAPTER_ID : <input type="text" id="chapter_id" size="10" placeholder="CHAPTER_ID" /><br/>
+						STAGE_ID : <input type="text" id="stage_id" size="10" placeholder="STAGE_ID" /><br/>
+						SWEEP_COUNT : <input type="text" id="sweep_count" size="10" placeholder="SWEEP_COUNT" /><br/>
+						<input type="button" id="reqBattleSweep" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l">
+					<label>CHALLENGE</label>
+				</th>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqChallengeStart">
+						ReqChallengeStart - 
+						DUNGEON_GROUP_ID : <input type="text" id="dungeon_group_id" size="10" placeholder="DUNGEON_GROUP_ID" /><br/>
+						DUNGEON_ID : <input type="text" id="dungeon_id" size="10" placeholder="DUNGEON_ID" /><br/>
+						GAME_MODE : <input type="text" id="game_mode" size="10" placeholder="GAME_MODE" /><br/>
+						SLOT1 : <input type="text" id="slot1" size="10" placeholder="SLOT1" /><br/>
+						SLOT2 : <input type="text" id="slot2" size="10" placeholder="SLOT2" /><br/>
+						SLOT3 : <input type="text" id="slot3" size="10" placeholder="SLOT3" /><br/>
+						SLOT4 : <input type="text" id="slot4" size="10" placeholder="SLOT4" /><br/>
+						SLOT5 : <input type="text" id="slot5" size="10" placeholder="SLOT5" /><br/>
+						SLOT6 : <input type="text" id="slot6" size="10" placeholder="SLOT6" /><br/>
+						TAG_SLOT1 : <input type="text" id="tag_slot1" size="10" placeholder="TAG_SLOT1" /><br/>
+						TAG_SLOT2 : <input type="text" id="tag_slot2" size="10" placeholder="TAG_SLOT2" /><br/>
+						TAG_SLOT3 : <input type="text" id="tag_slot3" size="10" placeholder="TAG_SLOT3" /><br/>
+						<input type="button" id="reqChallengeStart" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqChallengeFinish">
+						ReqChallengeFinish - 
+						DUNGEON_GROUP_ID : <input type="text" id="dungeon_group_id" size="10" placeholder="DUNGEON_GROUP_ID" /><br/>
+						DUNGEON_ID : <input type="text" id="dungeon_id" size="10" placeholder="DUNGEON_ID" /><br/>
+						CLEAR_GRADE : <input type="text" id="clear_grade" size="10" placeholder="CLEAR_GRADE" /><br/>
+						GAME_MODE : <input type="text" id="game_mode" size="10" placeholder="GAME_MODE" /><br/>
+						<input type="button" id="reqChallengeFinish" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqChallengeSweep">
+						ReqChallengeSweep - 
+						DUNGEON_GROUP_ID : <input type="text" id="dungeon_group_id" size="10" placeholder="DUNGEON_GROUP_ID" /><br/>
+						DUNGEON_ID : <input type="text" id="dungeon_id" size="10" placeholder="DUNGEON_ID" /><br/>
+						<input type="button" id="reqChallengeSweep" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l">
+					<label>EQUIPITEM</label>
+				</th>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqHeroEquipItem">
+						ReqHeroEquipItem<br/>
+						<!-- UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /> -->
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						<input type="button" id="reqHeroEquipItem" value="SEND" /><br/>
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqEquipItemLevelup">
+						ReqEquipItemLevelup<br/>
+						<!-- UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /> -->
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" value=1 /><br/>
+						ITEM_ID:<input type="text" id="item_id" size="10" placeholder="ITEM_ID" value=2010001><br/>
+						<input type="button" id="reqEquipItemLevelup" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqEquipItemLevelupAuto">
+						ReqEquipItemLevelupAuto<br/>
+						<!-- UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /> -->
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" value=1 /><br/>
+						ITEM_ID:<input type="text" id="item_id" size="10" placeholder="ITEM_ID" value=2010001><br/>
+						<input type="button" id="reqEquipItemLevelupAuto" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqEquipItemPromotion">
+						ReqEquipItemPromotion<br/>
+						<!-- UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /> -->
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" value=1 /><br/>
+						ITEM_ID:<input type="text" id="item_id" size="10" placeholder="ITEM_ID" value=2010001 /><br/>
+						NEED_RESOURCE_IUID1:<input type="text" id="need_resource_iuid1" size="10" placeholder="IUID1" value=1 /><br/>
+						NEED_RESOURCE_IUID2:<input type="text" id="need_resource_iuid2" size="10" placeholder="IUID2" /><br/>
+						NEED_RESOURCE_IUID3:<input type="text" id="need_resource_iuid3" size="10" placeholder="IUID3" /><br/>
+						NEED_RESOURCE_IUID4:<input type="text" id="need_resource_iuid4" size="10" placeholder="IUID4" /><br/>
+						NEED_RESOURCE_IUID5:<input type="text" id="need_resource_iuid5" size="10" placeholder="IUID5" /><br/>
+						NEED_RESOURCE_IUID6:<input type="text" id="need_resource_iuid6" size="10" placeholder="IUID6" /><br/>
+						<input type="button" id="reqEquipItemPromotion" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqEquipItemEvolution">
+						ReqEquipItemEvolution<br/>
+						<!-- UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /> -->
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" value=1 /><br/>
+						ITEM_ID:<input type="text" id="item_id" size="10" placeholder="ITEM_ID" value=2010001 /><br/>
+						NEED_RESOURCE_IUID:<input type="text" id="need_resource_iuid" size="10" placeholder="IUID" /><br/>
+						<input type="button" id="reqEquipItemEvolution" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

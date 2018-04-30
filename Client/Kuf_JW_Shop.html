@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	<style type="text/css">
+		.tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
+		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#333;background-color:#fff;}
+		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#fff;background-color:#f38630;}
+		.tg .tg-yw4l{vertical-align:top}
+	</style>
+	
+	<meta charset="utf-8">
+	<title>KUF - Hero</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+	<script type="text/javascript">
+		var jsfiles = [ './Main.js', './Account.js', './Shop.js' ];
+
+		for (var i in jsfiles) {
+			console.log(jsfiles[i]);
+
+			var imported = document.createElement('script');
+			imported.src = jsfiles[i];
+			document.head.appendChild(imported);
+		}
+	</script>
+
+	</head>
+	<body>
+		<h3>SHOP</h3>
+		<p>
+			<div id="Display">
+				<h3>Display</h3>
+				<div id="output"></div>
+			</div>
+		</p>
+		<a href="./Kuf_JW_Account.html">BACK</a>
+		<br/>
+		<br/>
+		<table class="tg">
+			<tr>
+				<th class="tg-yw4l">SERVER PORT</th>
+				<td>
+					<div id="ConnectServer">
+						<select id="port">
+							<option value="7953">JW</option>
+							<option value="7952">JW_Test</option>
+							<option value="2016">Design</option>
+							<!-- <option value="3000">Contents</option>
+							<option value="4634">Build</option> -->
+						</select>
+						<input type="button" id="connect" value="Connect"/>
+						<input type="button" id="disconnect" value="Diconnect"/>
+					</div>
+				</td>			
+			<tr>
+				<th class="tg-yw4l">TEST</th>
+				<td class="tg-yw4l">
+					<div id="ReqTest">
+						ReqTest<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<th class="tg-yw4l">VERSION</th>
+				<td class="tg-yw4l">
+					<div id="ReqVersion">
+						ReqVersion<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l">ACCOUNT</th>
+				<td class="tg-yw4l">
+					<div id="ReqLogon">
+						ReqLogon<br/>
+						ACCOUNT:<input type="text" id="account" size="10" placeholder="ACCOUNT" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqUser">
+						ReqUser<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label>SHOP</label></th>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqShopBuyHeroExp">
+						ReqShopBuyHeroExp<br/>
+						<!-- UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/> -->
+						ITEM_ID:<input type="text" id="item_id" size="10" placeholder="ITEM_ID" /><br/>
+						ITEM_COUNT:<input type="text" id="item_count" size="10" placeholder="ITEM_COUNT" value=1 /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqShopIDs">
+						ReqShopIDs<br/>
+						<!-- UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/> -->
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqShopBuy">
+						ReqShopBuy<br/>
+						<!-- uuid:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/> -->
+						shop_id:<input type="text" id="shop_id" size="10" placeholder="shop_id" /><br/>
+						item_slot:<input type="text" id="item_slot" size="10" placeholder="item_slot" value=1 /><br/>
+						shop_type: <select id="shop_type">
+							<option value="1">NORMAL</option>
+							<option value="2">RANDOM</option>
+							<option value="3">PVP</option>
+							<option value="4">GUILD</option>
+							<option value="5">CHALLENGE</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqShopReset">
+						ReqShopReset<br/>
+						<!-- uuid:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/> -->
+						shop_type: <select id="shop_type">
+							<option value="1">NORMAL</option>
+							<option value="2">RANDOM</option>
+							<option value="3">PVP</option>
+							<option value="4">GUILD</option>
+							<option value="5">CHALLENGE</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqShopResetCount">
+						ReqShopResetCount<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqRandomShopIsOpen">
+						ReqRandomShopIsOpen<br/>
+						<!-- uuid:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/> -->
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqRandomShopOpen">
+						ReqRandomShopOpen<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

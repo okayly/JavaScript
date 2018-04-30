@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	<style type="text/css">
+		.tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
+		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#333;background-color:#fff;}
+		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#fff;background-color:#f38630;}
+		.tg .tg-yw4l{vertical-align:top}
+	</style>
+	
+	<meta charset="utf-8">
+	<title>KUF - Hero</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+	<script type="text/javascript">
+		var jsfiles = [ './Main.js', './Account.js', './Hero.js' ];
+
+		for (var i in jsfiles) {
+			console.log(jsfiles[i]);
+
+			var imported = document.createElement('script');
+			imported.src = jsfiles[i];
+			document.head.appendChild(imported);
+		}
+	</script>
+
+	</head>
+	<body>
+		<h3>HERO</h3>
+		<p>
+			<div id="Display">
+				<h3>Display</h3>
+				<div id="output"></div>
+			</div>
+		</p>
+		<a href="./Kuf_JW_Account.html">BACK</a>
+		<br/>
+		<br/>
+		<table class="tg">
+			<tr>
+				<th class="tg-yw4l">SERVER PORT</th>
+				<td>
+					<div id="ConnectServer">
+						<select id="port">
+							<option value="7953">JW</option>
+							<option value="7952">JW_Test</option>
+							<option value="2542">Dongsu</option>
+							<option value="2016">Design</option>
+							<!-- <option value="3000">Contents</option>
+							<option value="4634">Build</option> -->
+						</select>
+						<input type="button" id="connect" value="Connect"/>
+						<input type="button" id="disconnect" value="Diconnect"/>
+					</div>
+				</td>			
+			<tr>
+				<th class="tg-yw4l">TEST</th>
+				<td class="tg-yw4l">
+					<div id="ReqTest">
+						ReqTest<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<th class="tg-yw4l">VERSION</th>
+				<td class="tg-yw4l">
+					<div id="ReqVersion">
+						ReqVersion<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l">ACCOUNT</th>
+				<td class="tg-yw4l">
+					<div id="ReqLogon">
+						ReqLogon<br/>
+						ACCOUNT:<input type="text" id="account" size="10" placeholder="ACCOUNT" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqUser">
+						ReqUser<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l">HERO</th>
+				<td>
+					<div id="ReqHero">
+						ReqHero
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqHeroSummon">
+						ReqHeroSummon<br/>
+						IUID:<input type="text" id="iuid" size="10" placeholder="IUID" /><br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqHeroLevelup">
+						ReqHeroLevelup<br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						IUID:<input type="text" id="iuid" size="10" placeholder="IUID" /><br/>
+						ITEM_COUNT:<input type="text" id="item_count" size="10" placeholder="ITEM_COUNT" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqHeroEvolution">
+						ReqHeroEvolution<br/>
+						IUID:<input type="text" id="iuid" size="10" placeholder="IUID" /><br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqHeroPromotion">
+						ReqHeroPromotion<br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						NEED_ITEM_IUID1:<input type="text" id="need_item_iuid1" size="10" placeholder="IUID1" /><br/>
+						NEED_ITEM_IUID2:<input type="text" id="need_item_iuid2" size="10" placeholder="IUID2" /><br/>
+						NEED_ITEM_IUID3:<input type="text" id="need_item_iuid3" size="10" placeholder="IUID3" /><br/>
+						NEED_ITEM_IUID4:<input type="text" id="need_item_iuid4" size="10" placeholder="IUID4" /><br/>
+						NEED_ITEM_IUID5:<input type="text" id="need_item_iuid5" size="10" placeholder="IUID5" /><br/>
+						NEED_ITEM_IUID6:<input type="text" id="need_item_iuid6" size="10" placeholder="IUID6" /><br/>
+						<input type="button" id="send" value="SEND" />
+						<br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqHeroSkills">
+						ReqHeroSkills<br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqHeroSkillLevelup">
+						ReqHeroSkillLevelup<br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						SKILL_ID:<input type="text" id="skill_id" size="10" placeholder="SKILL_ID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label>CHARGE</label></th>
+				<td class="tg-yw4l">
+					<div id="ReqChargeSkillPoint">
+						ReqChargeSkillPoint<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqChargeStamina">
+						ReqChargeStamina<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label>ARMY SKILL</label></th>
+				<td class="tg-yw4l">
+					<div id="ReqHeroArmySkill">
+						ReqHeroArmySkill<br/>
+						HERO ID: <select id="hero_id">
+							<option value="0">0</option>
+							<option value="3" selected>3</option>
+							<option value="6">6</option>
+							<option value="23">23</option>
+							<option value="25">25</option>
+						</select><br />
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqChangeTeam">
+						ReqChangeTeam<br/>
+						TEAM_ID:<input type="text" id="team_id" size="10" placeholder="TEAM_ID" /><br/>
+						SLOT01:<input type="text" id="slot01" size="20" placeholder="SLOT01" /><br/>
+						SLOT02:<input type="text" id="slot02" size="20" placeholder="SLOT02" /><br/>
+						SLOT03:<input type="text" id="slot03" size="20" placeholder="SLOT03" /><br/>
+						SLOT04:<input type="text" id="slot04" size="20" placeholder="SLOT04" /><br/>
+						BATTLE_POWER:<input type="text" id="battle_power" size="20" placeholder="BATTLE_POWER" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label>COMBI BUFF</label></th>
+				<td class="tg-yw4l">
+					<div id="ReqHeroCombiBuff">
+						ReqHeroCombiBuff<br/>
+						BUFF_ID:<input type="text" id="buff_id" size="20" placeholder="BUFF ID" /><br/>
+						BUFF_LEVEL:<input type="text" id="buff_level" size="20" placeholder="BUFF LEVEL" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

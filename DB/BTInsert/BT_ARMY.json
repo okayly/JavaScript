@@ -1,0 +1,16 @@
+{
+	"WorksheetName":"BT_ARMY",
+	"ExportDate":"2016/12/13 13:58:41",
+	"ExportUser":"MILKBOY-PC",
+	"Rows":
+	[
+		{
+			"ArmyID":1, 
+			"Name":100111, 
+			"Desc":100112, 
+			"IconID":100111, 
+			"ElementType":1, 
+			"SkillID":10011
+		}
+	]
+}

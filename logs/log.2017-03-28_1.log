@@ -1,0 +1,3535 @@
+2017-03-28 00:08:56 - info: ----------------------- Init Weekly Content -------------------
+2017-03-28 00:08:56 - info: ----------------------- Init Weekly Content ResetGuildDonationbyMember -------------------
+2017-03-28 00:08:56 - info: ----------------------- Init Weekly Content ResetGuildDonationbyGuild -------------------
+2017-03-28 00:08:56 - info: ----------------------- Init Weekly Content ResetGuildDonationbyTakeReward -------------------
+2017-03-28 00:08:56 - info: ----------------------- Init Weekly Content Time Check -------------------
+2017-03-28 00:08:56 - info: --- 오늘 남은 시간(초) :  85864
+2017-03-28 00:08:56 - info: --- 다음 정리 까지 남은 시간(초) :  86314000
+2017-03-28 10:07:19 - info: ☆ connected client from socket.id is teWwB5YVfR3ZIjvsAAAB IP : ::ffff:172.20.70.51 ☆
+2017-03-28 10:07:24 - error: Error Packet Not Find: ReqInfinityTowerAccumScoreReward, User Socket ID: teWwB5YVfR3ZIjvsAAAB
+2017-03-28 10:07:34 - debug: ACCOUNT : 1, recv - ReqLogon - packet_srl=429, account=1
+2017-03-28 10:07:34 - info: Start NewDay !!
+2017-03-28 10:07:34 - info: ★★★★★ uuid : 1, socket_id : teWwB5YVfR3ZIjvsAAAB 로그인.
+2017-03-28 10:07:34 - info: ★★★★★ AddUser 접속 리스트 uuid : 1, socket id : teWwB5YVfR3ZIjvsAAAB
+2017-03-28 10:07:34 - info: UUID : 1, Send to Peer - data:
+ { packet_srl: 429,
+  uuid: 1,
+  last_login_unix_time: 1490695654,
+  is_new_day: true,
+  result: 0 } AckLogon
+2017-03-28 10:07:34 - debug: UUID : 1 recv - ReqDefaultInfo - uuid=1, packet_srl=430
+2017-03-28 10:07:34 - info: UUID : 1, Send to Peer - data:
+ { packet_srl: 430,
+  nick: '1',
+  icon: 231,
+  level: 27,
+  exp: 10000,
+  gold: 2053870,
+  cash: 100040,
+  point_honor: 0,
+  point_alliance: 0,
+  point_challenge: 0,
+  max_stamina: 106,
+  max_skill_point: 20,
+  stamina: 106,
+  skill_point: 20,
+  stamina_remain_time: 0,
+  skill_point_remain_time: 0,
+  account_buff_point: 0,
+  max_equip_item_inventory_slot: 100,
+  buy_equip_item_inventory_slot: 0,
+  result: 0 } AckUser
+2017-03-28 10:07:34 - info: Finish NewDay !!
+2017-03-28 10:07:37 - debug: UUID : 1 recv - ReqTowerScoreReward packet_srl=431, reward_id=1
+2017-03-28 10:07:37 - info: UUID : 1 Ack Cmd : AckInfinityTowerAccumScoreReward RetCode : -300017 False Log Msg -  Reward ID 1
+2017-03-28 10:07:40 - debug: UUID : 1 recv - ReqTowerScoreReward packet_srl=432, reward_id=2
+2017-03-28 10:07:40 - error: UUID : 1 Account : 1 Ack Cmd : AckInfinityTowerAccumScoreReward Error Log Msg - ReferenceError: reward_id is not defined
+    at /home/pocatcom/mkServer_JWTest/Contents/InfinityTower/TowerScoreReward.js:112:30
+    at bound (domain.js:280:14)
+    at runBound (domain.js:293:12)
+    at tryCatch1 (/home/pocatcom/mkServer_JWTest/node_modules/bluebird/js/main/util.js:64:19)
+    at Promise$_callHandler [as _callHandler] (/home/pocatcom/mkServer_JWTest/node_modules/bluebird/js/main/promise.js:708:13)
+    at Promise$_settlePromiseFromHandler [as _settlePromiseFromHandler] (/home/pocatcom/mkServer_JWTest/node_modules/bluebird/js/main/promise.js:724:18)
+    at Promise$_settlePromiseAt [as _settlePromiseAt] (/home/pocatcom/mkServer_JWTest/node_modules/bluebird/js/main/promise.js:896:14)
+    at Promise$_fulfillPromises [as _fulfillPromises] (/home/pocatcom/mkServer_JWTest/node_modules/bluebird/js/main/promise.js:1041:14)
+    at Async$_consumeFunctionBuffer [as _consumeFunctionBuffer] (/home/pocatcom/mkServer_JWTest/node_modules/bluebird/js/main/async.js:64:12)
+    at Async$consumeFunctionBuffer (/home/pocatcom/mkServer_JWTest/node_modules/bluebird/js/main/async.js:37:14) Error ReqTowerScoreReward - 2
+2017-03-28 10:08:24 - debug: **** define value init ****
+2017-03-28 10:08:24 - debug: **** Duck packet command init ****
+2017-03-28 10:08:24 - debug: **** LoginServer packet command init ****
+2017-03-28 10:08:24 - debug: **** Version packet command init ****
+2017-03-28 10:08:24 - debug: **** Account packet command init ****
+2017-03-28 10:08:24 - debug: **** AccountBuff packet command init ****
+2017-03-28 10:08:24 - debug: **** Hero packet command init ****
+2017-03-28 10:08:24 - debug: **** Battle packet command init ****
+2017-03-28 10:08:24 - debug: **** Team packet command init ****
+2017-03-28 10:08:24 - debug: **** EquipItem packet command init ****
+2017-03-28 10:08:24 - debug: **** Buy packet command init ****
+2017-03-28 10:08:24 - debug: **** Shop packet command init ****
+2017-03-28 10:08:24 - debug: **** Gacha packet command init ****
+2017-03-28 10:08:24 - debug: **** Common packet command init ****
+2017-03-28 10:08:24 - debug: **** Inventory packet command init ****
+2017-03-28 10:08:24 - debug: **** WeeklyDungeon packet command init ****
+2017-03-28 10:08:24 - debug: **** Mail packet command init ****
+2017-03-28 10:08:24 - debug: **** Attend packet command init ****
+2017-03-28 10:08:24 - debug: **** Rank packet command init ****
+2017-03-28 10:08:24 - debug: **** Notice packet command init ****
+2017-03-28 10:08:24 - debug: **** Mission packet command init ****
+2017-03-28 10:08:24 - debug: **** Guild packet command init ****
+2017-03-28 10:08:24 - debug: **** InfinityTower packet command init ****
+2017-03-28 10:08:24 - debug: **** Friend packet command init ****
+2017-03-28 10:08:24 - debug: **** DarkDungeon packet command init ****
+2017-03-28 10:08:24 - debug: **** PVP packet command init ****
+2017-03-28 10:08:24 - debug: **** Packet result code init ****
+2017-03-28 10:08:24 - debug: Starting Game Server ...
+2017-03-28 10:08:24 - debug: @@@@@@@@ This Game Server PID is 9152 @@@@@@@@
+2017-03-28 10:08:24 - debug: ============================ DB Connection info ============================
+2017-03-28 10:08:24 - debug: DB: mKUF_JW
+2017-03-28 10:08:24 - debug: Acc: pocatcom
+2017-03-28 10:08:24 - debug: PW: P@ssw0rd
+2017-03-28 10:08:24 - debug: IP: 172.20.70.76
+2017-03-28 10:08:24 - debug: PORT: 3306
+2017-03-28 10:08:24 - debug: DB Name : mKUF_JW
+2017-03-28 10:08:24 - debug: DB Acc : pocatcom
+2017-03-28 10:08:24 - debug: DB PW : P@ssw0rd
+2017-03-28 10:08:24 - debug: DB connect complete!!! connected state is true
+2017-03-28 10:08:24 - debug: ============================ DefineGameDataTable ============================
+2017-03-28 10:08:24 - debug: ***** GTMgr AsyncGameDataTable *****
+2017-03-28 10:08:24 - info: ----------------------- Init Weekly Content Time Check -------------------
+2017-03-28 10:08:24 - info: --- 오늘 남은 시간(초) :  49896
+2017-03-28 10:08:24 - info: --- 다음 정리 까지 남은 시간(초) :  50345999
+2017-03-28 10:08:24 - debug: *** BT_ACCOUNT_BUFF_BASE Initialize - 1 ****
+2017-03-28 10:08:24 - debug: *** BT_ARMY Initialize - 2 ****
+2017-03-28 10:08:24 - debug: *** BT_ATTEND_ACCUM_REWARD Initialize - 3 ****
+2017-03-28 10:08:24 - debug: *** BT_ATTEND_ADD_COST Initialize - 4 ****
+2017-03-28 10:08:24 - debug: *** BT_ATTEND_DAILY_REWARD Initialize - 5 ****
+2017-03-28 10:08:24 - debug: *** BT_BUY_CASH Initialize - 6 ****
+2017-03-28 10:08:24 - debug: *** BT_BUY_COUNT Initialize - 7 ****
+2017-03-28 10:08:24 - debug: *** BT_BUY_GOLD Initialize - 8 ****
+2017-03-28 10:08:24 - debug: *** BT_BUY_STAMINA Initialize - 9 ****
+2017-03-28 10:08:24 - debug: *** BT_CHAPTER_BASE Initialize - 10 ****
+2017-03-28 10:08:24 - debug: *** BT_COMMON Initialize - 11 ****
+2017-03-28 10:08:24 - debug: *** BT_COST_ALL Initialize - 12 ****
+2017-03-28 10:08:24 - debug: *** BT_DARK_CHAPTER_BASE Initialize - 13 ****
+2017-03-28 10:08:24 - debug: *** BT_DARK_STAGE_BASE Initialize - 14 ****
+2017-03-28 10:08:24 - debug: *** BT_EXP Initialize - 15 ****
+2017-03-28 10:08:24 - debug: *** BT_GACHA_INFO Initialize - 16 ****
+2017-03-28 10:08:24 - debug: *** BT_GACHA_NORMAL Initialize - 17 ****
+2017-03-28 10:08:24 - debug: *** BT_GACHA_PREMIUM Initialize - 18 ****
+2017-03-28 10:08:24 - debug: *** BT_GACHA_PREMIUM_FIRST Initialize - 19 ****
+2017-03-28 10:08:24 - debug: *** BT_GACHA_VIP Initialize - 20 ****
+2017-03-28 10:08:24 - debug: *** BT_GUILD Initialize - 21 ****
+2017-03-28 10:08:24 - debug: *** BT_GUILD_CONTENTS_REWARD Initialize - 22 ****
+2017-03-28 10:08:24 - debug: *** BT_GUILD_DONATION Initialize - 23 ****
+2017-03-28 10:08:24 - debug: *** BT_GUILD_DONATION_REWARD Initialize - 24 ****
+2017-03-28 10:08:24 - debug: *** BT_HERO_BASE Initialize - 25 ****
+2017-03-28 10:08:24 - debug: *** BT_HERO_EVOLUTION Initialize - 26 ****
+2017-03-28 10:08:24 - debug: *** BT_HERO_EVOLUTION_STATUS Initialize - 27 ****
+2017-03-28 10:08:24 - debug: *** BT_HERO_LV_RATING Initialize - 28 ****
+2017-03-28 10:08:24 - debug: *** BT_HERO_PROMOTION Initialize - 29 ****
+2017-03-28 10:08:24 - debug: *** BT_HERO_SKILL Initialize - 30 ****
+2017-03-28 10:08:24 - debug: *** BT_HERO_SKILL_EFFECT Initialize - 31 ****
+2017-03-28 10:08:24 - debug: *** BT_INFINITY_TOWER_BASE Initialize - 32 ****
+2017-03-28 10:08:24 - debug: *** BT_INFINITY_TOWER_BOT_RANKER Initialize - 33 ****
+2017-03-28 10:08:24 - debug: *** BT_INFINITY_TOWER_BUFF Initialize - 34 ****
+2017-03-28 10:08:24 - debug: *** BT_INFINITY_TOWER_CASH Initialize - 35 ****
+2017-03-28 10:08:24 - debug: *** BT_INFINITY_TOWER_RANKING Initialize - 36 ****
+2017-03-28 10:08:24 - debug: *** BT_INFINITY_TOWER_SCORE Initialize - 37 ****
+2017-03-28 10:08:24 - debug: *** BT_INFINITY_TOWER_SECRET Initialize - 38 ****
+2017-03-28 10:08:24 - debug: *** BT_INFINITY_TOWER_SKIP Initialize - 39 ****
+2017-03-28 10:08:24 - debug: *** BT_ITEM_BASE Initialize - 40 ****
+2017-03-28 10:08:24 - debug: *** BT_ITEM_ENCHANT_COST Initialize - 41 ****
+2017-03-28 10:08:24 - debug: *** BT_ITEM_EQUIP_OPTION Initialize - 42 ****
+2017-03-28 10:08:24 - debug: *** BT_ITEM_EQUIP_STATUS Initialize - 43 ****
+2017-03-28 10:08:24 - debug: *** BT_ITEM_EVOLUTION Initialize - 44 ****
+2017-03-28 10:08:24 - debug: *** BT_ITEM_EVOLUTION_STATUS Initialize - 45 ****
+2017-03-28 10:08:24 - debug: *** BT_ITEM_PROMOTION Initialize - 46 ****
+2017-03-28 10:08:24 - debug: *** BT_LEVEL_UNLOCK Initialize - 47 ****
+2017-03-28 10:08:24 - debug: *** BT_MISSION Initialize - 48 ****
+2017-03-28 10:08:24 - debug: *** BT_PVP_LEAGUE Initialize - 49 ****
+2017-03-28 10:08:24 - debug: *** BT_RANDOMBOX Initialize - 50 ****
+2017-03-28 10:08:24 - debug: *** BT_REWARD_INFINITY_TOWER Initialize - 51 ****
+2017-03-28 10:08:24 - debug: *** BT_REWARD_RANKING Initialize - 52 ****
+2017-03-28 10:08:24 - debug: *** BT_SHOP_CHALLENGE Initialize - 53 ****
+2017-03-28 10:08:24 - debug: *** BT_SHOP_GUILD Initialize - 54 ****
+2017-03-28 10:08:24 - debug: *** BT_SHOP_HERO_EXP Initialize - 55 ****
+2017-03-28 10:08:24 - debug: *** BT_SHOP_NORMAL Initialize - 56 ****
+2017-03-28 10:08:24 - debug: *** BT_SHOP_PVP Initialize - 57 ****
+2017-03-28 10:08:24 - debug: *** BT_SHOP_RANDOM Initialize - 58 ****
+2017-03-28 10:08:25 - debug: *** BT_SHOP_RESET_COST Initialize - 59 ****
+2017-03-28 10:08:25 - debug: *** BT_SHOP_TIME Initialize - 60 ****
+2017-03-28 10:08:25 - debug: *** BT_STAGE_BASE Initialize - 61 ****
+2017-03-28 10:08:25 - debug: *** BT_STAGE_DROPGROUP_BASE Initialize - 62 ****
+2017-03-28 10:08:25 - debug: *** BT_START_HERO Initialize - 63 ****
+2017-03-28 10:08:25 - debug: *** BT_SUMMON_BASE Initialize - 64 ****
+2017-03-28 10:08:25 - debug: *** BT_TEAM_ENHANCE_BASE Initialize - 65 ****
+2017-03-28 10:08:25 - debug: *** BT_TEAM_ENHANCE_LEVELUP Initialize - 66 ****
+2017-03-28 10:08:25 - debug: *** BT_VIP Initialize - 67 ****
+2017-03-28 10:08:25 - debug: *** BT_WEEKLY_DUNGEON Initialize - 68 ****
+2017-03-28 10:08:25 - info: ☆ connected client from socket.id is RG3NswWA3Jd1b3r6AAAA IP : ::ffff:172.20.70.51 ☆
+2017-03-28 10:08:34 - debug: *** Start LoadItem ***
+2017-03-28 10:08:34 - debug: *** Start LoadItemEvolution ***
+2017-03-28 10:08:34 - debug: *** Start LoadItemEquipStatus ***
+2017-03-28 10:08:34 - debug: *** Start LoadItemEquipOption ***
+2017-03-28 10:08:34 - debug: *** Start LoadItemEnchantCost ***
+2017-03-28 10:08:34 - debug: *** Start LoadBTHero ***
+2017-03-28 10:08:34 - debug: *** Start LoadExp *** 
+2017-03-28 10:08:34 - debug: *** Start LoadSenarioChapter *** 
+2017-03-28 10:08:34 - debug: *** Start LoadGuildRaidChapter ***
+2017-03-28 10:08:34 - debug: *** Start LoadBTHeroPromotion ***
+2017-03-28 10:08:34 - debug: *** Start LoadBTHeroEvolution ***
+2017-03-28 10:08:34 - debug: *** Start LoadBTTown Drop Group Info *** 
+2017-03-28 10:08:34 - debug: *** Start LoadVip ***
+2017-03-28 10:08:34 - debug: *** Start LoadBuyGold ***
+2017-03-28 10:08:34 - debug: *** Start LoadBuyStamina ***
+2017-03-28 10:08:34 - debug: *** Start LoadBuyCash ***
+2017-03-28 10:08:34 - debug: *** Start LoadBuyCount ***
+2017-03-28 10:08:34 - debug: *** Start LoadShop ***
+2017-03-28 10:08:34 - debug: *** Start LoadBTGacha *** 
+2017-03-28 10:08:34 - debug: *** Start LoadRandomBox ***
+2017-03-28 10:08:34 - debug: *** Start LoadAttendDaily ***
+2017-03-28 10:08:34 - debug: *** Start LoadAddAttendCost ***
+2017-03-28 10:08:34 - debug: *** Start LoadAttendAccum ***
+2017-03-28 10:08:34 - debug: *** Start LoadBTMission *** 
+2017-03-28 10:08:34 - debug: *** Start Load AccountBuff ***
+2017-03-28 10:08:34 - debug: *** Start LoadGuild ***
+2017-03-28 10:08:34 - debug: *** Start LoadGuildDonation ***
+2017-03-28 10:08:34 - debug: *** Start LoadGuildRaidRankReward ***
+2017-03-28 10:08:34 - debug: *** Start LoadGuildDonationReward ***
+2017-03-28 10:08:34 - debug: *** Start LoadTower ***
+2017-03-28 10:08:34 - debug: *** Start LoadTowerBuffList ***
+2017-03-28 10:08:34 - debug: *** Start LoadTowerCashRewardBox ***
+2017-03-28 10:08:34 - debug: *** Start LoadTowerBattleSkip ***
+2017-03-28 10:08:34 - debug: *** Start LoadTowerAccumScoreReward ***
+2017-03-28 10:08:34 - debug: *** Start LoadTowerRankReward ***
+2017-03-28 10:08:34 - debug: *** Start LoadTowerBotRanker ***
+2017-03-28 10:08:34 - debug: *** Start LoadRewardInfinityTower ***
+2017-03-28 10:08:34 - debug: *** Start LoadBTWeeklyDungeon *** 
+2017-03-28 10:08:34 - debug: *** Start LoadDarkDungeonChapter *** 
+2017-03-28 10:08:34 - debug: *** Start LoadArmySkill *** 
+2017-03-28 10:08:34 - debug: *** Start LoadLevelUnlock ***
+2017-03-28 10:08:34 - debug: *** Start LoadSkill ***
+2017-03-28 10:08:34 - debug: *** Start LoadBTPVP *** 
+2017-03-28 10:09:01 - debug: ACCOUNT : 1, recv - ReqLogon - packet_srl=433, account=1
+2017-03-28 10:09:01 - info: ★★★★★ uuid : 1, socket_id : RG3NswWA3Jd1b3r6AAAA 로그인.
+2017-03-28 10:09:01 - info: ★★★★★ AddUser 접속 리스트 uuid : 1, socket id : RG3NswWA3Jd1b3r6AAAA
+2017-03-28 10:09:01 - info: UUID : 1, Send to Peer - data:
+ { packet_srl: 433,
+  uuid: 1,
+  last_login_unix_time: 1490695741,
+  is_new_day: false,
+  result: 0 } AckLogon
+2017-03-28 10:09:01 - debug: UUID : 1 recv - ReqDefaultInfo - uuid=1, packet_srl=434
+2017-03-28 10:09:01 - info: UUID : 1, Send to Peer - data:
+ { packet_srl: 434,
+  nick: '1',
+  icon: 231,
+  level: 27,
+  exp: 10000,
+  gold: 2056870,
+  cash: 100040,
+  point_honor: 0,
+  point_alliance: 0,
+  point_challenge: 0,
+  max_stamina: 106,
+  max_skill_point: 20,
+  stamina: 106,
+  skill_point: 20,
+  stamina_remain_time: 0,
+  skill_point_remain_time: 0,
+  account_buff_point: 0,
+  max_equip_item_inventory_slot: 100,
+  buy_equip_item_inventory_slot: 0,
+  result: 0 } AckUser
+2017-03-28 10:09:04 - debug: UUID : 1 recv - ReqTowerScoreReward packet_srl=435, reward_id=1
+2017-03-28 10:09:04 - info: UUID : 1, Send to Peer - data:
+ { reward_item_list: [],
+  packet_srl: 435,
+  reward_id: 1,
+  reward_box: 
+   { item_list: [ [Object], [Object], [Object] ],
+     result_equipment_list: [],
+     gold: { total: 2058895 } },
+  result: 0 } AckInfinityTowerAccumScoreReward
+2017-03-28 10:09:25 - debug: UUID : 1 recv - ReqTowerAllClear packet_srl=436
+2017-03-28 10:09:25 - info: UUID : 1, Send to Peer - data:
+ { packet_srl: 436, result: 0 } AckInfinityTowerAllClear
+2017-03-28 10:16:47 - info: ★★★★★ 정리 이전 user_list_by_socket_id Size : 1, user_list_by_uuid Size : 1
+2017-03-28 10:16:47 - info: ★★★★★ uuid : 1, socket_id : RG3NswWA3Jd1b3r6AAAA, socket ip : ::ffff:172.20.70.51, reason : client namespace disconnect 로그아웃.
+2017-03-28 10:16:47 - info: 확인용. 2017-03-28 10:16:47, 0 
+2017-03-28 10:16:47 - info: ★★★★★ 정리 이후 user_list_by_socket_id Size : 0, user_list_by_uuid Size : 1
+2017-03-28 10:29:27 - debug: **** define value init ****
+2017-03-28 10:29:27 - debug: **** Duck packet command init ****
+2017-03-28 10:29:27 - debug: **** LoginServer packet command init ****
+2017-03-28 10:29:27 - debug: **** Version packet command init ****
+2017-03-28 10:29:27 - debug: **** Account packet command init ****
+2017-03-28 10:29:27 - debug: **** AccountBuff packet command init ****
+2017-03-28 10:29:27 - debug: **** Hero packet command init ****
+2017-03-28 10:29:27 - debug: **** Battle packet command init ****
+2017-03-28 10:29:27 - debug: **** Team packet command init ****
+2017-03-28 10:29:27 - debug: **** EquipItem packet command init ****
+2017-03-28 10:29:27 - debug: **** Buy packet command init ****
+2017-03-28 10:29:27 - debug: **** Shop packet command init ****
+2017-03-28 10:29:27 - debug: **** Gacha packet command init ****
+2017-03-28 10:29:27 - debug: **** Common packet command init ****
+2017-03-28 10:29:27 - debug: **** Inventory packet command init ****
+2017-03-28 10:29:27 - debug: **** WeeklyDungeon packet command init ****
+2017-03-28 10:29:27 - debug: **** Mail packet command init ****
+2017-03-28 10:29:27 - debug: **** Attend packet command init ****
+2017-03-28 10:29:27 - debug: **** Rank packet command init ****
+2017-03-28 10:29:27 - debug: **** Notice packet command init ****
+2017-03-28 10:29:27 - debug: **** Mission packet command init ****
+2017-03-28 10:29:27 - debug: **** Guild packet command init ****
+2017-03-28 10:29:27 - debug: **** InfinityTower packet command init ****
+2017-03-28 10:29:27 - debug: **** Friend packet command init ****
+2017-03-28 10:29:27 - debug: **** DarkDungeon packet command init ****
+2017-03-28 10:29:27 - debug: **** PVP packet command init ****
+2017-03-28 10:29:27 - debug: **** Packet result code init ****
+2017-03-28 10:29:27 - debug: Starting Game Server ...
+2017-03-28 10:29:27 - debug: @@@@@@@@ This Game Server PID is 9338 @@@@@@@@
+2017-03-28 10:29:27 - debug: ============================ DB Connection info ============================
+2017-03-28 10:29:27 - debug: DB: mKUF_JW
+2017-03-28 10:29:27 - debug: Acc: pocatcom
+2017-03-28 10:29:27 - debug: PW: P@ssw0rd
+2017-03-28 10:29:27 - debug: IP: 172.20.70.76
+2017-03-28 10:29:27 - debug: PORT: 3306
+2017-03-28 10:29:27 - debug: DB Name : mKUF_JW
+2017-03-28 10:29:27 - debug: DB Acc : pocatcom
+2017-03-28 10:29:27 - debug: DB PW : P@ssw0rd
+2017-03-28 10:29:27 - debug: DB connect complete!!! connected state is true
+2017-03-28 10:29:27 - debug: ============================ DefineGameDataTable ============================
+2017-03-28 10:29:27 - debug: ***** GTMgr AsyncGameDataTable *****
+2017-03-28 10:29:27 - info: ----------------------- Init Weekly Content Time Check -------------------
+2017-03-28 10:29:27 - info: --- 오늘 남은 시간(초) :  48633
+2017-03-28 10:29:27 - info: --- 다음 정리 까지 남은 시간(초) :  49082999
+2017-03-28 10:29:27 - debug: *** BT_ACCOUNT_BUFF_BASE Initialize - 1 ****
+2017-03-28 10:29:27 - debug: *** BT_ARMY Initialize - 2 ****
+2017-03-28 10:29:27 - debug: *** BT_ATTEND_ACCUM_REWARD Initialize - 3 ****
+2017-03-28 10:29:27 - debug: *** BT_ATTEND_ADD_COST Initialize - 4 ****
+2017-03-28 10:29:27 - debug: *** BT_ATTEND_DAILY_REWARD Initialize - 5 ****
+2017-03-28 10:29:27 - debug: *** BT_BUY_CASH Initialize - 6 ****
+2017-03-28 10:29:27 - debug: *** BT_BUY_COUNT Initialize - 7 ****
+2017-03-28 10:29:27 - debug: *** BT_BUY_GOLD Initialize - 8 ****
+2017-03-28 10:29:27 - debug: *** BT_BUY_STAMINA Initialize - 9 ****
+2017-03-28 10:29:27 - debug: *** BT_CHAPTER_BASE Initialize - 10 ****
+2017-03-28 10:29:27 - debug: *** BT_COMMON Initialize - 11 ****
+2017-03-28 10:29:27 - debug: *** BT_COST_ALL Initialize - 12 ****
+2017-03-28 10:29:27 - debug: *** BT_DARK_CHAPTER_BASE Initialize - 13 ****
+2017-03-28 10:29:27 - debug: *** BT_DARK_STAGE_BASE Initialize - 14 ****
+2017-03-28 10:29:27 - debug: *** BT_EXP Initialize - 15 ****
+2017-03-28 10:29:27 - debug: *** BT_GACHA_INFO Initialize - 16 ****
+2017-03-28 10:29:27 - debug: *** BT_GACHA_NORMAL Initialize - 17 ****
+2017-03-28 10:29:27 - debug: *** BT_GACHA_PREMIUM Initialize - 18 ****
+2017-03-28 10:29:27 - debug: *** BT_GACHA_PREMIUM_FIRST Initialize - 19 ****
+2017-03-28 10:29:27 - debug: *** BT_GACHA_VIP Initialize - 20 ****
+2017-03-28 10:29:27 - debug: *** BT_GUILD Initialize - 21 ****
+2017-03-28 10:29:27 - debug: *** BT_GUILD_CONTENTS_REWARD Initialize - 22 ****
+2017-03-28 10:29:27 - debug: *** BT_GUILD_DONATION Initialize - 23 ****
+2017-03-28 10:29:27 - debug: *** BT_GUILD_DONATION_REWARD Initialize - 24 ****
+2017-03-28 10:29:27 - debug: *** BT_HERO_BASE Initialize - 25 ****
+2017-03-28 10:29:27 - debug: *** BT_HERO_EVOLUTION Initialize - 26 ****
+2017-03-28 10:29:27 - debug: *** BT_HERO_EVOLUTION_STATUS Initialize - 27 ****
+2017-03-28 10:29:27 - debug: *** BT_HERO_LV_RATING Initialize - 28 ****
+2017-03-28 10:29:27 - debug: *** BT_HERO_PROMOTION Initialize - 29 ****
+2017-03-28 10:29:27 - debug: *** BT_HERO_SKILL Initialize - 30 ****
+2017-03-28 10:29:27 - debug: *** BT_HERO_SKILL_EFFECT Initialize - 31 ****
+2017-03-28 10:29:27 - debug: *** BT_INFINITY_TOWER_BASE Initialize - 32 ****
+2017-03-28 10:29:27 - debug: *** BT_INFINITY_TOWER_BOT_RANKER Initialize - 33 ****
+2017-03-28 10:29:27 - debug: *** BT_INFINITY_TOWER_BUFF Initialize - 34 ****
+2017-03-28 10:29:27 - debug: *** BT_INFINITY_TOWER_CASH Initialize - 35 ****
+2017-03-28 10:29:27 - debug: *** BT_INFINITY_TOWER_RANKING Initialize - 36 ****
+2017-03-28 10:29:27 - debug: *** BT_INFINITY_TOWER_SCORE Initialize - 37 ****
+2017-03-28 10:29:27 - debug: *** BT_INFINITY_TOWER_SECRET Initialize - 38 ****
+2017-03-28 10:29:27 - debug: *** BT_INFINITY_TOWER_SKIP Initialize - 39 ****
+2017-03-28 10:29:27 - debug: *** BT_ITEM_BASE Initialize - 40 ****
+2017-03-28 10:29:27 - debug: *** BT_ITEM_ENCHANT_COST Initialize - 41 ****
+2017-03-28 10:29:27 - debug: *** BT_ITEM_EQUIP_OPTION Initialize - 42 ****
+2017-03-28 10:29:27 - debug: *** BT_ITEM_EQUIP_STATUS Initialize - 43 ****
+2017-03-28 10:29:27 - debug: *** BT_ITEM_EVOLUTION Initialize - 44 ****
+2017-03-28 10:29:27 - debug: *** BT_ITEM_EVOLUTION_STATUS Initialize - 45 ****
+2017-03-28 10:29:27 - debug: *** BT_ITEM_PROMOTION Initialize - 46 ****
+2017-03-28 10:29:27 - debug: *** BT_LEVEL_UNLOCK Initialize - 47 ****
+2017-03-28 10:29:27 - debug: *** BT_MISSION Initialize - 48 ****
+2017-03-28 10:29:27 - debug: *** BT_PVP_LEAGUE Initialize - 49 ****
+2017-03-28 10:29:27 - debug: *** BT_RANDOMBOX Initialize - 50 ****
+2017-03-28 10:29:27 - debug: *** BT_REWARD_INFINITY_TOWER Initialize - 51 ****
+2017-03-28 10:29:27 - debug: *** BT_REWARD_RANKING Initialize - 52 ****
+2017-03-28 10:29:27 - debug: *** BT_SHOP_CHALLENGE Initialize - 53 ****
+2017-03-28 10:29:27 - debug: *** BT_SHOP_GUILD Initialize - 54 ****
+2017-03-28 10:29:27 - debug: *** BT_SHOP_HERO_EXP Initialize - 55 ****
+2017-03-28 10:29:27 - debug: *** BT_SHOP_NORMAL Initialize - 56 ****
+2017-03-28 10:29:27 - debug: *** BT_SHOP_PVP Initialize - 57 ****
+2017-03-28 10:29:27 - debug: *** BT_SHOP_RANDOM Initialize - 58 ****
+2017-03-28 10:29:27 - debug: *** BT_SHOP_RESET_COST Initialize - 59 ****
+2017-03-28 10:29:27 - debug: *** BT_SHOP_TIME Initialize - 60 ****
+2017-03-28 10:29:27 - debug: *** BT_STAGE_BASE Initialize - 61 ****
+2017-03-28 10:29:27 - debug: *** BT_STAGE_DROPGROUP_BASE Initialize - 62 ****
+2017-03-28 10:29:27 - debug: *** BT_START_HERO Initialize - 63 ****
+2017-03-28 10:29:27 - debug: *** BT_SUMMON_BASE Initialize - 64 ****
+2017-03-28 10:29:27 - debug: *** BT_TEAM_ENHANCE_BASE Initialize - 65 ****
+2017-03-28 10:29:27 - debug: *** BT_TEAM_ENHANCE_LEVELUP Initialize - 66 ****
+2017-03-28 10:29:27 - debug: *** BT_VIP Initialize - 67 ****
+2017-03-28 10:29:27 - debug: *** BT_WEEKLY_DUNGEON Initialize - 68 ****
+2017-03-28 10:29:36 - debug: *** Start LoadItem ***
+2017-03-28 10:29:36 - debug: *** Start LoadItemEvolution ***
+2017-03-28 10:29:36 - debug: *** Start LoadItemEquipStatus ***
+2017-03-28 10:29:36 - debug: *** Start LoadItemEquipOption ***
+2017-03-28 10:29:36 - debug: *** Start LoadItemEnchantCost ***
+2017-03-28 10:29:36 - debug: *** Start LoadBTHero ***
+2017-03-28 10:29:36 - debug: *** Start LoadExp *** 
+2017-03-28 10:29:36 - debug: *** Start LoadSenarioChapter *** 
+2017-03-28 10:29:36 - debug: *** Start LoadGuildRaidChapter ***
+2017-03-28 10:29:36 - debug: *** Start LoadBTHeroPromotion ***
+2017-03-28 10:29:36 - debug: *** Start LoadBTHeroEvolution ***
+2017-03-28 10:29:36 - debug: *** Start LoadBTTown Drop Group Info *** 
+2017-03-28 10:29:36 - debug: *** Start LoadVip ***
+2017-03-28 10:29:36 - debug: *** Start LoadBuyGold ***
+2017-03-28 10:29:36 - debug: *** Start LoadBuyStamina ***
+2017-03-28 10:29:36 - debug: *** Start LoadBuyCash ***
+2017-03-28 10:29:36 - debug: *** Start LoadBuyCount ***
+2017-03-28 10:29:36 - debug: *** Start LoadShop ***
+2017-03-28 10:29:36 - debug: *** Start LoadBTGacha *** 
+2017-03-28 10:29:36 - debug: *** Start LoadRandomBox ***
+2017-03-28 10:29:36 - debug: *** Start LoadAttendDaily ***
+2017-03-28 10:29:36 - debug: *** Start LoadAddAttendCost ***
+2017-03-28 10:29:36 - debug: *** Start LoadAttendAccum ***
+2017-03-28 10:29:36 - debug: *** Start LoadBTMission *** 
+2017-03-28 10:29:36 - debug: *** Start Load AccountBuff ***
+2017-03-28 10:29:36 - debug: *** Start LoadGuild ***
+2017-03-28 10:29:36 - debug: *** Start LoadGuildDonation ***
+2017-03-28 10:29:36 - debug: *** Start LoadGuildRaidRankReward ***
+2017-03-28 10:29:36 - debug: *** Start LoadGuildDonationReward ***
+2017-03-28 10:29:36 - debug: *** Start LoadTower ***
+2017-03-28 10:29:36 - debug: *** Start LoadTowerBuffList ***
+2017-03-28 10:29:36 - debug: *** Start LoadTowerCashRewardBox ***
+2017-03-28 10:29:36 - debug: *** Start LoadTowerBattleSkip ***
+2017-03-28 10:29:36 - debug: *** Start LoadTowerAccumScoreReward ***
+2017-03-28 10:29:36 - debug: *** Start LoadTowerRankReward ***
+2017-03-28 10:29:36 - debug: *** Start LoadTowerBotRanker ***
+2017-03-28 10:29:36 - debug: *** Start LoadRewardInfinityTower ***
+2017-03-28 10:29:36 - debug: *** Start LoadBTWeeklyDungeon *** 
+2017-03-28 10:29:36 - debug: *** Start LoadDarkDungeonChapter *** 
+2017-03-28 10:29:36 - debug: *** Start LoadArmySkill *** 
+2017-03-28 10:29:36 - debug: *** Start LoadLevelUnlock ***
+2017-03-28 10:29:36 - debug: *** Start LoadSkill ***
+2017-03-28 10:29:36 - debug: *** Start LoadBTPVP *** 
+2017-03-28 10:32:46 - info: ☆☆ connected login server from socket.id is zz-i6ghA_YpX2aZ5AAAA IP : ::ffff:172.20.70.76 ☆☆
+2017-03-28 10:33:36 - debug: recv - ReqUserCount null zz-i6ghA_YpX2aZ5AAAA
+2017-03-28 10:33:36 - info: Send to Peer Socket id : zz-i6ghA_YpX2aZ5AAAA - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: 'zz-i6ghA_YpX2aZ5AAAA',
+  result: 0 } AckUserCount
+2017-03-28 10:36:58 - debug: recv - ReqUserCount null zz-i6ghA_YpX2aZ5AAAA
+2017-03-28 10:36:58 - info: Send to Peer Socket id : zz-i6ghA_YpX2aZ5AAAA - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: 'zz-i6ghA_YpX2aZ5AAAA',
+  result: 0 } AckUserCount
+2017-03-28 10:40:22 - debug: recv - ReqUserCount null zz-i6ghA_YpX2aZ5AAAA
+2017-03-28 10:40:22 - info: Send to Peer Socket id : zz-i6ghA_YpX2aZ5AAAA - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: 'zz-i6ghA_YpX2aZ5AAAA',
+  result: 0 } AckUserCount
+2017-03-28 10:41:29 - debug: recv - ReqUserCount null zz-i6ghA_YpX2aZ5AAAA
+2017-03-28 10:41:29 - info: Send to Peer Socket id : zz-i6ghA_YpX2aZ5AAAA - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: 'zz-i6ghA_YpX2aZ5AAAA',
+  result: 0 } AckUserCount
+2017-03-28 10:47:09 - debug: recv - ReqUserCount null zz-i6ghA_YpX2aZ5AAAA
+2017-03-28 10:47:09 - info: Send to Peer Socket id : zz-i6ghA_YpX2aZ5AAAA - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: 'zz-i6ghA_YpX2aZ5AAAA',
+  result: 0 } AckUserCount
+2017-03-28 10:50:34 - debug: recv - ReqUserCount null zz-i6ghA_YpX2aZ5AAAA
+2017-03-28 10:50:34 - info: Send to Peer Socket id : zz-i6ghA_YpX2aZ5AAAA - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: 'zz-i6ghA_YpX2aZ5AAAA',
+  result: 0 } AckUserCount
+2017-03-28 10:52:37 - debug: recv - ReqUserCount null zz-i6ghA_YpX2aZ5AAAA
+2017-03-28 10:52:37 - info: Send to Peer Socket id : zz-i6ghA_YpX2aZ5AAAA - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: 'zz-i6ghA_YpX2aZ5AAAA',
+  result: 0 } AckUserCount
+2017-03-28 10:56:42 - debug: recv - ReqUserCount null zz-i6ghA_YpX2aZ5AAAA
+2017-03-28 10:56:42 - info: Send to Peer Socket id : zz-i6ghA_YpX2aZ5AAAA - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: 'zz-i6ghA_YpX2aZ5AAAA',
+  result: 0 } AckUserCount
+2017-03-28 11:00:41 - debug: recv - ReqUserCount null zz-i6ghA_YpX2aZ5AAAA
+2017-03-28 11:00:41 - info: Send to Peer Socket id : zz-i6ghA_YpX2aZ5AAAA - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: 'zz-i6ghA_YpX2aZ5AAAA',
+  result: 0 } AckUserCount
+2017-03-28 11:06:00 - debug: **** define value init ****
+2017-03-28 11:06:00 - debug: **** Duck packet command init ****
+2017-03-28 11:06:00 - debug: **** LoginServer packet command init ****
+2017-03-28 11:06:00 - debug: **** Version packet command init ****
+2017-03-28 11:06:00 - debug: **** Account packet command init ****
+2017-03-28 11:06:00 - debug: **** AccountBuff packet command init ****
+2017-03-28 11:06:00 - debug: **** Hero packet command init ****
+2017-03-28 11:06:00 - debug: **** Battle packet command init ****
+2017-03-28 11:06:00 - debug: **** Team packet command init ****
+2017-03-28 11:06:00 - debug: **** EquipItem packet command init ****
+2017-03-28 11:06:00 - debug: **** Buy packet command init ****
+2017-03-28 11:06:00 - debug: **** Shop packet command init ****
+2017-03-28 11:06:00 - debug: **** Gacha packet command init ****
+2017-03-28 11:06:00 - debug: **** Common packet command init ****
+2017-03-28 11:06:00 - debug: **** Inventory packet command init ****
+2017-03-28 11:06:00 - debug: **** WeeklyDungeon packet command init ****
+2017-03-28 11:06:00 - debug: **** Mail packet command init ****
+2017-03-28 11:06:00 - debug: **** Attend packet command init ****
+2017-03-28 11:06:00 - debug: **** Rank packet command init ****
+2017-03-28 11:06:00 - debug: **** Notice packet command init ****
+2017-03-28 11:06:00 - debug: **** Mission packet command init ****
+2017-03-28 11:06:00 - debug: **** Guild packet command init ****
+2017-03-28 11:06:00 - debug: **** InfinityTower packet command init ****
+2017-03-28 11:06:00 - debug: **** Friend packet command init ****
+2017-03-28 11:06:00 - debug: **** DarkDungeon packet command init ****
+2017-03-28 11:06:00 - debug: **** PVP packet command init ****
+2017-03-28 11:06:00 - debug: **** Packet result code init ****
+2017-03-28 11:06:00 - debug: Starting Game Server ...
+2017-03-28 11:06:00 - debug: @@@@@@@@ This Game Server PID is 9652 @@@@@@@@
+2017-03-28 11:06:00 - debug: ============================ DB Connection info ============================
+2017-03-28 11:06:00 - debug: DB: mKUF_JW
+2017-03-28 11:06:00 - debug: Acc: pocatcom
+2017-03-28 11:06:00 - debug: PW: P@ssw0rd
+2017-03-28 11:06:00 - debug: IP: 172.20.70.76
+2017-03-28 11:06:00 - debug: PORT: 3306
+2017-03-28 11:06:00 - debug: DB Name : mKUF_JW
+2017-03-28 11:06:00 - debug: DB Acc : pocatcom
+2017-03-28 11:06:00 - debug: DB PW : P@ssw0rd
+2017-03-28 11:06:00 - debug: DB connect complete!!! connected state is true
+2017-03-28 11:06:00 - debug: ============================ DefineGameDataTable ============================
+2017-03-28 11:06:00 - debug: ***** GTMgr AsyncGameDataTable *****
+2017-03-28 11:06:00 - info: ----------------------- Init Weekly Content Time Check -------------------
+2017-03-28 11:06:00 - info: --- 오늘 남은 시간(초) :  46440
+2017-03-28 11:06:00 - info: --- 다음 정리 까지 남은 시간(초) :  46889999
+2017-03-28 11:06:00 - debug: *** BT_ACCOUNT_BUFF_BASE Initialize - 1 ****
+2017-03-28 11:06:00 - debug: *** BT_ARMY Initialize - 2 ****
+2017-03-28 11:06:00 - debug: *** BT_ATTEND_ACCUM_REWARD Initialize - 3 ****
+2017-03-28 11:06:00 - debug: *** BT_ATTEND_ADD_COST Initialize - 4 ****
+2017-03-28 11:06:00 - debug: *** BT_ATTEND_DAILY_REWARD Initialize - 5 ****
+2017-03-28 11:06:00 - debug: *** BT_BUY_CASH Initialize - 6 ****
+2017-03-28 11:06:00 - debug: *** BT_BUY_COUNT Initialize - 7 ****
+2017-03-28 11:06:00 - debug: *** BT_BUY_GOLD Initialize - 8 ****
+2017-03-28 11:06:00 - debug: *** BT_BUY_STAMINA Initialize - 9 ****
+2017-03-28 11:06:00 - debug: *** BT_CHAPTER_BASE Initialize - 10 ****
+2017-03-28 11:06:00 - debug: *** BT_COMMON Initialize - 11 ****
+2017-03-28 11:06:00 - debug: *** BT_COST_ALL Initialize - 12 ****
+2017-03-28 11:06:00 - debug: *** BT_DARK_CHAPTER_BASE Initialize - 13 ****
+2017-03-28 11:06:00 - debug: *** BT_DARK_STAGE_BASE Initialize - 14 ****
+2017-03-28 11:06:00 - debug: *** BT_EXP Initialize - 15 ****
+2017-03-28 11:06:00 - debug: *** BT_GACHA_INFO Initialize - 16 ****
+2017-03-28 11:06:00 - debug: *** BT_GACHA_NORMAL Initialize - 17 ****
+2017-03-28 11:06:00 - debug: *** BT_GACHA_PREMIUM Initialize - 18 ****
+2017-03-28 11:06:00 - debug: *** BT_GACHA_PREMIUM_FIRST Initialize - 19 ****
+2017-03-28 11:06:00 - debug: *** BT_GACHA_VIP Initialize - 20 ****
+2017-03-28 11:06:00 - debug: *** BT_GUILD Initialize - 21 ****
+2017-03-28 11:06:00 - debug: *** BT_GUILD_CONTENTS_REWARD Initialize - 22 ****
+2017-03-28 11:06:00 - debug: *** BT_GUILD_DONATION Initialize - 23 ****
+2017-03-28 11:06:00 - debug: *** BT_GUILD_DONATION_REWARD Initialize - 24 ****
+2017-03-28 11:06:00 - debug: *** BT_HERO_BASE Initialize - 25 ****
+2017-03-28 11:06:00 - debug: *** BT_HERO_EVOLUTION Initialize - 26 ****
+2017-03-28 11:06:00 - debug: *** BT_HERO_EVOLUTION_STATUS Initialize - 27 ****
+2017-03-28 11:06:00 - debug: *** BT_HERO_LV_RATING Initialize - 28 ****
+2017-03-28 11:06:00 - debug: *** BT_HERO_PROMOTION Initialize - 29 ****
+2017-03-28 11:06:00 - debug: *** BT_HERO_SKILL Initialize - 30 ****
+2017-03-28 11:06:00 - debug: *** BT_HERO_SKILL_EFFECT Initialize - 31 ****
+2017-03-28 11:06:00 - debug: *** BT_INFINITY_TOWER_BASE Initialize - 32 ****
+2017-03-28 11:06:00 - debug: *** BT_INFINITY_TOWER_BOT_RANKER Initialize - 33 ****
+2017-03-28 11:06:00 - debug: *** BT_INFINITY_TOWER_BUFF Initialize - 34 ****
+2017-03-28 11:06:00 - debug: *** BT_INFINITY_TOWER_CASH Initialize - 35 ****
+2017-03-28 11:06:00 - debug: *** BT_INFINITY_TOWER_RANKING Initialize - 36 ****
+2017-03-28 11:06:00 - debug: *** BT_INFINITY_TOWER_SCORE Initialize - 37 ****
+2017-03-28 11:06:00 - debug: *** BT_INFINITY_TOWER_SECRET Initialize - 38 ****
+2017-03-28 11:06:00 - debug: *** BT_INFINITY_TOWER_SKIP Initialize - 39 ****
+2017-03-28 11:06:00 - debug: *** BT_ITEM_BASE Initialize - 40 ****
+2017-03-28 11:06:00 - debug: *** BT_ITEM_ENCHANT_COST Initialize - 41 ****
+2017-03-28 11:06:00 - debug: *** BT_ITEM_EQUIP_OPTION Initialize - 42 ****
+2017-03-28 11:06:00 - debug: *** BT_ITEM_EQUIP_STATUS Initialize - 43 ****
+2017-03-28 11:06:00 - debug: *** BT_ITEM_EVOLUTION Initialize - 44 ****
+2017-03-28 11:06:00 - debug: *** BT_ITEM_EVOLUTION_STATUS Initialize - 45 ****
+2017-03-28 11:06:00 - debug: *** BT_ITEM_PROMOTION Initialize - 46 ****
+2017-03-28 11:06:00 - debug: *** BT_LEVEL_UNLOCK Initialize - 47 ****
+2017-03-28 11:06:00 - debug: *** BT_MISSION Initialize - 48 ****
+2017-03-28 11:06:00 - debug: *** BT_PVP_LEAGUE Initialize - 49 ****
+2017-03-28 11:06:00 - debug: *** BT_RANDOMBOX Initialize - 50 ****
+2017-03-28 11:06:00 - debug: *** BT_REWARD_INFINITY_TOWER Initialize - 51 ****
+2017-03-28 11:06:00 - debug: *** BT_REWARD_RANKING Initialize - 52 ****
+2017-03-28 11:06:00 - debug: *** BT_SHOP_CHALLENGE Initialize - 53 ****
+2017-03-28 11:06:00 - debug: *** BT_SHOP_GUILD Initialize - 54 ****
+2017-03-28 11:06:00 - debug: *** BT_SHOP_HERO_EXP Initialize - 55 ****
+2017-03-28 11:06:00 - debug: *** BT_SHOP_NORMAL Initialize - 56 ****
+2017-03-28 11:06:00 - debug: *** BT_SHOP_PVP Initialize - 57 ****
+2017-03-28 11:06:00 - debug: *** BT_SHOP_RANDOM Initialize - 58 ****
+2017-03-28 11:06:00 - debug: *** BT_SHOP_RESET_COST Initialize - 59 ****
+2017-03-28 11:06:00 - debug: *** BT_SHOP_TIME Initialize - 60 ****
+2017-03-28 11:06:00 - debug: *** BT_STAGE_BASE Initialize - 61 ****
+2017-03-28 11:06:00 - debug: *** BT_STAGE_DROPGROUP_BASE Initialize - 62 ****
+2017-03-28 11:06:00 - debug: *** BT_START_HERO Initialize - 63 ****
+2017-03-28 11:06:00 - debug: *** BT_SUMMON_BASE Initialize - 64 ****
+2017-03-28 11:06:00 - debug: *** BT_TEAM_ENHANCE_BASE Initialize - 65 ****
+2017-03-28 11:06:00 - debug: *** BT_TEAM_ENHANCE_LEVELUP Initialize - 66 ****
+2017-03-28 11:06:00 - debug: *** BT_VIP Initialize - 67 ****
+2017-03-28 11:06:00 - debug: *** BT_WEEKLY_DUNGEON Initialize - 68 ****
+2017-03-28 11:18:39 - info: ☆ connected client from socket.id is ZS3Ex1Y3PNgMGapzAAAA IP : ::ffff:172.20.70.70 ☆
+2017-03-28 11:18:39 - debug: ACCOUNT : lim012, recv - ReqLogon - packet_srl=1, account=lim012
+2017-03-28 11:18:39 - info: Start NewDay !!
+2017-03-28 11:18:40 - info: ★★★★★ uuid : 38, socket_id : ZS3Ex1Y3PNgMGapzAAAA 로그인.
+2017-03-28 11:18:40 - info: ★★★★★ AddUser 접속 리스트 uuid : 38, socket id : ZS3Ex1Y3PNgMGapzAAAA
+2017-03-28 11:18:40 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 1,
+  uuid: 38,
+  last_login_unix_time: 1490699920,
+  is_new_day: true,
+  result: 0 } AckLogon
+2017-03-28 11:18:40 - info: Finish NewDay !!
+2017-03-28 11:18:40 - error: NewDayInfinityTower 0
+2017-03-28 11:18:40 - debug: UUID : 38 recv - ReqDefaultInfo - packet_srl=2, uuid=38
+2017-03-28 11:18:40 - error: UUID : 38 Account : lim012 Ack Cmd : AckUser Error Log Msg - Not Exist Vip Info In Base
+2017-03-28 11:18:41 - debug: UUID : 38 recv - ReqVip - packet_srl=3, uuid=38
+2017-03-28 11:18:41 - info: UUID : 38, Send to Peer - data:
+ { reward_steps: [],
+  packet_srl: 3,
+  step: 0,
+  accum_buy_cash: 0,
+  buy_stamina_count: 0,
+  buy_gold_count: 0,
+  buy_add_attend_count: 0,
+  result: 0 } AckVip
+2017-03-28 11:18:41 - debug: UUID : 38, recv - ReqStage - packet_srl=4, uuid=38
+2017-03-28 11:18:41 - info: UUID : 38, Send to Peer - data:
+ { chapter_list: 
+   [ { chapter_id: 101, take_reward_box_count: 0 },
+     { chapter_id: 201, take_reward_box_count: 0 } ],
+  stage_list: [],
+  packet_srl: 4,
+  result: 0 } AckStageInfo
+2017-03-28 11:18:41 - debug: recv - ReqDarkDungeon packet_srl=5
+2017-03-28 11:18:41 - info: UUID : 38, Send to Peer - data:
+ { darkdungeon_list: [], packet_srl: 5, result: 0 } AckDarkDungeon
+2017-03-28 11:18:42 - info: UUID : 38, recv - ReqMailReadInfo - packet_srl=6, uuid=38
+2017-03-28 11:18:42 - info: UUID : 38, Send to Peer - data:
+ { mail_read_infos: [], packet_srl: 6, result: 0 } AckMailReadInfo
+2017-03-28 11:18:42 - debug: UUID : 38, recv - ReqAttend - packet_srl=7
+2017-03-28 11:18:42 - error: UUID : 38 Account : lim012 Ack Cmd : AckAttendInfo Error Log Msg - Not Exist Accum Date In Base Month 3
+2017-03-28 11:18:44 - info: ★★★★★ 정리 이전 user_list_by_socket_id Size : 1, user_list_by_uuid Size : 1
+2017-03-28 11:18:44 - info: ★★★★★ uuid : 38, socket_id : ZS3Ex1Y3PNgMGapzAAAA, socket ip : ::ffff:172.20.70.70, reason : transport close 로그아웃.
+2017-03-28 11:18:44 - info: 확인용. 2017-03-28 11:18:44, 0 
+2017-03-28 11:18:44 - info: ★★★★★ 정리 이후 user_list_by_socket_id Size : 0, user_list_by_uuid Size : 1
+2017-03-28 11:20:46 - info: ☆ connected client from socket.id is ARjB3YlAC8QDC8v0AAAB IP : ::ffff:172.20.70.51 ☆
+2017-03-28 11:20:48 - debug: ACCOUNT : 1, recv - ReqLogon - packet_srl=0, account=1
+2017-03-28 11:20:48 - info: ★★★★★ uuid : 1, socket_id : ARjB3YlAC8QDC8v0AAAB 로그인.
+2017-03-28 11:20:48 - info: ★★★★★ AddUser 접속 리스트 uuid : 1, socket id : ARjB3YlAC8QDC8v0AAAB
+2017-03-28 11:20:48 - info: UUID : 1, Send to Peer - data:
+ { packet_srl: 0,
+  uuid: 1,
+  last_login_unix_time: 1490700048,
+  is_new_day: false,
+  result: 0 } AckLogon
+2017-03-28 11:20:48 - debug: UUID : 1 recv - ReqDefaultInfo - uuid=1, packet_srl=1
+2017-03-28 11:20:48 - error: UUID : 1 Account : 1 Ack Cmd : AckUser Error Log Msg - Not Exist Vip Info In Base
+2017-03-28 11:22:05 - debug: **** define value init ****
+2017-03-28 11:22:05 - debug: **** Duck packet command init ****
+2017-03-28 11:22:05 - debug: **** LoginServer packet command init ****
+2017-03-28 11:22:05 - debug: **** Version packet command init ****
+2017-03-28 11:22:05 - debug: **** Account packet command init ****
+2017-03-28 11:22:05 - debug: **** AccountBuff packet command init ****
+2017-03-28 11:22:05 - debug: **** Hero packet command init ****
+2017-03-28 11:22:05 - debug: **** Battle packet command init ****
+2017-03-28 11:22:05 - debug: **** Team packet command init ****
+2017-03-28 11:22:05 - debug: **** EquipItem packet command init ****
+2017-03-28 11:22:05 - debug: **** Buy packet command init ****
+2017-03-28 11:22:05 - debug: **** Shop packet command init ****
+2017-03-28 11:22:05 - debug: **** Gacha packet command init ****
+2017-03-28 11:22:05 - debug: **** Common packet command init ****
+2017-03-28 11:22:05 - debug: **** Inventory packet command init ****
+2017-03-28 11:22:05 - debug: **** WeeklyDungeon packet command init ****
+2017-03-28 11:22:05 - debug: **** Mail packet command init ****
+2017-03-28 11:22:05 - debug: **** Attend packet command init ****
+2017-03-28 11:22:05 - debug: **** Rank packet command init ****
+2017-03-28 11:22:05 - debug: **** Notice packet command init ****
+2017-03-28 11:22:05 - debug: **** Mission packet command init ****
+2017-03-28 11:22:06 - debug: **** Guild packet command init ****
+2017-03-28 11:22:06 - debug: **** InfinityTower packet command init ****
+2017-03-28 11:22:06 - debug: **** Friend packet command init ****
+2017-03-28 11:22:06 - debug: **** DarkDungeon packet command init ****
+2017-03-28 11:22:06 - debug: **** PVP packet command init ****
+2017-03-28 11:22:06 - debug: **** Packet result code init ****
+2017-03-28 11:22:06 - debug: Starting Game Server ...
+2017-03-28 11:22:06 - debug: @@@@@@@@ This Game Server PID is 9774 @@@@@@@@
+2017-03-28 11:22:06 - debug: ============================ DB Connection info ============================
+2017-03-28 11:22:06 - debug: DB: mKUF_JW
+2017-03-28 11:22:06 - debug: Acc: pocatcom
+2017-03-28 11:22:06 - debug: PW: P@ssw0rd
+2017-03-28 11:22:06 - debug: IP: 172.20.70.76
+2017-03-28 11:22:06 - debug: PORT: 3306
+2017-03-28 11:22:06 - debug: DB Name : mKUF_JW
+2017-03-28 11:22:06 - debug: DB Acc : pocatcom
+2017-03-28 11:22:06 - debug: DB PW : P@ssw0rd
+2017-03-28 11:22:06 - debug: DB connect complete!!! connected state is true
+2017-03-28 11:22:06 - debug: ============================ DefineGameDataTable ============================
+2017-03-28 11:22:06 - debug: ***** GTMgr AsyncGameDataTable *****
+2017-03-28 11:22:06 - info: ----------------------- Init Weekly Content Time Check -------------------
+2017-03-28 11:22:06 - info: --- 오늘 남은 시간(초) :  45474
+2017-03-28 11:22:06 - info: --- 다음 정리 까지 남은 시간(초) :  45923999
+2017-03-28 11:22:06 - debug: *** BT_ACCOUNT_BUFF_BASE Initialize - 1 ****
+2017-03-28 11:22:06 - debug: *** BT_ARMY Initialize - 2 ****
+2017-03-28 11:22:06 - debug: *** BT_ATTEND_ACCUM_REWARD Initialize - 3 ****
+2017-03-28 11:22:06 - debug: *** BT_ATTEND_ADD_COST Initialize - 4 ****
+2017-03-28 11:22:06 - debug: *** BT_ATTEND_DAILY_REWARD Initialize - 5 ****
+2017-03-28 11:22:06 - debug: *** BT_BUY_CASH Initialize - 6 ****
+2017-03-28 11:22:06 - debug: *** BT_BUY_COUNT Initialize - 7 ****
+2017-03-28 11:22:06 - debug: *** BT_BUY_GOLD Initialize - 8 ****
+2017-03-28 11:22:06 - debug: *** BT_BUY_STAMINA Initialize - 9 ****
+2017-03-28 11:22:06 - debug: *** BT_CHAPTER_BASE Initialize - 10 ****
+2017-03-28 11:22:06 - debug: *** BT_COMMON Initialize - 11 ****
+2017-03-28 11:22:06 - debug: *** BT_COST_ALL Initialize - 12 ****
+2017-03-28 11:22:06 - debug: *** BT_DARK_CHAPTER_BASE Initialize - 13 ****
+2017-03-28 11:22:06 - debug: *** BT_DARK_STAGE_BASE Initialize - 14 ****
+2017-03-28 11:22:06 - debug: *** BT_EXP Initialize - 15 ****
+2017-03-28 11:22:06 - debug: *** BT_GACHA_INFO Initialize - 16 ****
+2017-03-28 11:22:06 - debug: *** BT_GACHA_NORMAL Initialize - 17 ****
+2017-03-28 11:22:06 - debug: *** BT_GACHA_PREMIUM Initialize - 18 ****
+2017-03-28 11:22:06 - debug: *** BT_GACHA_PREMIUM_FIRST Initialize - 19 ****
+2017-03-28 11:22:06 - debug: *** BT_GACHA_VIP Initialize - 20 ****
+2017-03-28 11:22:06 - debug: *** BT_GUILD Initialize - 21 ****
+2017-03-28 11:22:06 - debug: *** BT_GUILD_CONTENTS_REWARD Initialize - 22 ****
+2017-03-28 11:22:06 - debug: *** BT_GUILD_DONATION Initialize - 23 ****
+2017-03-28 11:22:06 - debug: *** BT_GUILD_DONATION_REWARD Initialize - 24 ****
+2017-03-28 11:22:06 - debug: *** BT_HERO_BASE Initialize - 25 ****
+2017-03-28 11:22:06 - debug: *** BT_HERO_EVOLUTION Initialize - 26 ****
+2017-03-28 11:22:06 - debug: *** BT_HERO_EVOLUTION_STATUS Initialize - 27 ****
+2017-03-28 11:22:06 - debug: *** BT_HERO_LV_RATING Initialize - 28 ****
+2017-03-28 11:22:06 - debug: *** BT_HERO_PROMOTION Initialize - 29 ****
+2017-03-28 11:22:06 - debug: *** BT_HERO_SKILL Initialize - 30 ****
+2017-03-28 11:22:06 - debug: *** BT_HERO_SKILL_EFFECT Initialize - 31 ****
+2017-03-28 11:22:06 - debug: *** BT_INFINITY_TOWER_BASE Initialize - 32 ****
+2017-03-28 11:22:06 - debug: *** BT_INFINITY_TOWER_BOT_RANKER Initialize - 33 ****
+2017-03-28 11:22:06 - debug: *** BT_INFINITY_TOWER_BUFF Initialize - 34 ****
+2017-03-28 11:22:06 - debug: *** BT_INFINITY_TOWER_CASH Initialize - 35 ****
+2017-03-28 11:22:06 - debug: *** BT_INFINITY_TOWER_RANKING Initialize - 36 ****
+2017-03-28 11:22:06 - debug: *** BT_INFINITY_TOWER_SCORE Initialize - 37 ****
+2017-03-28 11:22:06 - debug: *** BT_INFINITY_TOWER_SECRET Initialize - 38 ****
+2017-03-28 11:22:06 - debug: *** BT_INFINITY_TOWER_SKIP Initialize - 39 ****
+2017-03-28 11:22:06 - debug: *** BT_ITEM_BASE Initialize - 40 ****
+2017-03-28 11:22:06 - debug: *** BT_ITEM_ENCHANT_COST Initialize - 41 ****
+2017-03-28 11:22:06 - debug: *** BT_ITEM_EQUIP_OPTION Initialize - 42 ****
+2017-03-28 11:22:06 - debug: *** BT_ITEM_EQUIP_STATUS Initialize - 43 ****
+2017-03-28 11:22:06 - debug: *** BT_ITEM_EVOLUTION Initialize - 44 ****
+2017-03-28 11:22:06 - debug: *** BT_ITEM_EVOLUTION_STATUS Initialize - 45 ****
+2017-03-28 11:22:06 - debug: *** BT_ITEM_PROMOTION Initialize - 46 ****
+2017-03-28 11:22:06 - debug: *** BT_LEVEL_UNLOCK Initialize - 47 ****
+2017-03-28 11:22:06 - debug: *** BT_MISSION Initialize - 48 ****
+2017-03-28 11:22:06 - debug: *** BT_PVP_LEAGUE Initialize - 49 ****
+2017-03-28 11:22:06 - debug: *** BT_RANDOMBOX Initialize - 50 ****
+2017-03-28 11:22:06 - debug: *** BT_REWARD_INFINITY_TOWER Initialize - 51 ****
+2017-03-28 11:22:06 - debug: *** BT_REWARD_RANKING Initialize - 52 ****
+2017-03-28 11:22:06 - debug: *** BT_SHOP_CHALLENGE Initialize - 53 ****
+2017-03-28 11:22:06 - debug: *** BT_SHOP_GUILD Initialize - 54 ****
+2017-03-28 11:22:06 - debug: *** BT_SHOP_HERO_EXP Initialize - 55 ****
+2017-03-28 11:22:06 - debug: *** BT_SHOP_NORMAL Initialize - 56 ****
+2017-03-28 11:22:06 - debug: *** BT_SHOP_PVP Initialize - 57 ****
+2017-03-28 11:22:06 - debug: *** BT_SHOP_RANDOM Initialize - 58 ****
+2017-03-28 11:22:06 - debug: *** BT_SHOP_RESET_COST Initialize - 59 ****
+2017-03-28 11:22:06 - debug: *** BT_SHOP_TIME Initialize - 60 ****
+2017-03-28 11:22:06 - debug: *** BT_STAGE_BASE Initialize - 61 ****
+2017-03-28 11:22:06 - debug: *** BT_STAGE_DROPGROUP_BASE Initialize - 62 ****
+2017-03-28 11:22:06 - debug: *** BT_START_HERO Initialize - 63 ****
+2017-03-28 11:22:06 - debug: *** BT_SUMMON_BASE Initialize - 64 ****
+2017-03-28 11:22:06 - debug: *** BT_TEAM_ENHANCE_BASE Initialize - 65 ****
+2017-03-28 11:22:06 - debug: *** BT_TEAM_ENHANCE_LEVELUP Initialize - 66 ****
+2017-03-28 11:22:06 - debug: *** BT_VIP Initialize - 67 ****
+2017-03-28 11:22:06 - debug: *** BT_WEEKLY_DUNGEON Initialize - 68 ****
+2017-03-28 11:22:16 - debug: *** Start LoadItem ***
+2017-03-28 11:22:16 - debug: *** Start LoadItemEvolution ***
+2017-03-28 11:22:16 - debug: *** Start LoadItemEquipStatus ***
+2017-03-28 11:22:16 - debug: *** Start LoadItemEquipOption ***
+2017-03-28 11:22:16 - debug: *** Start LoadItemEnchantCost ***
+2017-03-28 11:22:16 - debug: *** Start LoadBTHero ***
+2017-03-28 11:22:16 - debug: *** Start LoadExp *** 
+2017-03-28 11:22:16 - debug: *** Start LoadSenarioChapter *** 
+2017-03-28 11:22:16 - debug: *** Start LoadGuildRaidChapter ***
+2017-03-28 11:22:16 - debug: *** Start LoadBTHeroPromotion ***
+2017-03-28 11:22:16 - debug: *** Start LoadBTHeroEvolution ***
+2017-03-28 11:22:16 - debug: *** Start LoadBTTown Drop Group Info *** 
+2017-03-28 11:22:16 - debug: *** Start LoadVip ***
+2017-03-28 11:22:16 - debug: *** Start LoadBuyGold ***
+2017-03-28 11:22:16 - debug: *** Start LoadBuyStamina ***
+2017-03-28 11:22:16 - debug: *** Start LoadBuyCash ***
+2017-03-28 11:22:16 - debug: *** Start LoadBuyCount ***
+2017-03-28 11:22:16 - debug: *** Start LoadShop ***
+2017-03-28 11:22:16 - debug: *** Start LoadBTGacha *** 
+2017-03-28 11:22:16 - debug: *** Start LoadRandomBox ***
+2017-03-28 11:22:16 - debug: *** Start LoadAttendDaily ***
+2017-03-28 11:22:16 - debug: *** Start LoadAddAttendCost ***
+2017-03-28 11:22:16 - debug: *** Start LoadAttendAccum ***
+2017-03-28 11:22:16 - debug: *** Start LoadBTMission *** 
+2017-03-28 11:22:16 - debug: *** Start Load AccountBuff ***
+2017-03-28 11:22:16 - debug: *** Start LoadGuild ***
+2017-03-28 11:22:16 - debug: *** Start LoadGuildDonation ***
+2017-03-28 11:22:16 - debug: *** Start LoadGuildRaidRankReward ***
+2017-03-28 11:22:16 - debug: *** Start LoadGuildDonationReward ***
+2017-03-28 11:22:16 - debug: *** Start LoadTower ***
+2017-03-28 11:22:16 - debug: *** Start LoadTowerBuffList ***
+2017-03-28 11:22:16 - debug: *** Start LoadTowerCashRewardBox ***
+2017-03-28 11:22:16 - debug: *** Start LoadTowerBattleSkip ***
+2017-03-28 11:22:16 - debug: *** Start LoadTowerAccumScoreReward ***
+2017-03-28 11:22:16 - debug: *** Start LoadTowerRankReward ***
+2017-03-28 11:22:16 - debug: *** Start LoadTowerBotRanker ***
+2017-03-28 11:22:16 - debug: *** Start LoadRewardInfinityTower ***
+2017-03-28 11:22:16 - debug: *** Start LoadBTWeeklyDungeon *** 
+2017-03-28 11:22:16 - debug: *** Start LoadDarkDungeonChapter *** 
+2017-03-28 11:22:16 - debug: *** Start LoadArmySkill *** 
+2017-03-28 11:22:16 - debug: *** Start LoadLevelUnlock ***
+2017-03-28 11:22:16 - debug: *** Start LoadSkill ***
+2017-03-28 11:22:16 - debug: *** Start LoadBTPVP *** 
+2017-03-28 11:22:24 - info: ☆ connected client from socket.id is yN0BfMdkeBWE96bhAAAA IP : ::ffff:172.20.70.51 ☆
+2017-03-28 11:22:24 - debug: ACCOUNT : 1, recv - ReqLogon - packet_srl=6, account=1
+2017-03-28 11:22:25 - info: ★★★★★ uuid : 1, socket_id : yN0BfMdkeBWE96bhAAAA 로그인.
+2017-03-28 11:22:25 - info: ★★★★★ AddUser 접속 리스트 uuid : 1, socket id : yN0BfMdkeBWE96bhAAAA
+2017-03-28 11:22:25 - info: UUID : 1, Send to Peer - data:
+ { packet_srl: 6,
+  uuid: 1,
+  last_login_unix_time: 1490700144,
+  is_new_day: false,
+  result: 0 } AckLogon
+2017-03-28 11:22:25 - debug: UUID : 1 recv - ReqDefaultInfo - uuid=1, packet_srl=7
+2017-03-28 11:22:25 - info: UUID : 1, Send to Peer - data:
+ { packet_srl: 7,
+  nick: '1',
+  icon: 231,
+  level: 27,
+  exp: 10010,
+  gold: 2060920,
+  cash: 100040,
+  point_honor: 0,
+  point_alliance: 0,
+  point_challenge: 0,
+  max_stamina: 106,
+  max_skill_point: 20,
+  stamina: 116,
+  skill_point: 20,
+  stamina_remain_time: 0,
+  skill_point_remain_time: 0,
+  account_buff_point: 0,
+  max_equip_item_inventory_slot: 100,
+  buy_equip_item_inventory_slot: 0,
+  result: 0 } AckUser
+2017-03-28 11:23:37 - info: ☆ connected client from socket.id is 2xCiu9IjucPJz4GgAAAB IP : ::ffff:172.20.70.70 ☆
+2017-03-28 11:23:39 - debug: ACCOUNT : lim012, recv - ReqLogon - packet_srl=1, account=lim012
+2017-03-28 11:23:39 - info: ★★★★★ uuid : 38, socket_id : 2xCiu9IjucPJz4GgAAAB 로그인.
+2017-03-28 11:23:39 - info: ★★★★★ AddUser 접속 리스트 uuid : 1, socket id : yN0BfMdkeBWE96bhAAAA
+2017-03-28 11:23:39 - info: ★★★★★ AddUser 접속 리스트 uuid : 38, socket id : 2xCiu9IjucPJz4GgAAAB
+2017-03-28 11:23:39 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 1,
+  uuid: 38,
+  last_login_unix_time: 1490700219,
+  is_new_day: false,
+  result: 0 } AckLogon
+2017-03-28 11:23:39 - debug: UUID : 38 recv - ReqDefaultInfo - packet_srl=2, uuid=38
+2017-03-28 11:23:39 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 2,
+  nick: 'lim012',
+  icon: 251,
+  level: 24,
+  exp: 6327,
+  gold: 556000,
+  cash: 0,
+  point_honor: 0,
+  point_alliance: 0,
+  point_challenge: 0,
+  max_stamina: 103,
+  max_skill_point: 20,
+  stamina: 103,
+  skill_point: 20,
+  stamina_remain_time: 0,
+  skill_point_remain_time: 0,
+  account_buff_point: 0,
+  max_equip_item_inventory_slot: 100,
+  buy_equip_item_inventory_slot: 0,
+  result: 0 } AckUser
+2017-03-28 11:23:40 - debug: UUID : 38 recv - ReqVip - packet_srl=3, uuid=38
+2017-03-28 11:23:40 - info: UUID : 38, Send to Peer - data:
+ { reward_steps: [],
+  packet_srl: 3,
+  step: 0,
+  accum_buy_cash: 0,
+  buy_stamina_count: 0,
+  buy_gold_count: 0,
+  buy_add_attend_count: 0,
+  result: 0 } AckVip
+2017-03-28 11:23:41 - debug: UUID : 38, recv - ReqStage - packet_srl=4, uuid=38
+2017-03-28 11:23:41 - info: UUID : 38, Send to Peer - data:
+ { chapter_list: 
+   [ { chapter_id: 101, take_reward_box_count: 0 },
+     { chapter_id: 201, take_reward_box_count: 0 } ],
+  stage_list: [],
+  packet_srl: 4,
+  result: 0 } AckStageInfo
+2017-03-28 11:23:41 - debug: recv - ReqDarkDungeon packet_srl=5
+2017-03-28 11:23:41 - info: UUID : 38, Send to Peer - data:
+ { darkdungeon_list: [], packet_srl: 5, result: 0 } AckDarkDungeon
+2017-03-28 11:23:41 - info: UUID : 38, recv - ReqMailReadInfo - packet_srl=6, uuid=38
+2017-03-28 11:23:41 - info: UUID : 38, Send to Peer - data:
+ { mail_read_infos: [], packet_srl: 6, result: 0 } AckMailReadInfo
+2017-03-28 11:23:42 - debug: UUID : 38, recv - ReqAttend - packet_srl=7
+2017-03-28 11:23:42 - info: UUID : 38, Send to Peer - data:
+ { attend_accum_reward_days: [],
+  packet_srl: 7,
+  attend_accum_day: 1,
+  last_attend_reward_day: 27,
+  buy_add_attend_count: 0,
+  result: 0 } AckAttendInfo
+2017-03-28 11:23:42 - debug: UUID : 38, recv - ReqMission - packet_srl=8
+2017-03-28 11:23:42 - info: UUID : 38, Send to Peer - data:
+ { mission_list: [], packet_srl: 8, result: 0 } AckMissionInfo
+2017-03-28 11:23:43 - debug: UUID : 38, recv - ReqInventory - packet_srl=9, uuid=38
+2017-03-28 11:23:43 - info: UUID : 38, Send to Peer - data:
+ { items: 
+   [ { iuid: 447, item_id: 1030003, item_count: 9 },
+     { iuid: 448, item_id: 1030004, item_count: 13 },
+     { iuid: 449, item_id: 1030005, item_count: 2 } ],
+  packet_srl: 9,
+  result: 0 } AckInventory
+2017-03-28 11:23:43 - info: UUID : 38, recv - ReqEquipment - packet_srl=10
+2017-03-28 11:23:43 - info: UUID : 38, Send to Peer - data:
+ { equipment_list: [], packet_srl: 10, result: 0 } AckEquipment
+2017-03-28 11:23:43 - debug: UUID : 38, recv - ReqHero - packet_srl=11, uuid=38
+2017-03-28 11:23:43 - info: UUID : 38, Send to Peer - data:
+ { heroes: 
+   [ { hero_id: 3,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 4,
+       hero_exp: 0,
+       equip_set_count: 2,
+       battle_power: 0 },
+     { hero_id: 6,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 2,
+       hero_exp: 0,
+       equip_set_count: 2,
+       battle_power: 0 },
+     { hero_id: 23,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 2,
+       hero_exp: 0,
+       equip_set_count: 2,
+       battle_power: 0 },
+     { hero_id: 25,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 2,
+       hero_exp: 0,
+       equip_set_count: 2,
+       battle_power: 0 } ],
+  hero_equip_list: [],
+  packet_srl: 11,
+  result: 0 } AckHeroBases
+2017-03-28 11:23:43 - info: UUID : 38, recv - ReqHeroSkills - packet_srl=12, uuid=38, hero_id=3
+2017-03-28 11:23:43 - info: UUID : 38, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 301, skill_level: 1 },
+     { skill_id: 302, skill_level: 1 },
+     { skill_id: 303, skill_level: 1 },
+     { skill_id: 304, skill_level: 1 },
+     { skill_id: 311, skill_level: 1 },
+     { skill_id: 611, skill_level: 1 },
+     { skill_id: 321, skill_level: 1 },
+     { skill_id: 322, skill_level: 1 } ],
+  packet_srl: 12,
+  hero_id: 3,
+  result: 0 } AckHeroSkills
+2017-03-28 11:23:44 - info: UUID : 38, recv - ReqHeroSkills - packet_srl=13, uuid=38, hero_id=6
+2017-03-28 11:23:44 - info: UUID : 38, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 601, skill_level: 1 },
+     { skill_id: 602, skill_level: 1 },
+     { skill_id: 603, skill_level: 1 },
+     { skill_id: 604, skill_level: 1 },
+     { skill_id: 611, skill_level: 1 },
+     { skill_id: 621, skill_level: 1 },
+     { skill_id: 622, skill_level: 1 } ],
+  packet_srl: 13,
+  hero_id: 6,
+  result: 0 } AckHeroSkills
+2017-03-28 11:23:44 - info: UUID : 38, recv - ReqHeroSkills - packet_srl=14, uuid=38, hero_id=23
+2017-03-28 11:23:44 - info: UUID : 38, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 2301, skill_level: 1 },
+     { skill_id: 2302, skill_level: 1 },
+     { skill_id: 2303, skill_level: 1 },
+     { skill_id: 2304, skill_level: 1 },
+     { skill_id: 2311, skill_level: 1 },
+     { skill_id: 2321, skill_level: 1 },
+     { skill_id: 2322, skill_level: 1 } ],
+  packet_srl: 14,
+  hero_id: 23,
+  result: 0 } AckHeroSkills
+2017-03-28 11:23:45 - info: UUID : 38, recv - ReqHeroSkills - packet_srl=15, uuid=38, hero_id=25
+2017-03-28 11:23:45 - info: UUID : 38, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 2501, skill_level: 1 },
+     { skill_id: 2502, skill_level: 1 },
+     { skill_id: 2503, skill_level: 1 },
+     { skill_id: 2504, skill_level: 1 },
+     { skill_id: 2511, skill_level: 1 },
+     { skill_id: 2521, skill_level: 1 },
+     { skill_id: 2522, skill_level: 1 } ],
+  packet_srl: 15,
+  hero_id: 25,
+  result: 0 } AckHeroSkills
+2017-03-28 11:23:45 - info: UUID : 38, recv - ReqHeroArmySkill - packet_srl=16, hero_id=3
+2017-03-28 11:23:45 - info: UUID : 38, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 16,
+  hero_id: 3,
+  result: 0 } AckHeroArmySkill
+2017-03-28 11:23:45 - info: UUID : 38, recv - ReqHeroArmySkill - packet_srl=17, hero_id=6
+2017-03-28 11:23:45 - info: UUID : 38, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 17,
+  hero_id: 6,
+  result: 0 } AckHeroArmySkill
+2017-03-28 11:23:45 - info: UUID : 38, recv - ReqHeroArmySkill - packet_srl=18, hero_id=23
+2017-03-28 11:23:45 - info: UUID : 38, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 18,
+  hero_id: 23,
+  result: 0 } AckHeroArmySkill
+2017-03-28 11:23:45 - info: UUID : 38, recv - ReqHeroArmySkill - packet_srl=19, hero_id=25
+2017-03-28 11:23:45 - info: UUID : 38, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 19,
+  hero_id: 25,
+  result: 0 } AckHeroArmySkill
+2017-03-28 11:23:46 - debug: UUID : 38, recv - ReqInventory - packet_srl=20, uuid=38
+2017-03-28 11:23:46 - info: UUID : 38, Send to Peer - data:
+ { team_list: 
+   [ { hero_id_list: [Object], team_id: 1 },
+     { hero_id_list: [Object], team_id: 7 },
+     { hero_id_list: [Object], team_id: 8 } ],
+  packet_srl: 20,
+  result: 0 } AckTeam
+2017-03-28 11:23:46 - info: UUID : 38, recv - ReqShopIDs - packet_srl=21, uuid=38
+2017-03-28 11:23:46 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 21,
+  reset_count: 0,
+  normal_id: 1204,
+  pvp_id: 4202,
+  guild_id: 3202,
+  random_id: 0,
+  challenge_id: 5201,
+  random_open_unix_time: 0,
+  result: 0 } AckShopIDs
+2017-03-28 11:23:47 - debug: UUID : 38, recv - ReqGacha - packet_srl=22
+2017-03-28 11:23:47 - info: UUID : 38, Send to Peer - data:
+ { gacha_info_list: 
+   [ { gacha_id: 1,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 2,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 3,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 4,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 5,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 6,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 7,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 } ],
+  packet_srl: 22,
+  result: 0 } AckGachaInfo
+2017-03-28 11:23:47 - debug: UUID : 38, recv - ReqPvPInfo - packet_srl=23
+2017-03-28 11:23:47 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 23,
+  league_index: 1,
+  group_index: 0,
+  pvp_point: 1000,
+  remain_honor_point: 120,
+  lately_battle_power: 0,
+  win_weekly_pvp: 0,
+  lose_weekly_pvp: 0,
+  highest_reach_league_id: 1,
+  take_league_reward_id: 1,
+  remain_pvp_play_count: 10,
+  last_play_count_charge_date: 1490700227,
+  league_rank: 0,
+  group_rank: 0,
+  result: 0 } AckPvpInfo
+2017-03-28 11:23:47 - info: UUID : 38, recv - ReqAccountBuffInfo - packet_srl=24
+2017-03-28 11:23:47 - info: UUID : 38, Send to Peer - data:
+ { account_buff_list: null, packet_srl: 24, result: 0 } AckAccountBuffInfo
+2017-03-28 11:23:48 - debug: UUID : 38 recv - ReqTowerUserInfo packet_srl=25
+2017-03-28 11:23:48 - info: UUID : 38, Send to Peer - data:
+ { accum_score_reward_id_list: null,
+  packet_srl: 25,
+  floor: 50,
+  ticket: 23,
+  daily_score: 4250,
+  accum_score: 4250,
+  past_floor: 0,
+  past_rank: 30000,
+  past_score: 0,
+  max_skip_floor: 0,
+  result: 0 } AckInfinityTowerUser
+2017-03-28 11:23:48 - debug: UUID : 38 recv - ReqTowerBotInfo packet_srl=26
+2017-03-28 11:23:48 - info: UUID : 38, Send to Peer - data:
+ { battle_bot_list: 
+   [ { icon_id: 231, bot_name: '바보세레나', bot_rank: 249 },
+     { icon_id: 61, bot_name: '바보그루스', bot_rank: 141 },
+     { icon_id: 61, bot_name: '로얄나미', bot_rank: 127 },
+     { icon_id: 231, bot_name: '신컨루나', bot_rank: 14 } ],
+  battle_bot_hero_list: null,
+  packet_srl: 26,
+  result: 0 } AckInfinityTowerBot
+2017-03-28 11:23:48 - debug: UUID : 38 recv - ReqTowerProcessInfo packet_srl=27
+2017-03-28 11:23:48 - info: UUID : 38, Send to Peer - data:
+ { buff_list: 
+   [ { buff_list: [Object], buy_buff_list: [Object], floor: 2 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 6 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 12 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 16 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 23 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 32 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 33 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 35 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 37 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 39 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 42 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 47 } ],
+  packet_srl: 27,
+  floor: 50,
+  battle_type: 0,
+  battle_clear_grade: 0,
+  is_reward_box_open: true,
+  cash_reward_box_count: 0,
+  is_secret_maze_entrance: false,
+  secret_maze_type: 0,
+  is_secret_maze_reset: false,
+  secret_maze_battle_id: 0,
+  awake_buff: null,
+  all_clear: true,
+  result: 0 } AckInfinityTowerProcess
+2017-03-28 11:23:49 - debug: UUID : 38 recv - ReqTowerAllClear packet_srl=28
+2017-03-28 11:23:49 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 28, result: 0 } AckInfinityTowerAllClear
+2017-03-28 11:23:49 - debug: UUID : 38 recv - ReqTowerHeroInfo packet_srl=29
+2017-03-28 11:23:49 - info: UUID : 38, Send to Peer - data:
+ { hero_list: 
+   [ { hero_id: 3, hero_hp: 0.5 },
+     { hero_id: 6, hero_hp: 0.5 },
+     { hero_id: 25, hero_hp: 0.5 },
+     { hero_id: 23, hero_hp: 0.5 } ],
+  packet_srl: 29,
+  result: 0 } AckInfinityTowerHero
+2017-03-28 11:23:49 - debug: UUID : 38, recv - ReqWeeklyDungeon - packet_srl=30
+2017-03-28 11:23:49 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 30, exec_count: 0, result: 0 } AckWeeklyDungeonExecCount
+2017-03-28 11:23:50 - debug: UUID : 38, recv - ReqGuild - packet_srl=31
+2017-03-28 11:23:50 - info: UUID : 38, Send to Peer - data:
+ { guild_skill_list: [], packet_srl: 31, result: 0 } AckGuildInfo
+2017-03-28 11:23:55 - info: UUID : 38, recv - ReqAttendDAilyReward - packet_srl=32
+2017-03-28 11:23:55 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 32,
+  accum_attend_date: 2,
+  vip_reward: false,
+  reward_box: { item_list: [], result_equipment_list: [], cash: { total: 20 } },
+  result: 0 } AckAttendDailyReward
+2017-03-28 11:24:04 - info: UUID : 38, recv - ReqChangeTeam - packet_srl=33, team_id=10000, hero_id_list=[23, 25, 0, 0]
+2017-03-28 11:24:04 - info: UUID : 38, Send to Peer - data:
+ { hero_id_list: [ 23, 25, 0, 0 ],
+  packet_srl: 33,
+  team_id: 10000,
+  result: 0 } AckChangeTeam
+2017-03-28 11:24:04 - debug: UUID : 38, recv - ReqBattleStart - packet_srl=34, chapter_id=100, stage_id=9101
+2017-03-28 11:24:04 - info: 배틀 기본 정보 - acc exp : 0, set exp : 0, first_enter_stage : true
+2017-03-28 11:24:04 - info: 배틀 정보 만들기 UUID 38, chapter ID : 100, stage id : 9101
+2017-03-28 11:24:04 - info: 배틀 정보 보상 정보 acc exp : 0, hero exp : 20, gold : 0
+2017-03-28 11:24:04 - info: UUID : 38, Send to Peer - data:
+ { reward_item_list: [], packet_srl: 34, result: 0 } AckBattleStart
+2017-03-28 11:24:05 - info: UUID : 38, recv - ReqChangeBattlePower - packet_srl=35, team_battle_power_list=[game_mode=10000, battle_power=752]
+2017-03-28 11:24:05 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 35, result: 0 } AckChangeBattlePower
+2017-03-28 11:24:05 - info: UUID : 38, recv - ReqChangeTeam - packet_srl=36, team_id=10000, hero_id_list=[23, 25, 0, 0]
+2017-03-28 11:24:05 - info: UUID : 38, Send to Peer - data:
+ { hero_id_list: [ 23, 25, 0, 0 ],
+  packet_srl: 36,
+  team_id: 10000,
+  result: 0 } AckChangeTeam
+2017-03-28 11:24:05 - info: UUID : 38, recv - ReqChangeBattlePower - packet_srl=37, team_battle_power_list=[game_mode=10000, battle_power=752]
+2017-03-28 11:24:05 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 37, result: 0 } AckChangeBattlePower
+2017-03-28 11:24:59 - debug: UUID : 38, recv - ReqBattleFinish - clear_grade=3, packet_srl=38
+2017-03-28 11:24:59 - info: UUID : 38, Send to Peer - data:
+ { result_hero_list: 
+   [ { hero_id: 3, hero_exp: 20, hero_level: 1 },
+     { hero_id: 6, hero_exp: 20, hero_level: 1 },
+     { hero_id: 23, hero_exp: 20, hero_level: 1 },
+     { hero_id: 25, hero_exp: 20, hero_level: 1 } ],
+  result_item_list: [],
+  result_equipment_list: [],
+  packet_srl: 38,
+  chapter_id: 100,
+  stage_id: 9101,
+  first_enter: true,
+  result_gold: 556000,
+  result_user_level: 24,
+  result_user_exp: 6327,
+  account_buff_point: 0,
+  stamina: 103,
+  max_stamina: 103,
+  stamina_remain_time: 0,
+  result: 0 } AckBattleFinish
+2017-03-28 11:25:30 - info: UUID : 38, recv - ReqChangeTeam - packet_srl=39, team_id=10000, hero_id_list=[23, 25, 0, 0]
+2017-03-28 11:25:30 - info: UUID : 38, Send to Peer - data:
+ { hero_id_list: [ 23, 25, 0, 0 ],
+  packet_srl: 39,
+  team_id: 10000,
+  result: 0 } AckChangeTeam
+2017-03-28 11:25:30 - debug: UUID : 38, recv - ReqBattleStart - packet_srl=40, chapter_id=100, stage_id=9102
+2017-03-28 11:25:30 - info: 배틀 기본 정보 - acc exp : 0, set exp : 0, first_enter_stage : true
+2017-03-28 11:25:30 - info: 배틀 정보 만들기 UUID 38, chapter ID : 100, stage id : 9102
+2017-03-28 11:25:30 - info: 배틀 정보 보상 정보 acc exp : 0, hero exp : 20, gold : 0
+2017-03-28 11:25:30 - info: UUID : 38, Send to Peer - data:
+ { reward_item_list: [], packet_srl: 40, result: 0 } AckBattleStart
+2017-03-28 11:25:30 - info: UUID : 38, recv - ReqChangeBattlePower - packet_srl=41, team_battle_power_list=[game_mode=10000, battle_power=752]
+2017-03-28 11:25:30 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 41, result: 0 } AckChangeBattlePower
+2017-03-28 11:25:30 - info: UUID : 38, recv - ReqChangeTeam - packet_srl=42, team_id=10000, hero_id_list=[23, 25, 0, 0]
+2017-03-28 11:25:30 - info: UUID : 38, Send to Peer - data:
+ { hero_id_list: [ 23, 25, 0, 0 ],
+  packet_srl: 42,
+  team_id: 10000,
+  result: 0 } AckChangeTeam
+2017-03-28 11:25:31 - info: UUID : 38, recv - ReqChangeBattlePower - packet_srl=43, team_battle_power_list=[game_mode=10000, battle_power=752]
+2017-03-28 11:25:31 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 43, result: 0 } AckChangeBattlePower
+2017-03-28 11:27:04 - debug: UUID : 38, recv - ReqBattleFinish - clear_grade=3, packet_srl=44
+2017-03-28 11:27:04 - info: UUID : 38, Send to Peer - data:
+ { result_hero_list: 
+   [ { hero_id: 3, hero_exp: 40, hero_level: 1 },
+     { hero_id: 6, hero_exp: 40, hero_level: 1 },
+     { hero_id: 23, hero_exp: 40, hero_level: 1 },
+     { hero_id: 25, hero_exp: 40, hero_level: 1 } ],
+  result_item_list: [],
+  result_equipment_list: [],
+  packet_srl: 44,
+  chapter_id: 100,
+  stage_id: 9102,
+  first_enter: true,
+  result_gold: 556000,
+  result_user_level: 24,
+  result_user_exp: 6327,
+  account_buff_point: 0,
+  stamina: 103,
+  max_stamina: 103,
+  stamina_remain_time: 0,
+  result: 0 } AckBattleFinish
+2017-03-28 11:27:34 - info: UUID : 38, recv - ReqChangeTeam - packet_srl=45, team_id=10000, hero_id_list=[3, 6, 23, 25]
+2017-03-28 11:27:34 - info: UUID : 38, Send to Peer - data:
+ { hero_id_list: [ 3, 6, 23, 25 ],
+  packet_srl: 45,
+  team_id: 10000,
+  result: 0 } AckChangeTeam
+2017-03-28 11:27:34 - debug: UUID : 38, recv - ReqBattleStart - packet_srl=46, chapter_id=100, stage_id=9103
+2017-03-28 11:27:34 - info: 배틀 기본 정보 - acc exp : 0, set exp : 0, first_enter_stage : true
+2017-03-28 11:27:34 - info: 배틀 정보 만들기 UUID 38, chapter ID : 100, stage id : 9103
+2017-03-28 11:27:34 - info: 배틀 정보 보상 정보 acc exp : 0, hero exp : 0, gold : 0
+2017-03-28 11:27:34 - info: 배틀 보상. 아이템 item id : 3020014, item count : 100
+2017-03-28 11:27:34 - info: UUID : 38, Send to Peer - data:
+ { reward_item_list: [ { item_id: 3020014, item_count: 100, item_category1: 3 } ],
+  packet_srl: 46,
+  result: 0 } AckBattleStart
+2017-03-28 11:27:35 - info: UUID : 38, recv - ReqChangeBattlePower - packet_srl=47, team_battle_power_list=[game_mode=10000, battle_power=1761]
+2017-03-28 11:27:35 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 47, result: 0 } AckChangeBattlePower
+2017-03-28 11:27:35 - info: UUID : 38, recv - ReqChangeTeam - packet_srl=48, team_id=10000, hero_id_list=[3, 6, 23, 25]
+2017-03-28 11:27:35 - info: UUID : 38, Send to Peer - data:
+ { hero_id_list: [ 3, 6, 23, 25 ],
+  packet_srl: 48,
+  team_id: 10000,
+  result: 0 } AckChangeTeam
+2017-03-28 11:27:36 - info: UUID : 38, recv - ReqChangeBattlePower - packet_srl=49, team_battle_power_list=[game_mode=10000, battle_power=1761]
+2017-03-28 11:27:36 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 49, result: 0 } AckChangeBattlePower
+2017-03-28 11:28:41 - debug: UUID : 38, recv - ReqBattleFinish - clear_grade=3, packet_srl=50
+2017-03-28 11:28:41 - info: UUID : 38, Send to Peer - data:
+ { result_hero_list: 
+   [ { hero_id: 3, hero_exp: 40, hero_level: 1 },
+     { hero_id: 6, hero_exp: 40, hero_level: 1 },
+     { hero_id: 23, hero_exp: 40, hero_level: 1 },
+     { hero_id: 25, hero_exp: 40, hero_level: 1 } ],
+  result_item_list: [ { iuid: 458, item_id: 3020014, item_count: 100 } ],
+  result_equipment_list: [],
+  packet_srl: 50,
+  chapter_id: 100,
+  stage_id: 9103,
+  first_enter: true,
+  result_gold: 556000,
+  result_user_level: 24,
+  result_user_exp: 6327,
+  account_buff_point: 0,
+  stamina: 103,
+  max_stamina: 103,
+  stamina_remain_time: 0,
+  result: 0 } AckBattleFinish
+2017-03-28 11:29:11 - info: UUID : 38, recv - ReqChangeTeam - packet_srl=51, team_id=1, hero_id_list=[3, 6, 23, 25]
+2017-03-28 11:29:11 - info: UUID : 38, Send to Peer - data:
+ { hero_id_list: [ 3, 6, 23, 25 ],
+  packet_srl: 51,
+  team_id: 1,
+  result: 0 } AckChangeTeam
+2017-03-28 11:29:11 - debug: UUID : 38, recv - ReqBattleStart - packet_srl=52, chapter_id=101, stage_id=10101
+2017-03-28 11:29:11 - info: 배틀 기본 정보 - acc exp : 6, set exp : 6, first_enter_stage : true
+2017-03-28 11:29:11 - info: 배틀 정보 만들기 UUID 38, chapter ID : 101, stage id : 10101
+2017-03-28 11:29:11 - info: 배틀 정보 보상 정보 acc exp : 6, hero exp : 61, gold : 81
+2017-03-28 11:29:11 - info: 배틀 보상. 아이템 item id : 1020001, item count : 3
+2017-03-28 11:29:11 - info: 배틀 보상. 아이템 item id : 1021001, item count : 3
+2017-03-28 11:29:11 - info: 배틀 보상. 아이템 item id : 1030001, item count : 5
+2017-03-28 11:29:11 - info: UUID : 38, Send to Peer - data:
+ { reward_item_list: 
+   [ { item_id: 1020001, item_count: 3, item_category1: 1 },
+     { item_id: 1021001, item_count: 3, item_category1: 1 },
+     { item_id: 1030001, item_count: 5, item_category1: 1 } ],
+  packet_srl: 52,
+  result: 0 } AckBattleStart
+2017-03-28 11:29:11 - info: UUID : 38, recv - ReqChangeBattlePower - packet_srl=53, team_battle_power_list=[game_mode=1, battle_power=1761]
+2017-03-28 11:29:11 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 53, result: 0 } AckChangeBattlePower
+2017-03-28 11:29:11 - info: UUID : 38, recv - ReqChangeTeam - packet_srl=54, team_id=1, hero_id_list=[3, 6, 23, 25]
+2017-03-28 11:29:11 - info: UUID : 38, Send to Peer - data:
+ { hero_id_list: [ 3, 6, 23, 25 ],
+  packet_srl: 54,
+  team_id: 1,
+  result: 0 } AckChangeTeam
+2017-03-28 11:29:12 - info: UUID : 38, recv - ReqChangeBattlePower - packet_srl=55, team_battle_power_list=[game_mode=1, battle_power=1761]
+2017-03-28 11:29:12 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 55, result: 0 } AckChangeBattlePower
+2017-03-28 11:29:24 - info: ★★★★★ 정리 이전 user_list_by_socket_id Size : 2, user_list_by_uuid Size : 2
+2017-03-28 11:29:24 - info: ★★★★★ uuid : 38, socket_id : 2xCiu9IjucPJz4GgAAAB, socket ip : ::ffff:172.20.70.70, reason : transport close 로그아웃.
+2017-03-28 11:29:24 - info: 확인용. 2017-03-28 11:29:24, 0 
+2017-03-28 11:29:24 - info: ★★★★★ DelUser 접속 리스트 uuid : 1, socket id : yN0BfMdkeBWE96bhAAAA
+2017-03-28 11:29:24 - info: ★★★★★ 정리 이후 user_list_by_socket_id Size : 1, user_list_by_uuid Size : 2
+2017-03-28 11:30:26 - info: ☆ connected client from socket.id is HJ9snJr67mO94uA0AAAC IP : ::ffff:172.20.70.70 ☆
+2017-03-28 11:30:29 - debug: ACCOUNT : lim012, recv - ReqLogon - packet_srl=1, account=lim012
+2017-03-28 11:30:29 - info: ★★★★★ uuid : 38, socket_id : HJ9snJr67mO94uA0AAAC 로그인.
+2017-03-28 11:30:29 - info: ★★★★★ AddUser 접속 리스트 uuid : 1, socket id : yN0BfMdkeBWE96bhAAAA
+2017-03-28 11:30:29 - info: ★★★★★ AddUser 접속 리스트 uuid : 38, socket id : HJ9snJr67mO94uA0AAAC
+2017-03-28 11:30:29 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 1,
+  uuid: 38,
+  last_login_unix_time: 1490700629,
+  is_new_day: false,
+  result: 0 } AckLogon
+2017-03-28 11:30:29 - debug: UUID : 38 recv - ReqDefaultInfo - packet_srl=2, uuid=38
+2017-03-28 11:30:29 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 2,
+  nick: 'lim012',
+  icon: 251,
+  level: 24,
+  exp: 6327,
+  gold: 556000,
+  cash: 20,
+  point_honor: 0,
+  point_alliance: 0,
+  point_challenge: 0,
+  max_stamina: 103,
+  max_skill_point: 20,
+  stamina: 103,
+  skill_point: 20,
+  stamina_remain_time: 0,
+  skill_point_remain_time: 0,
+  account_buff_point: 0,
+  max_equip_item_inventory_slot: 100,
+  buy_equip_item_inventory_slot: 0,
+  result: 0 } AckUser
+2017-03-28 11:30:30 - debug: UUID : 38 recv - ReqVip - packet_srl=3, uuid=38
+2017-03-28 11:30:30 - info: UUID : 38, Send to Peer - data:
+ { reward_steps: [],
+  packet_srl: 3,
+  step: 0,
+  accum_buy_cash: 0,
+  buy_stamina_count: 0,
+  buy_gold_count: 0,
+  buy_add_attend_count: 0,
+  result: 0 } AckVip
+2017-03-28 11:30:31 - debug: UUID : 38, recv - ReqStage - packet_srl=4, uuid=38
+2017-03-28 11:30:31 - info: UUID : 38, Send to Peer - data:
+ { chapter_list: 
+   [ { chapter_id: 100, take_reward_box_count: 0 },
+     { chapter_id: 101, take_reward_box_count: 0 },
+     { chapter_id: 201, take_reward_box_count: 0 } ],
+  stage_list: 
+   [ { chapter_id: 100, stage_id: 9101, clear_grade: 3, able_count: 0 },
+     { chapter_id: 100, stage_id: 9102, clear_grade: 3, able_count: 0 },
+     { chapter_id: 100, stage_id: 9103, clear_grade: 3, able_count: 0 } ],
+  packet_srl: 4,
+  result: 0 } AckStageInfo
+2017-03-28 11:30:31 - debug: recv - ReqDarkDungeon packet_srl=5
+2017-03-28 11:30:31 - info: UUID : 38, Send to Peer - data:
+ { darkdungeon_list: [], packet_srl: 5, result: 0 } AckDarkDungeon
+2017-03-28 11:30:31 - info: UUID : 38, recv - ReqMailReadInfo - packet_srl=6, uuid=38
+2017-03-28 11:30:31 - info: UUID : 38, Send to Peer - data:
+ { mail_read_infos: [], packet_srl: 6, result: 0 } AckMailReadInfo
+2017-03-28 11:30:32 - debug: UUID : 38, recv - ReqAttend - packet_srl=7
+2017-03-28 11:30:32 - info: UUID : 38, Send to Peer - data:
+ { attend_accum_reward_days: [],
+  packet_srl: 7,
+  attend_accum_day: 2,
+  last_attend_reward_day: 28,
+  buy_add_attend_count: 0,
+  result: 0 } AckAttendInfo
+2017-03-28 11:30:33 - debug: UUID : 38, recv - ReqMission - packet_srl=8
+2017-03-28 11:30:33 - info: UUID : 38, Send to Peer - data:
+ { mission_list: [], packet_srl: 8, result: 0 } AckMissionInfo
+2017-03-28 11:30:33 - debug: UUID : 38, recv - ReqInventory - packet_srl=9, uuid=38
+2017-03-28 11:30:33 - info: UUID : 38, Send to Peer - data:
+ { items: 
+   [ { iuid: 447, item_id: 1030003, item_count: 9 },
+     { iuid: 448, item_id: 1030004, item_count: 13 },
+     { iuid: 449, item_id: 1030005, item_count: 2 },
+     { iuid: 458, item_id: 3020014, item_count: 100 } ],
+  packet_srl: 9,
+  result: 0 } AckInventory
+2017-03-28 11:30:33 - info: UUID : 38, recv - ReqEquipment - packet_srl=10
+2017-03-28 11:30:33 - info: UUID : 38, Send to Peer - data:
+ { equipment_list: [], packet_srl: 10, result: 0 } AckEquipment
+2017-03-28 11:30:34 - debug: UUID : 38, recv - ReqHero - packet_srl=11, uuid=38
+2017-03-28 11:30:34 - info: UUID : 38, Send to Peer - data:
+ { heroes: 
+   [ { hero_id: 3,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 4,
+       hero_exp: 40,
+       equip_set_count: 2,
+       battle_power: 0 },
+     { hero_id: 6,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 2,
+       hero_exp: 40,
+       equip_set_count: 2,
+       battle_power: 0 },
+     { hero_id: 23,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 2,
+       hero_exp: 40,
+       equip_set_count: 2,
+       battle_power: 0 },
+     { hero_id: 25,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 2,
+       hero_exp: 40,
+       equip_set_count: 2,
+       battle_power: 0 } ],
+  hero_equip_list: [],
+  packet_srl: 11,
+  result: 0 } AckHeroBases
+2017-03-28 11:30:34 - info: UUID : 38, recv - ReqHeroSkills - packet_srl=12, uuid=38, hero_id=3
+2017-03-28 11:30:34 - info: UUID : 38, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 301, skill_level: 1 },
+     { skill_id: 302, skill_level: 1 },
+     { skill_id: 303, skill_level: 1 },
+     { skill_id: 304, skill_level: 1 },
+     { skill_id: 311, skill_level: 1 },
+     { skill_id: 611, skill_level: 1 },
+     { skill_id: 321, skill_level: 1 },
+     { skill_id: 322, skill_level: 1 } ],
+  packet_srl: 12,
+  hero_id: 3,
+  result: 0 } AckHeroSkills
+2017-03-28 11:30:35 - info: UUID : 38, recv - ReqHeroSkills - packet_srl=13, uuid=38, hero_id=6
+2017-03-28 11:30:35 - info: UUID : 38, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 601, skill_level: 1 },
+     { skill_id: 602, skill_level: 1 },
+     { skill_id: 603, skill_level: 1 },
+     { skill_id: 604, skill_level: 1 },
+     { skill_id: 611, skill_level: 1 },
+     { skill_id: 621, skill_level: 1 },
+     { skill_id: 622, skill_level: 1 } ],
+  packet_srl: 13,
+  hero_id: 6,
+  result: 0 } AckHeroSkills
+2017-03-28 11:30:35 - info: UUID : 38, recv - ReqHeroSkills - packet_srl=14, uuid=38, hero_id=23
+2017-03-28 11:30:35 - info: UUID : 38, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 2301, skill_level: 1 },
+     { skill_id: 2302, skill_level: 1 },
+     { skill_id: 2303, skill_level: 1 },
+     { skill_id: 2304, skill_level: 1 },
+     { skill_id: 2311, skill_level: 1 },
+     { skill_id: 2321, skill_level: 1 },
+     { skill_id: 2322, skill_level: 1 } ],
+  packet_srl: 14,
+  hero_id: 23,
+  result: 0 } AckHeroSkills
+2017-03-28 11:30:35 - info: UUID : 38, recv - ReqHeroSkills - packet_srl=15, uuid=38, hero_id=25
+2017-03-28 11:30:35 - info: UUID : 38, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 2501, skill_level: 1 },
+     { skill_id: 2502, skill_level: 1 },
+     { skill_id: 2503, skill_level: 1 },
+     { skill_id: 2504, skill_level: 1 },
+     { skill_id: 2511, skill_level: 1 },
+     { skill_id: 2521, skill_level: 1 },
+     { skill_id: 2522, skill_level: 1 } ],
+  packet_srl: 15,
+  hero_id: 25,
+  result: 0 } AckHeroSkills
+2017-03-28 11:30:36 - info: UUID : 38, recv - ReqHeroArmySkill - packet_srl=16, hero_id=3
+2017-03-28 11:30:36 - info: UUID : 38, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 16,
+  hero_id: 3,
+  result: 0 } AckHeroArmySkill
+2017-03-28 11:30:36 - info: UUID : 38, recv - ReqHeroArmySkill - packet_srl=17, hero_id=6
+2017-03-28 11:30:36 - info: UUID : 38, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 17,
+  hero_id: 6,
+  result: 0 } AckHeroArmySkill
+2017-03-28 11:30:36 - info: UUID : 38, recv - ReqHeroArmySkill - packet_srl=18, hero_id=23
+2017-03-28 11:30:36 - info: UUID : 38, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 18,
+  hero_id: 23,
+  result: 0 } AckHeroArmySkill
+2017-03-28 11:30:36 - info: UUID : 38, recv - ReqHeroArmySkill - packet_srl=19, hero_id=25
+2017-03-28 11:30:36 - info: UUID : 38, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 19,
+  hero_id: 25,
+  result: 0 } AckHeroArmySkill
+2017-03-28 11:30:37 - debug: UUID : 38, recv - ReqInventory - packet_srl=20, uuid=38
+2017-03-28 11:30:37 - info: UUID : 38, Send to Peer - data:
+ { team_list: 
+   [ { hero_id_list: [Object], team_id: 1 },
+     { hero_id_list: [Object], team_id: 7 },
+     { hero_id_list: [Object], team_id: 8 },
+     { hero_id_list: [Object], team_id: 10000 } ],
+  packet_srl: 20,
+  result: 0 } AckTeam
+2017-03-28 11:30:37 - info: UUID : 38, recv - ReqShopIDs - packet_srl=21, uuid=38
+2017-03-28 11:30:37 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 21,
+  reset_count: 0,
+  normal_id: 1204,
+  pvp_id: 4202,
+  guild_id: 3202,
+  random_id: 0,
+  challenge_id: 5201,
+  random_open_unix_time: 0,
+  result: 0 } AckShopIDs
+2017-03-28 11:30:38 - debug: UUID : 38, recv - ReqGacha - packet_srl=22
+2017-03-28 11:30:38 - info: UUID : 38, Send to Peer - data:
+ { gacha_info_list: 
+   [ { gacha_id: 1,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 2,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 3,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 4,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 5,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 6,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 7,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 } ],
+  packet_srl: 22,
+  result: 0 } AckGachaInfo
+2017-03-28 11:30:38 - debug: UUID : 38, recv - ReqPvPInfo - packet_srl=23
+2017-03-28 11:30:38 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 23,
+  league_index: 1,
+  group_index: 0,
+  pvp_point: 1000,
+  remain_honor_point: 120,
+  lately_battle_power: 0,
+  win_weekly_pvp: 0,
+  lose_weekly_pvp: 0,
+  highest_reach_league_id: 1,
+  take_league_reward_id: 1,
+  remain_pvp_play_count: 10,
+  last_play_count_charge_date: 1490700638,
+  league_rank: 0,
+  group_rank: 0,
+  result: 0 } AckPvpInfo
+2017-03-28 11:30:39 - info: UUID : 38, recv - ReqAccountBuffInfo - packet_srl=24
+2017-03-28 11:30:39 - info: UUID : 38, Send to Peer - data:
+ { account_buff_list: null, packet_srl: 24, result: 0 } AckAccountBuffInfo
+2017-03-28 11:30:39 - debug: UUID : 38 recv - ReqTowerUserInfo packet_srl=25
+2017-03-28 11:30:39 - info: UUID : 38, Send to Peer - data:
+ { accum_score_reward_id_list: null,
+  packet_srl: 25,
+  floor: 50,
+  ticket: 23,
+  daily_score: 4250,
+  accum_score: 4250,
+  past_floor: 0,
+  past_rank: 30000,
+  past_score: 0,
+  max_skip_floor: 0,
+  result: 0 } AckInfinityTowerUser
+2017-03-28 11:30:39 - debug: UUID : 38 recv - ReqTowerBotInfo packet_srl=26
+2017-03-28 11:30:39 - info: UUID : 38, Send to Peer - data:
+ { battle_bot_list: 
+   [ { icon_id: 231, bot_name: '바보세레나', bot_rank: 249 },
+     { icon_id: 61, bot_name: '바보그루스', bot_rank: 141 },
+     { icon_id: 61, bot_name: '로얄나미', bot_rank: 127 },
+     { icon_id: 231, bot_name: '신컨루나', bot_rank: 14 } ],
+  battle_bot_hero_list: null,
+  packet_srl: 26,
+  result: 0 } AckInfinityTowerBot
+2017-03-28 11:30:40 - debug: UUID : 38 recv - ReqTowerProcessInfo packet_srl=27
+2017-03-28 11:30:40 - info: UUID : 38, Send to Peer - data:
+ { buff_list: 
+   [ { buff_list: [Object], buy_buff_list: [Object], floor: 2 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 6 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 12 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 16 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 23 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 32 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 33 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 35 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 37 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 39 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 42 },
+     { buff_list: [Object], buy_buff_list: [Object], floor: 47 } ],
+  packet_srl: 27,
+  floor: 50,
+  battle_type: 0,
+  battle_clear_grade: 0,
+  is_reward_box_open: true,
+  cash_reward_box_count: 0,
+  is_secret_maze_entrance: false,
+  secret_maze_type: 0,
+  is_secret_maze_reset: false,
+  secret_maze_battle_id: 0,
+  awake_buff: null,
+  all_clear: true,
+  result: 0 } AckInfinityTowerProcess
+2017-03-28 11:30:40 - debug: UUID : 38 recv - ReqTowerAllClear packet_srl=28
+2017-03-28 11:30:40 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 28, result: 0 } AckInfinityTowerAllClear
+2017-03-28 11:30:40 - debug: UUID : 38 recv - ReqTowerHeroInfo packet_srl=29
+2017-03-28 11:30:40 - info: UUID : 38, Send to Peer - data:
+ { hero_list: 
+   [ { hero_id: 3, hero_hp: 0.5 },
+     { hero_id: 6, hero_hp: 0.5 },
+     { hero_id: 25, hero_hp: 0.5 },
+     { hero_id: 23, hero_hp: 0.5 } ],
+  packet_srl: 29,
+  result: 0 } AckInfinityTowerHero
+2017-03-28 11:30:40 - debug: UUID : 38, recv - ReqWeeklyDungeon - packet_srl=30
+2017-03-28 11:30:40 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 30, exec_count: 0, result: 0 } AckWeeklyDungeonExecCount
+2017-03-28 11:30:41 - debug: UUID : 38, recv - ReqGuild - packet_srl=31
+2017-03-28 11:30:41 - info: UUID : 38, Send to Peer - data:
+ { guild_skill_list: [], packet_srl: 31, result: 0 } AckGuildInfo
+2017-03-28 11:31:19 - info: UUID : 38, recv - ReqChangeTeam - packet_srl=32, team_id=1, hero_id_list=[3, 6, 23, 25]
+2017-03-28 11:31:19 - info: UUID : 38, Send to Peer - data:
+ { hero_id_list: [ 3, 6, 23, 25 ],
+  packet_srl: 32,
+  team_id: 1,
+  result: 0 } AckChangeTeam
+2017-03-28 11:31:19 - debug: UUID : 38, recv - ReqBattleStart - packet_srl=33, chapter_id=101, stage_id=10101
+2017-03-28 11:31:19 - info: 배틀 기본 정보 - acc exp : 6, set exp : 6, first_enter_stage : true
+2017-03-28 11:31:19 - info: 배틀 정보 만들기 UUID 38, chapter ID : 101, stage id : 10101
+2017-03-28 11:31:19 - info: 배틀 정보 보상 정보 acc exp : 6, hero exp : 61, gold : 81
+2017-03-28 11:31:19 - info: 배틀 보상. 아이템 item id : 1020001, item count : 3
+2017-03-28 11:31:19 - info: 배틀 보상. 아이템 item id : 1021001, item count : 3
+2017-03-28 11:31:19 - info: 배틀 보상. 아이템 item id : 1030001, item count : 5
+2017-03-28 11:31:19 - info: UUID : 38, Send to Peer - data:
+ { reward_item_list: 
+   [ { item_id: 1020001, item_count: 3, item_category1: 1 },
+     { item_id: 1021001, item_count: 3, item_category1: 1 },
+     { item_id: 1030001, item_count: 5, item_category1: 1 } ],
+  packet_srl: 33,
+  result: 0 } AckBattleStart
+2017-03-28 11:31:19 - info: UUID : 38, recv - ReqChangeBattlePower - packet_srl=34, team_battle_power_list=[game_mode=1, battle_power=1761]
+2017-03-28 11:31:19 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 34, result: 0 } AckChangeBattlePower
+2017-03-28 11:31:20 - info: UUID : 38, recv - ReqChangeTeam - packet_srl=35, team_id=1, hero_id_list=[3, 6, 23, 25]
+2017-03-28 11:31:20 - info: UUID : 38, Send to Peer - data:
+ { hero_id_list: [ 3, 6, 23, 25 ],
+  packet_srl: 35,
+  team_id: 1,
+  result: 0 } AckChangeTeam
+2017-03-28 11:31:20 - info: UUID : 38, recv - ReqChangeBattlePower - packet_srl=36, team_battle_power_list=[game_mode=1, battle_power=1761]
+2017-03-28 11:31:20 - info: UUID : 38, Send to Peer - data:
+ { packet_srl: 36, result: 0 } AckChangeBattlePower
+2017-03-28 11:43:32 - info: ★★★★★ 정리 이전 user_list_by_socket_id Size : 2, user_list_by_uuid Size : 2
+2017-03-28 11:43:32 - info: ★★★★★ uuid : 38, socket_id : HJ9snJr67mO94uA0AAAC, socket ip : ::ffff:172.20.70.70, reason : ping timeout 로그아웃.
+2017-03-28 11:43:32 - info: 확인용. 2017-03-28 11:43:32, 0 
+2017-03-28 11:43:32 - info: ★★★★★ DelUser 접속 리스트 uuid : 1, socket id : yN0BfMdkeBWE96bhAAAA
+2017-03-28 11:43:32 - info: ★★★★★ 정리 이후 user_list_by_socket_id Size : 1, user_list_by_uuid Size : 2
+2017-03-28 12:00:26 - info: UUID : 38, 장기 미접속으로 접속 리스트에서 삭제. 
+2017-03-28 13:14:07 - info: ★★★★★ 정리 이전 user_list_by_socket_id Size : 1, user_list_by_uuid Size : 1
+2017-03-28 13:14:07 - info: ★★★★★ uuid : 1, socket_id : yN0BfMdkeBWE96bhAAAA, socket ip : ::ffff:172.20.70.51, reason : transport close 로그아웃.
+2017-03-28 13:14:07 - info: 확인용. 2017-03-28 13:14:07, 0 
+2017-03-28 13:14:07 - info: ★★★★★ 정리 이후 user_list_by_socket_id Size : 0, user_list_by_uuid Size : 1
+2017-03-28 13:30:26 - info: UUID : 1, 장기 미접속으로 접속 리스트에서 삭제. 
+2017-03-28 13:48:34 - info: ☆☆ connected login server from socket.id is 96XHF-pj4Zrr3bpRAAAD IP : ::ffff:172.20.70.76 ☆☆
+2017-03-28 13:49:35 - debug: recv - ReqUserCount null 96XHF-pj4Zrr3bpRAAAD
+2017-03-28 13:49:35 - info: Send to Peer Socket id : 96XHF-pj4Zrr3bpRAAAD - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: '96XHF-pj4Zrr3bpRAAAD',
+  result: 0 } AckUserCount
+2017-03-28 13:52:41 - debug: recv - ReqUserCount null 96XHF-pj4Zrr3bpRAAAD
+2017-03-28 13:52:41 - info: Send to Peer Socket id : 96XHF-pj4Zrr3bpRAAAD - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: '96XHF-pj4Zrr3bpRAAAD',
+  result: 0 } AckUserCount
+2017-03-28 13:53:40 - debug: recv - ReqUserCount null 96XHF-pj4Zrr3bpRAAAD
+2017-03-28 13:53:40 - info: Send to Peer Socket id : 96XHF-pj4Zrr3bpRAAAD - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: '96XHF-pj4Zrr3bpRAAAD',
+  result: 0 } AckUserCount
+2017-03-28 13:54:23 - debug: recv - ReqUserCount null 96XHF-pj4Zrr3bpRAAAD
+2017-03-28 13:54:23 - info: Send to Peer Socket id : 96XHF-pj4Zrr3bpRAAAD - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: '96XHF-pj4Zrr3bpRAAAD',
+  result: 0 } AckUserCount
+2017-03-28 13:55:40 - debug: recv - ReqUserCount null 96XHF-pj4Zrr3bpRAAAD
+2017-03-28 13:55:40 - info: Send to Peer Socket id : 96XHF-pj4Zrr3bpRAAAD - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: '96XHF-pj4Zrr3bpRAAAD',
+  result: 0 } AckUserCount
+2017-03-28 13:56:23 - debug: recv - ReqUserCount null 96XHF-pj4Zrr3bpRAAAD
+2017-03-28 13:56:23 - info: Send to Peer Socket id : 96XHF-pj4Zrr3bpRAAAD - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: '96XHF-pj4Zrr3bpRAAAD',
+  result: 0 } AckUserCount
+2017-03-28 13:57:47 - debug: recv - ReqUserCount null 96XHF-pj4Zrr3bpRAAAD
+2017-03-28 13:57:47 - info: Send to Peer Socket id : 96XHF-pj4Zrr3bpRAAAD - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: '96XHF-pj4Zrr3bpRAAAD',
+  result: 0 } AckUserCount
+2017-03-28 13:58:22 - debug: recv - ReqUserCount null 96XHF-pj4Zrr3bpRAAAD
+2017-03-28 13:58:22 - info: Send to Peer Socket id : 96XHF-pj4Zrr3bpRAAAD - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: '96XHF-pj4Zrr3bpRAAAD',
+  result: 0 } AckUserCount
+2017-03-28 13:58:22 - debug: recv - ReqUserCount null 96XHF-pj4Zrr3bpRAAAD
+2017-03-28 13:58:22 - info: Send to Peer Socket id : 96XHF-pj4Zrr3bpRAAAD - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: '96XHF-pj4Zrr3bpRAAAD',
+  result: 0 } AckUserCount
+2017-03-28 13:58:44 - debug: recv - ReqUserCount null 96XHF-pj4Zrr3bpRAAAD
+2017-03-28 13:58:44 - info: Send to Peer Socket id : 96XHF-pj4Zrr3bpRAAAD - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: '96XHF-pj4Zrr3bpRAAAD',
+  result: 0 } AckUserCount
+2017-03-28 14:05:01 - debug: recv - ReqUserCount null 96XHF-pj4Zrr3bpRAAAD
+2017-03-28 14:05:01 - info: Send to Peer Socket id : 96XHF-pj4Zrr3bpRAAAD - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: '96XHF-pj4Zrr3bpRAAAD',
+  result: 0 } AckUserCount
+2017-03-28 14:07:56 - debug: recv - ReqUserCount null 96XHF-pj4Zrr3bpRAAAD
+2017-03-28 14:07:56 - info: Send to Peer Socket id : 96XHF-pj4Zrr3bpRAAAD - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: '96XHF-pj4Zrr3bpRAAAD',
+  result: 0 } AckUserCount
+2017-03-28 14:08:51 - debug: recv - ReqUserCount null 96XHF-pj4Zrr3bpRAAAD
+2017-03-28 14:08:51 - info: Send to Peer Socket id : 96XHF-pj4Zrr3bpRAAAD - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: '96XHF-pj4Zrr3bpRAAAD',
+  result: 0 } AckUserCount
+2017-03-28 14:09:02 - debug: recv - ReqUserCount null 96XHF-pj4Zrr3bpRAAAD
+2017-03-28 14:09:02 - info: Send to Peer Socket id : 96XHF-pj4Zrr3bpRAAAD - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: '96XHF-pj4Zrr3bpRAAAD',
+  result: 0 } AckUserCount
+2017-03-28 14:12:28 - debug: recv - ReqUserCount null 96XHF-pj4Zrr3bpRAAAD
+2017-03-28 14:12:28 - info: Send to Peer Socket id : 96XHF-pj4Zrr3bpRAAAD - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: '96XHF-pj4Zrr3bpRAAAD',
+  result: 0 } AckUserCount
+2017-03-28 14:13:50 - debug: recv - ReqUserCount null 96XHF-pj4Zrr3bpRAAAD
+2017-03-28 14:13:50 - info: Send to Peer Socket id : 96XHF-pj4Zrr3bpRAAAD - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: '96XHF-pj4Zrr3bpRAAAD',
+  result: 0 } AckUserCount
+2017-03-28 14:14:41 - debug: recv - ReqUserCount null 96XHF-pj4Zrr3bpRAAAD
+2017-03-28 14:14:41 - info: Send to Peer Socket id : 96XHF-pj4Zrr3bpRAAAD - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: '96XHF-pj4Zrr3bpRAAAD',
+  result: 0 } AckUserCount
+2017-03-28 14:16:01 - debug: recv - ReqUserCount null 96XHF-pj4Zrr3bpRAAAD
+2017-03-28 14:16:01 - info: Send to Peer Socket id : 96XHF-pj4Zrr3bpRAAAD - data :
+ { url: '172.20.70.61:7952',
+  user_count: 0,
+  socket_id: '96XHF-pj4Zrr3bpRAAAD',
+  result: 0 } AckUserCount
+2017-03-28 14:17:03 - debug: **** define value init ****
+2017-03-28 14:17:03 - debug: **** Duck packet command init ****
+2017-03-28 14:17:03 - debug: **** LoginServer packet command init ****
+2017-03-28 14:17:03 - debug: **** Version packet command init ****
+2017-03-28 14:17:03 - debug: **** Account packet command init ****
+2017-03-28 14:17:03 - debug: **** AccountBuff packet command init ****
+2017-03-28 14:17:03 - debug: **** Hero packet command init ****
+2017-03-28 14:17:03 - debug: **** Battle packet command init ****
+2017-03-28 14:17:03 - debug: **** Team packet command init ****
+2017-03-28 14:17:03 - debug: **** EquipItem packet command init ****
+2017-03-28 14:17:03 - debug: **** Buy packet command init ****
+2017-03-28 14:17:03 - debug: **** Shop packet command init ****
+2017-03-28 14:17:03 - debug: **** Gacha packet command init ****
+2017-03-28 14:17:03 - debug: **** Common packet command init ****
+2017-03-28 14:17:03 - debug: **** Inventory packet command init ****
+2017-03-28 14:17:03 - debug: **** WeeklyDungeon packet command init ****
+2017-03-28 14:17:03 - debug: **** Mail packet command init ****
+2017-03-28 14:17:03 - debug: **** Attend packet command init ****
+2017-03-28 14:17:03 - debug: **** Rank packet command init ****
+2017-03-28 14:17:03 - debug: **** Notice packet command init ****
+2017-03-28 14:17:03 - debug: **** Mission packet command init ****
+2017-03-28 14:17:03 - debug: **** Guild packet command init ****
+2017-03-28 14:17:03 - debug: **** InfinityTower packet command init ****
+2017-03-28 14:17:03 - debug: **** Friend packet command init ****
+2017-03-28 14:17:03 - debug: **** DarkDungeon packet command init ****
+2017-03-28 14:17:03 - debug: **** PVP packet command init ****
+2017-03-28 14:17:03 - debug: **** Packet result code init ****
+2017-03-28 14:17:03 - debug: Starting Game Server ...
+2017-03-28 14:17:03 - debug: @@@@@@@@ This Game Server PID is 10974 @@@@@@@@
+2017-03-28 14:17:03 - debug: ============================ DB Connection info ============================
+2017-03-28 14:17:03 - debug: DB: mKUF_JW
+2017-03-28 14:17:03 - debug: Acc: pocatcom
+2017-03-28 14:17:03 - debug: PW: P@ssw0rd
+2017-03-28 14:17:03 - debug: IP: 172.20.70.76
+2017-03-28 14:17:03 - debug: PORT: 3306
+2017-03-28 14:17:03 - debug: DB Name : mKUF_JW
+2017-03-28 14:17:03 - debug: DB Acc : pocatcom
+2017-03-28 14:17:03 - debug: DB PW : P@ssw0rd
+2017-03-28 14:17:03 - debug: DB connect complete!!! connected state is true
+2017-03-28 14:17:03 - debug: ============================ DefineGameDataTable ============================
+2017-03-28 14:17:03 - debug: ***** GTMgr AsyncGameDataTable *****
+2017-03-28 14:17:03 - info: ----------------------- Init Weekly Content Time Check -------------------
+2017-03-28 14:17:03 - info: --- 오늘 남은 시간(초) :  34977
+2017-03-28 14:17:03 - info: --- 다음 정리 까지 남은 시간(초) :  35426999
+2017-03-28 14:17:03 - debug: *** BT_ACCOUNT_BUFF_BASE Initialize - 1 ****
+2017-03-28 14:17:03 - debug: *** BT_ARMY Initialize - 2 ****
+2017-03-28 14:17:03 - debug: *** BT_ATTEND_ACCUM_REWARD Initialize - 3 ****
+2017-03-28 14:17:03 - debug: *** BT_ATTEND_ADD_COST Initialize - 4 ****
+2017-03-28 14:17:03 - debug: *** BT_ATTEND_DAILY_REWARD Initialize - 5 ****
+2017-03-28 14:17:03 - debug: *** BT_BUY_CASH Initialize - 6 ****
+2017-03-28 14:17:03 - debug: *** BT_BUY_COUNT Initialize - 7 ****
+2017-03-28 14:17:03 - debug: *** BT_BUY_GOLD Initialize - 8 ****
+2017-03-28 14:17:03 - debug: *** BT_BUY_STAMINA Initialize - 9 ****
+2017-03-28 14:17:03 - debug: *** BT_CHAPTER_BASE Initialize - 10 ****
+2017-03-28 14:17:03 - debug: *** BT_COMMON Initialize - 11 ****
+2017-03-28 14:17:03 - debug: *** BT_COST_ALL Initialize - 12 ****
+2017-03-28 14:17:03 - debug: *** BT_DARK_CHAPTER_BASE Initialize - 13 ****
+2017-03-28 14:17:03 - debug: *** BT_DARK_STAGE_BASE Initialize - 14 ****
+2017-03-28 14:17:03 - debug: *** BT_EXP Initialize - 15 ****
+2017-03-28 14:17:03 - debug: *** BT_GACHA_INFO Initialize - 16 ****
+2017-03-28 14:17:03 - debug: *** BT_GACHA_NORMAL Initialize - 17 ****
+2017-03-28 14:17:03 - debug: *** BT_GACHA_PREMIUM Initialize - 18 ****
+2017-03-28 14:17:03 - debug: *** BT_GACHA_PREMIUM_FIRST Initialize - 19 ****
+2017-03-28 14:17:03 - debug: *** BT_GACHA_VIP Initialize - 20 ****
+2017-03-28 14:17:03 - debug: *** BT_GUILD Initialize - 21 ****
+2017-03-28 14:17:03 - debug: *** BT_GUILD_CONTENTS_REWARD Initialize - 22 ****
+2017-03-28 14:17:03 - debug: *** BT_GUILD_DONATION Initialize - 23 ****
+2017-03-28 14:17:03 - debug: *** BT_GUILD_DONATION_REWARD Initialize - 24 ****
+2017-03-28 14:17:03 - debug: *** BT_HERO_BASE Initialize - 25 ****
+2017-03-28 14:17:03 - debug: *** BT_HERO_EVOLUTION Initialize - 26 ****
+2017-03-28 14:17:03 - debug: *** BT_HERO_EVOLUTION_STATUS Initialize - 27 ****
+2017-03-28 14:17:03 - debug: *** BT_HERO_LV_RATING Initialize - 28 ****
+2017-03-28 14:17:03 - debug: *** BT_HERO_PROMOTION Initialize - 29 ****
+2017-03-28 14:17:03 - debug: *** BT_HERO_SKILL Initialize - 30 ****
+2017-03-28 14:17:03 - debug: *** BT_HERO_SKILL_EFFECT Initialize - 31 ****
+2017-03-28 14:17:03 - debug: *** BT_INFINITY_TOWER_BASE Initialize - 32 ****
+2017-03-28 14:17:03 - debug: *** BT_INFINITY_TOWER_BOT_RANKER Initialize - 33 ****
+2017-03-28 14:17:03 - debug: *** BT_INFINITY_TOWER_BUFF Initialize - 34 ****
+2017-03-28 14:17:03 - debug: *** BT_INFINITY_TOWER_CASH Initialize - 35 ****
+2017-03-28 14:17:03 - debug: *** BT_INFINITY_TOWER_RANKING Initialize - 36 ****
+2017-03-28 14:17:03 - debug: *** BT_INFINITY_TOWER_SCORE Initialize - 37 ****
+2017-03-28 14:17:03 - debug: *** BT_INFINITY_TOWER_SECRET Initialize - 38 ****
+2017-03-28 14:17:03 - debug: *** BT_INFINITY_TOWER_SKIP Initialize - 39 ****
+2017-03-28 14:17:03 - debug: *** BT_ITEM_BASE Initialize - 40 ****
+2017-03-28 14:17:03 - debug: *** BT_ITEM_ENCHANT_COST Initialize - 41 ****
+2017-03-28 14:17:03 - debug: *** BT_ITEM_EQUIP_OPTION Initialize - 42 ****
+2017-03-28 14:17:03 - debug: *** BT_ITEM_EQUIP_STATUS Initialize - 43 ****
+2017-03-28 14:17:03 - debug: *** BT_ITEM_EVOLUTION Initialize - 44 ****
+2017-03-28 14:17:03 - debug: *** BT_ITEM_EVOLUTION_STATUS Initialize - 45 ****
+2017-03-28 14:17:03 - debug: *** BT_ITEM_PROMOTION Initialize - 46 ****
+2017-03-28 14:17:03 - debug: *** BT_LEVEL_UNLOCK Initialize - 47 ****
+2017-03-28 14:17:03 - debug: *** BT_MISSION Initialize - 48 ****
+2017-03-28 14:17:03 - debug: *** BT_PVP_LEAGUE Initialize - 49 ****
+2017-03-28 14:17:03 - debug: *** BT_RANDOMBOX Initialize - 50 ****
+2017-03-28 14:17:03 - debug: *** BT_REWARD_INFINITY_TOWER Initialize - 51 ****
+2017-03-28 14:17:03 - debug: *** BT_REWARD_RANKING Initialize - 52 ****
+2017-03-28 14:17:03 - debug: *** BT_SHOP_CHALLENGE Initialize - 53 ****
+2017-03-28 14:17:03 - debug: *** BT_SHOP_GUILD Initialize - 54 ****
+2017-03-28 14:17:03 - debug: *** BT_SHOP_HERO_EXP Initialize - 55 ****
+2017-03-28 14:17:03 - debug: *** BT_SHOP_NORMAL Initialize - 56 ****
+2017-03-28 14:17:03 - debug: *** BT_SHOP_PVP Initialize - 57 ****
+2017-03-28 14:17:03 - debug: *** BT_SHOP_RANDOM Initialize - 58 ****
+2017-03-28 14:17:03 - debug: *** BT_SHOP_RESET_COST Initialize - 59 ****
+2017-03-28 14:17:03 - debug: *** BT_SHOP_TIME Initialize - 60 ****
+2017-03-28 14:17:03 - debug: *** BT_STAGE_BASE Initialize - 61 ****
+2017-03-28 14:17:03 - debug: *** BT_STAGE_DROPGROUP_BASE Initialize - 62 ****
+2017-03-28 14:17:03 - debug: *** BT_START_HERO Initialize - 63 ****
+2017-03-28 14:17:03 - debug: *** BT_SUMMON_BASE Initialize - 64 ****
+2017-03-28 14:17:03 - debug: *** BT_TEAM_ENHANCE_BASE Initialize - 65 ****
+2017-03-28 14:17:03 - debug: *** BT_TEAM_ENHANCE_LEVELUP Initialize - 66 ****
+2017-03-28 14:17:03 - debug: *** BT_VIP Initialize - 67 ****
+2017-03-28 14:17:03 - debug: *** BT_WEEKLY_DUNGEON Initialize - 68 ****
+2017-03-28 14:17:03 - info: ☆☆ connected login server from socket.id is VzPwfxakSZw268nVAAAA IP : ::ffff:172.20.70.76 ☆☆
+2017-03-28 14:17:36 - debug: **** define value init ****
+2017-03-28 14:17:36 - debug: **** Duck packet command init ****
+2017-03-28 14:17:36 - debug: **** LoginServer packet command init ****
+2017-03-28 14:17:36 - debug: **** Version packet command init ****
+2017-03-28 14:17:36 - debug: **** Account packet command init ****
+2017-03-28 14:17:36 - debug: **** AccountBuff packet command init ****
+2017-03-28 14:17:36 - debug: **** Hero packet command init ****
+2017-03-28 14:17:36 - debug: **** Battle packet command init ****
+2017-03-28 14:17:36 - debug: **** Team packet command init ****
+2017-03-28 14:17:36 - debug: **** EquipItem packet command init ****
+2017-03-28 14:17:36 - debug: **** Buy packet command init ****
+2017-03-28 14:17:36 - debug: **** Shop packet command init ****
+2017-03-28 14:17:36 - debug: **** Gacha packet command init ****
+2017-03-28 14:17:36 - debug: **** Common packet command init ****
+2017-03-28 14:17:36 - debug: **** Inventory packet command init ****
+2017-03-28 14:17:36 - debug: **** WeeklyDungeon packet command init ****
+2017-03-28 14:17:36 - debug: **** Mail packet command init ****
+2017-03-28 14:17:36 - debug: **** Attend packet command init ****
+2017-03-28 14:17:36 - debug: **** Rank packet command init ****
+2017-03-28 14:17:36 - debug: **** Notice packet command init ****
+2017-03-28 14:17:36 - debug: **** Mission packet command init ****
+2017-03-28 14:17:36 - debug: **** Guild packet command init ****
+2017-03-28 14:17:36 - debug: **** InfinityTower packet command init ****
+2017-03-28 14:17:36 - debug: **** Friend packet command init ****
+2017-03-28 14:17:36 - debug: **** DarkDungeon packet command init ****
+2017-03-28 14:17:36 - debug: **** PVP packet command init ****
+2017-03-28 14:17:36 - debug: **** Packet result code init ****
+2017-03-28 14:17:36 - debug: Starting Game Server ...
+2017-03-28 14:17:36 - debug: @@@@@@@@ This Game Server PID is 10999 @@@@@@@@
+2017-03-28 14:17:36 - debug: ============================ DB Connection info ============================
+2017-03-28 14:17:36 - debug: DB: mKUF_JW
+2017-03-28 14:17:36 - debug: Acc: pocatcom
+2017-03-28 14:17:36 - debug: PW: P@ssw0rd
+2017-03-28 14:17:36 - debug: IP: 172.20.70.76
+2017-03-28 14:17:36 - debug: PORT: 3306
+2017-03-28 14:17:36 - debug: DB Name : mKUF_JW
+2017-03-28 14:17:36 - debug: DB Acc : pocatcom
+2017-03-28 14:17:36 - debug: DB PW : P@ssw0rd
+2017-03-28 14:17:36 - debug: DB connect complete!!! connected state is true
+2017-03-28 14:17:36 - debug: ============================ DefineGameDataTable ============================
+2017-03-28 14:17:36 - debug: ***** GTMgr AsyncGameDataTable *****
+2017-03-28 14:17:36 - info: ----------------------- Init Weekly Content Time Check -------------------
+2017-03-28 14:17:36 - info: --- 오늘 남은 시간(초) :  34944
+2017-03-28 14:17:36 - info: --- 다음 정리 까지 남은 시간(초) :  35393999
+2017-03-28 14:17:36 - debug: *** BT_ACCOUNT_BUFF_BASE Initialize - 1 ****
+2017-03-28 14:17:36 - debug: *** BT_ARMY Initialize - 2 ****
+2017-03-28 14:17:36 - debug: *** BT_ATTEND_ACCUM_REWARD Initialize - 3 ****
+2017-03-28 14:17:36 - debug: *** BT_ATTEND_ADD_COST Initialize - 4 ****
+2017-03-28 14:17:36 - debug: *** BT_ATTEND_DAILY_REWARD Initialize - 5 ****
+2017-03-28 14:17:36 - debug: *** BT_BUY_CASH Initialize - 6 ****
+2017-03-28 14:17:36 - debug: *** BT_BUY_COUNT Initialize - 7 ****
+2017-03-28 14:17:36 - debug: *** BT_BUY_GOLD Initialize - 8 ****
+2017-03-28 14:17:36 - debug: *** BT_BUY_STAMINA Initialize - 9 ****
+2017-03-28 14:17:36 - debug: *** BT_CHAPTER_BASE Initialize - 10 ****
+2017-03-28 14:17:36 - debug: *** BT_COMMON Initialize - 11 ****
+2017-03-28 14:17:36 - debug: *** BT_COST_ALL Initialize - 12 ****
+2017-03-28 14:17:36 - debug: *** BT_DARK_CHAPTER_BASE Initialize - 13 ****
+2017-03-28 14:17:36 - debug: *** BT_DARK_STAGE_BASE Initialize - 14 ****
+2017-03-28 14:17:36 - debug: *** BT_EXP Initialize - 15 ****
+2017-03-28 14:17:36 - debug: *** BT_GACHA_INFO Initialize - 16 ****
+2017-03-28 14:17:36 - debug: *** BT_GACHA_NORMAL Initialize - 17 ****
+2017-03-28 14:17:36 - debug: *** BT_GACHA_PREMIUM Initialize - 18 ****
+2017-03-28 14:17:36 - debug: *** BT_GACHA_PREMIUM_FIRST Initialize - 19 ****
+2017-03-28 14:17:36 - debug: *** BT_GACHA_VIP Initialize - 20 ****
+2017-03-28 14:17:36 - debug: *** BT_GUILD Initialize - 21 ****
+2017-03-28 14:17:36 - debug: *** BT_GUILD_CONTENTS_REWARD Initialize - 22 ****
+2017-03-28 14:17:36 - debug: *** BT_GUILD_DONATION Initialize - 23 ****
+2017-03-28 14:17:36 - debug: *** BT_GUILD_DONATION_REWARD Initialize - 24 ****
+2017-03-28 14:17:36 - debug: *** BT_HERO_BASE Initialize - 25 ****
+2017-03-28 14:17:36 - debug: *** BT_HERO_EVOLUTION Initialize - 26 ****
+2017-03-28 14:17:36 - debug: *** BT_HERO_EVOLUTION_STATUS Initialize - 27 ****
+2017-03-28 14:17:36 - debug: *** BT_HERO_LV_RATING Initialize - 28 ****
+2017-03-28 14:17:36 - debug: *** BT_HERO_PROMOTION Initialize - 29 ****
+2017-03-28 14:17:36 - debug: *** BT_HERO_SKILL Initialize - 30 ****
+2017-03-28 14:17:36 - debug: *** BT_HERO_SKILL_EFFECT Initialize - 31 ****
+2017-03-28 14:17:36 - debug: *** BT_INFINITY_TOWER_BASE Initialize - 32 ****
+2017-03-28 14:17:36 - debug: *** BT_INFINITY_TOWER_BOT_RANKER Initialize - 33 ****
+2017-03-28 14:17:36 - debug: *** BT_INFINITY_TOWER_BUFF Initialize - 34 ****
+2017-03-28 14:17:36 - debug: *** BT_INFINITY_TOWER_CASH Initialize - 35 ****
+2017-03-28 14:17:36 - debug: *** BT_INFINITY_TOWER_RANKING Initialize - 36 ****
+2017-03-28 14:17:36 - debug: *** BT_INFINITY_TOWER_SCORE Initialize - 37 ****
+2017-03-28 14:17:36 - debug: *** BT_INFINITY_TOWER_SECRET Initialize - 38 ****
+2017-03-28 14:17:36 - debug: *** BT_INFINITY_TOWER_SKIP Initialize - 39 ****
+2017-03-28 14:17:36 - debug: *** BT_ITEM_BASE Initialize - 40 ****
+2017-03-28 14:17:36 - debug: *** BT_ITEM_ENCHANT_COST Initialize - 41 ****
+2017-03-28 14:17:36 - debug: *** BT_ITEM_EQUIP_OPTION Initialize - 42 ****
+2017-03-28 14:17:36 - debug: *** BT_ITEM_EQUIP_STATUS Initialize - 43 ****
+2017-03-28 14:17:36 - debug: *** BT_ITEM_EVOLUTION Initialize - 44 ****
+2017-03-28 14:17:36 - debug: *** BT_ITEM_EVOLUTION_STATUS Initialize - 45 ****
+2017-03-28 14:17:36 - debug: *** BT_ITEM_PROMOTION Initialize - 46 ****
+2017-03-28 14:17:36 - debug: *** BT_LEVEL_UNLOCK Initialize - 47 ****
+2017-03-28 14:17:36 - debug: *** BT_MISSION Initialize - 48 ****
+2017-03-28 14:17:36 - debug: *** BT_PVP_LEAGUE Initialize - 49 ****
+2017-03-28 14:17:36 - debug: *** BT_RANDOMBOX Initialize - 50 ****
+2017-03-28 14:17:36 - debug: *** BT_REWARD_INFINITY_TOWER Initialize - 51 ****
+2017-03-28 14:17:36 - debug: *** BT_REWARD_RANKING Initialize - 52 ****
+2017-03-28 14:17:36 - debug: *** BT_SHOP_CHALLENGE Initialize - 53 ****
+2017-03-28 14:17:36 - debug: *** BT_SHOP_GUILD Initialize - 54 ****
+2017-03-28 14:17:36 - debug: *** BT_SHOP_HERO_EXP Initialize - 55 ****
+2017-03-28 14:17:36 - debug: *** BT_SHOP_NORMAL Initialize - 56 ****
+2017-03-28 14:17:36 - debug: *** BT_SHOP_PVP Initialize - 57 ****
+2017-03-28 14:17:36 - debug: *** BT_SHOP_RANDOM Initialize - 58 ****
+2017-03-28 14:17:36 - debug: *** BT_SHOP_RESET_COST Initialize - 59 ****
+2017-03-28 14:17:36 - debug: *** BT_SHOP_TIME Initialize - 60 ****
+2017-03-28 14:17:36 - debug: *** BT_STAGE_BASE Initialize - 61 ****
+2017-03-28 14:17:36 - debug: *** BT_STAGE_DROPGROUP_BASE Initialize - 62 ****
+2017-03-28 14:17:36 - debug: *** BT_START_HERO Initialize - 63 ****
+2017-03-28 14:17:36 - debug: *** BT_SUMMON_BASE Initialize - 64 ****
+2017-03-28 14:17:36 - debug: *** BT_TEAM_ENHANCE_BASE Initialize - 65 ****
+2017-03-28 14:17:36 - debug: *** BT_TEAM_ENHANCE_LEVELUP Initialize - 66 ****
+2017-03-28 14:17:36 - debug: *** BT_VIP Initialize - 67 ****
+2017-03-28 14:17:36 - debug: *** BT_WEEKLY_DUNGEON Initialize - 68 ****
+2017-03-28 14:17:48 - debug: *** Start LoadItem ***
+2017-03-28 14:17:48 - debug: *** Start LoadItemEvolution ***
+2017-03-28 14:17:48 - debug: *** Start LoadItemEquipStatus ***
+2017-03-28 14:17:48 - debug: *** Start LoadItemEquipOption ***
+2017-03-28 14:17:48 - debug: *** Start LoadItemEnchantCost ***
+2017-03-28 14:17:48 - debug: *** Start LoadBTHero ***
+2017-03-28 14:17:48 - debug: *** Start LoadExp *** 
+2017-03-28 14:17:48 - debug: *** Start LoadSenarioChapter *** 
+2017-03-28 14:17:48 - debug: *** Start LoadGuildRaidChapter ***
+2017-03-28 14:17:48 - debug: *** Start LoadBTHeroPromotion ***
+2017-03-28 14:17:48 - debug: *** Start LoadBTHeroEvolution ***
+2017-03-28 14:17:48 - debug: *** Start LoadBTTown Drop Group Info *** 
+2017-03-28 14:17:48 - debug: *** Start LoadVip ***
+2017-03-28 14:17:48 - debug: *** Start LoadBuyGold ***
+2017-03-28 14:17:48 - debug: *** Start LoadBuyStamina ***
+2017-03-28 14:17:48 - debug: *** Start LoadBuyCash ***
+2017-03-28 14:17:48 - debug: *** Start LoadBuyCount ***
+2017-03-28 14:17:48 - debug: *** Start LoadShop ***
+2017-03-28 14:17:48 - debug: *** Start LoadBTGacha *** 
+2017-03-28 14:17:48 - debug: *** Start LoadRandomBox ***
+2017-03-28 14:17:48 - debug: *** Start LoadAttendDaily ***
+2017-03-28 14:17:48 - debug: *** Start LoadAddAttendCost ***
+2017-03-28 14:17:48 - debug: *** Start LoadAttendAccum ***
+2017-03-28 14:17:48 - debug: *** Start LoadBTMission *** 
+2017-03-28 14:17:48 - debug: *** Start Load AccountBuff ***
+2017-03-28 14:17:48 - debug: *** Start LoadGuild ***
+2017-03-28 14:17:48 - debug: *** Start LoadGuildDonation ***
+2017-03-28 14:17:48 - debug: *** Start LoadGuildRaidRankReward ***
+2017-03-28 14:17:48 - debug: *** Start LoadGuildDonationReward ***
+2017-03-28 14:17:48 - debug: *** Start LoadTower ***
+2017-03-28 14:17:48 - debug: *** Start LoadTowerBuffList ***
+2017-03-28 14:17:48 - debug: *** Start LoadTowerCashRewardBox ***
+2017-03-28 14:17:48 - debug: *** Start LoadTowerBattleSkip ***
+2017-03-28 14:17:48 - debug: *** Start LoadTowerAccumScoreReward ***
+2017-03-28 14:17:48 - debug: *** Start LoadTowerRankReward ***
+2017-03-28 14:17:48 - debug: *** Start LoadTowerBotRanker ***
+2017-03-28 14:17:48 - debug: *** Start LoadRewardInfinityTower ***
+2017-03-28 14:17:48 - debug: *** Start LoadBTWeeklyDungeon *** 
+2017-03-28 14:17:48 - debug: *** Start LoadDarkDungeonChapter *** 
+2017-03-28 14:17:48 - debug: *** Start LoadArmySkill *** 
+2017-03-28 14:17:48 - debug: *** Start LoadLevelUnlock ***
+2017-03-28 14:17:48 - debug: *** Start LoadSkill ***
+2017-03-28 14:17:48 - debug: *** Start LoadBTPVP *** 
+2017-03-28 14:53:44 - info: ☆ connected client from socket.id is EC8lUQlRdIyKL2t2AAAA IP : ::ffff:172.20.70.70 ☆
+2017-03-28 14:53:46 - debug: ACCOUNT : lim, recv - ReqLogon - packet_srl=1, account=lim
+2017-03-28 14:53:46 - info: ★★★★★ uuid : 2, socket_id : EC8lUQlRdIyKL2t2AAAA 로그인.
+2017-03-28 14:53:46 - info: ★★★★★ AddUser 접속 리스트 uuid : 2, socket id : EC8lUQlRdIyKL2t2AAAA
+2017-03-28 14:53:46 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 1,
+  uuid: 2,
+  last_login_unix_time: 1490712819,
+  is_new_day: true,
+  result: 0 } AckLogon
+2017-03-28 14:53:46 - debug: UUID : 2 recv - ReqDefaultInfo - packet_srl=2, uuid=2
+2017-03-28 14:53:46 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 2,
+  nick: 'lim',
+  icon: 231,
+  level: 1,
+  exp: 0,
+  gold: 1000,
+  cash: 0,
+  point_honor: 0,
+  point_alliance: 0,
+  point_challenge: 0,
+  max_stamina: 60,
+  max_skill_point: 20,
+  stamina: 60,
+  skill_point: 20,
+  stamina_remain_time: 0,
+  skill_point_remain_time: 0,
+  account_buff_point: 0,
+  max_equip_item_inventory_slot: 100,
+  buy_equip_item_inventory_slot: 0,
+  result: 0 } AckUser
+2017-03-28 14:53:47 - debug: UUID : 2 recv - ReqVip - packet_srl=3, uuid=2
+2017-03-28 14:53:47 - info: UUID : 2, Send to Peer - data:
+ { reward_steps: [],
+  packet_srl: 3,
+  step: 0,
+  accum_buy_cash: 0,
+  buy_stamina_count: 0,
+  buy_gold_count: 0,
+  buy_add_attend_count: 0,
+  result: 0 } AckVip
+2017-03-28 14:53:48 - debug: UUID : 2, recv - ReqStage - packet_srl=4, uuid=2
+2017-03-28 14:53:48 - info: UUID : 2, Send to Peer - data:
+ { chapter_list: 
+   [ { chapter_id: 101, take_reward_box_count: 0 },
+     { chapter_id: 201, take_reward_box_count: 0 } ],
+  stage_list: [],
+  packet_srl: 4,
+  result: 0 } AckStageInfo
+2017-03-28 14:53:48 - debug: recv - ReqDarkDungeon packet_srl=5
+2017-03-28 14:53:48 - info: UUID : 2, Send to Peer - data:
+ { darkdungeon_list: [], packet_srl: 5, result: 0 } AckDarkDungeon
+2017-03-28 14:53:48 - info: UUID : 2, recv - ReqMailReadInfo - packet_srl=6, uuid=2
+2017-03-28 14:53:48 - info: UUID : 2, Send to Peer - data:
+ { mail_read_infos: [], packet_srl: 6, result: 0 } AckMailReadInfo
+2017-03-28 14:53:49 - debug: UUID : 2, recv - ReqAttend - packet_srl=7
+2017-03-28 14:53:49 - info: UUID : 2, Send to Peer - data:
+ { attend_accum_reward_days: [],
+  packet_srl: 7,
+  attend_accum_day: 0,
+  last_attend_reward_day: null,
+  buy_add_attend_count: 0,
+  result: 0 } AckAttendInfo
+2017-03-28 14:53:49 - debug: UUID : 2, recv - ReqMission - packet_srl=8
+2017-03-28 14:53:49 - info: UUID : 2, Send to Peer - data:
+ { mission_list: [], packet_srl: 8, result: 0 } AckMissionInfo
+2017-03-28 14:53:50 - debug: UUID : 2, recv - ReqInventory - packet_srl=9, uuid=2
+2017-03-28 14:53:50 - info: UUID : 2, Send to Peer - data:
+ { items: [], packet_srl: 9, result: 0 } AckInventory
+2017-03-28 14:53:50 - info: UUID : 2, recv - ReqEquipment - packet_srl=10
+2017-03-28 14:53:50 - info: UUID : 2, Send to Peer - data:
+ { equipment_list: [], packet_srl: 10, result: 0 } AckEquipment
+2017-03-28 14:53:50 - debug: UUID : 2, recv - ReqHero - packet_srl=11, uuid=2
+2017-03-28 14:53:50 - info: UUID : 2, Send to Peer - data:
+ { heroes: 
+   [ { hero_id: 3,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 3,
+       hero_exp: 0,
+       equip_set_count: 2,
+       battle_power: 0 },
+     { hero_id: 6,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 3,
+       hero_exp: 0,
+       equip_set_count: 2,
+       battle_power: 0 },
+     { hero_id: 23,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 3,
+       hero_exp: 0,
+       equip_set_count: 2,
+       battle_power: 0 },
+     { hero_id: 25,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 3,
+       hero_exp: 0,
+       equip_set_count: 2,
+       battle_power: 0 } ],
+  hero_equip_list: [],
+  packet_srl: 11,
+  result: 0 } AckHeroBases
+2017-03-28 14:53:51 - info: UUID : 2, recv - ReqHeroSkills - packet_srl=12, uuid=2, hero_id=3
+2017-03-28 14:53:51 - info: UUID : 2, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 301, skill_level: 1 },
+     { skill_id: 302, skill_level: 1 },
+     { skill_id: 303, skill_level: 1 },
+     { skill_id: 304, skill_level: 1 },
+     { skill_id: 311, skill_level: 1 },
+     { skill_id: 611, skill_level: 1 },
+     { skill_id: 321, skill_level: 1 },
+     { skill_id: 322, skill_level: 1 },
+     { skill_id: 323, skill_level: 1 } ],
+  packet_srl: 12,
+  hero_id: 3,
+  result: 0 } AckHeroSkills
+2017-03-28 14:53:51 - info: UUID : 2, recv - ReqHeroSkills - packet_srl=13, uuid=2, hero_id=6
+2017-03-28 14:53:51 - info: UUID : 2, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 601, skill_level: 1 },
+     { skill_id: 602, skill_level: 1 },
+     { skill_id: 603, skill_level: 1 },
+     { skill_id: 604, skill_level: 1 },
+     { skill_id: 611, skill_level: 1 },
+     { skill_id: 621, skill_level: 1 },
+     { skill_id: 622, skill_level: 1 },
+     { skill_id: 623, skill_level: 1 } ],
+  packet_srl: 13,
+  hero_id: 6,
+  result: 0 } AckHeroSkills
+2017-03-28 14:53:51 - info: UUID : 2, recv - ReqHeroSkills - packet_srl=14, uuid=2, hero_id=23
+2017-03-28 14:53:51 - info: UUID : 2, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 2301, skill_level: 1 },
+     { skill_id: 2302, skill_level: 1 },
+     { skill_id: 2303, skill_level: 1 },
+     { skill_id: 2304, skill_level: 1 },
+     { skill_id: 2311, skill_level: 1 },
+     { skill_id: 2321, skill_level: 1 },
+     { skill_id: 2322, skill_level: 1 } ],
+  packet_srl: 14,
+  hero_id: 23,
+  result: 0 } AckHeroSkills
+2017-03-28 14:53:51 - info: UUID : 2, recv - ReqHeroSkills - packet_srl=15, uuid=2, hero_id=25
+2017-03-28 14:53:51 - info: UUID : 2, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 2501, skill_level: 1 },
+     { skill_id: 2502, skill_level: 1 },
+     { skill_id: 2503, skill_level: 1 },
+     { skill_id: 2504, skill_level: 1 },
+     { skill_id: 2511, skill_level: 1 },
+     { skill_id: 2521, skill_level: 1 },
+     { skill_id: 2522, skill_level: 1 } ],
+  packet_srl: 15,
+  hero_id: 25,
+  result: 0 } AckHeroSkills
+2017-03-28 14:53:52 - info: UUID : 2, recv - ReqHeroArmySkill - packet_srl=16, hero_id=3
+2017-03-28 14:53:52 - info: UUID : 2, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 16,
+  hero_id: 3,
+  result: 0 } AckHeroArmySkill
+2017-03-28 14:53:52 - info: UUID : 2, recv - ReqHeroArmySkill - packet_srl=17, hero_id=6
+2017-03-28 14:53:52 - info: UUID : 2, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 17,
+  hero_id: 6,
+  result: 0 } AckHeroArmySkill
+2017-03-28 14:53:52 - info: UUID : 2, recv - ReqHeroArmySkill - packet_srl=18, hero_id=23
+2017-03-28 14:53:52 - info: UUID : 2, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 18,
+  hero_id: 23,
+  result: 0 } AckHeroArmySkill
+2017-03-28 14:53:52 - info: UUID : 2, recv - ReqHeroArmySkill - packet_srl=19, hero_id=25
+2017-03-28 14:53:52 - info: UUID : 2, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 19,
+  hero_id: 25,
+  result: 0 } AckHeroArmySkill
+2017-03-28 14:53:52 - debug: UUID : 2, recv - ReqInventory - packet_srl=20, uuid=2
+2017-03-28 14:53:52 - info: UUID : 2, Send to Peer - data:
+ { team_list: 
+   [ { hero_id_list: [Object], team_id: 1 },
+     { hero_id_list: [Object], team_id: 7 } ],
+  packet_srl: 20,
+  result: 0 } AckTeam
+2017-03-28 14:53:53 - info: UUID : 2, recv - ReqShopIDs - packet_srl=21, uuid=2
+2017-03-28 14:53:53 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 21,
+  reset_count: 0,
+  normal_id: 1003,
+  pvp_id: 4001,
+  guild_id: 3003,
+  random_id: 0,
+  challenge_id: 5003,
+  random_open_unix_time: 0,
+  result: 0 } AckShopIDs
+2017-03-28 14:53:53 - debug: UUID : 2, recv - ReqGacha - packet_srl=22
+2017-03-28 14:53:53 - info: UUID : 2, Send to Peer - data:
+ { gacha_info_list: 
+   [ { gacha_id: 1,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 2,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 3,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 4,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 5,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 6,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 7,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 } ],
+  packet_srl: 22,
+  result: 0 } AckGachaInfo
+2017-03-28 14:53:54 - debug: UUID : 2, recv - ReqPvPInfo - packet_srl=23
+2017-03-28 14:53:54 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 23,
+  league_index: 1,
+  group_index: 0,
+  pvp_point: 1000,
+  remain_honor_point: 120,
+  lately_battle_power: 0,
+  win_weekly_pvp: 0,
+  lose_weekly_pvp: 0,
+  highest_reach_league_id: 1,
+  take_league_reward_id: 1,
+  remain_pvp_play_count: 10,
+  last_play_count_charge_date: 1490712834,
+  league_rank: 0,
+  group_rank: 0,
+  result: 0 } AckPvpInfo
+2017-03-28 14:53:54 - info: UUID : 2, recv - ReqAccountBuffInfo - packet_srl=24
+2017-03-28 14:53:54 - info: UUID : 2, Send to Peer - data:
+ { account_buff_list: null, packet_srl: 24, result: 0 } AckAccountBuffInfo
+2017-03-28 14:53:54 - debug: UUID : 2 recv - ReqTowerUserInfo packet_srl=25
+2017-03-28 14:53:54 - info: UUID : 2, Send to Peer - data:
+ { accum_score_reward_id_list: null,
+  packet_srl: 25,
+  floor: 0,
+  ticket: 0,
+  daily_score: 0,
+  accum_score: 0,
+  past_floor: 0,
+  past_rank: 30000,
+  past_score: 0,
+  max_skip_floor: 0,
+  result: 0 } AckInfinityTowerUser
+2017-03-28 14:53:54 - debug: UUID : 2 recv - ReqTowerBotInfo packet_srl=26
+2017-03-28 14:53:54 - info: UUID : 2, Send to Peer - data:
+ { battle_bot_list: null,
+  battle_bot_hero_list: null,
+  packet_srl: 26,
+  result: 0 } AckInfinityTowerBot
+2017-03-28 14:53:55 - debug: UUID : 2 recv - ReqTowerProcessInfo packet_srl=27
+2017-03-28 14:53:55 - info: UUID : 2, Send to Peer - data:
+ { buff_list: null,
+  packet_srl: 27,
+  floor: 0,
+  battle_type: 0,
+  battle_clear_grade: 0,
+  is_reward_box_open: false,
+  cash_reward_box_count: 0,
+  is_secret_maze_entrance: false,
+  secret_maze_type: 0,
+  is_secret_maze_reset: false,
+  awake_buff: 0,
+  all_clear: false,
+  result: 0 } AckInfinityTowerProcess
+2017-03-28 14:53:55 - debug: UUID : 2 recv - ReqTowerHeroInfo packet_srl=28
+2017-03-28 14:53:55 - info: UUID : 2, Send to Peer - data:
+ { hero_list: null, packet_srl: 28, result: 0 } AckInfinityTowerHero
+2017-03-28 14:53:55 - debug: UUID : 2, recv - ReqWeeklyDungeon - packet_srl=29
+2017-03-28 14:53:55 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 29, exec_count: 0, result: 0 } AckWeeklyDungeonExecCount
+2017-03-28 14:53:55 - debug: UUID : 2, recv - ReqGuild - packet_srl=30
+2017-03-28 14:53:55 - info: UUID : 2, Send to Peer - data:
+ { guild_skill_list: [], packet_srl: 30, result: 0 } AckGuildInfo
+2017-03-28 14:54:00 - info: UUID : 2, recv - ReqAttendDAilyReward - packet_srl=31
+2017-03-28 14:54:00 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 31,
+  accum_attend_date: 1,
+  vip_reward: false,
+  reward_box: 
+   { item_list: [],
+     result_equipment_list: [],
+     gold: { total: 11000 } },
+  result: 0 } AckAttendDailyReward
+2017-03-28 14:54:03 - debug: UUID : 2, recv - ReqAccountLevelSet - packet_srl=32, target_level=2
+2017-03-28 14:54:03 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 32,
+  uuid: 2,
+  account_level: 2,
+  account_exp: 7,
+  result: 0 } AckAccountLevelSet
+2017-03-28 14:54:04 - debug: UUID : 2, recv - ReqAccountLevelSet - packet_srl=33, target_level=3
+2017-03-28 14:54:04 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 33,
+  uuid: 2,
+  account_level: 3,
+  account_exp: 16,
+  result: 0 } AckAccountLevelSet
+2017-03-28 14:54:05 - debug: UUID : 2, recv - ReqAccountLevelSet - packet_srl=34, target_level=4
+2017-03-28 14:54:05 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 34,
+  uuid: 2,
+  account_level: 4,
+  account_exp: 31,
+  result: 0 } AckAccountLevelSet
+2017-03-28 14:54:06 - debug: UUID : 2, recv - ReqAccountLevelSet - packet_srl=35, target_level=5
+2017-03-28 14:54:06 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 35,
+  uuid: 2,
+  account_level: 5,
+  account_exp: 53,
+  result: 0 } AckAccountLevelSet
+2017-03-28 14:54:08 - debug: UUID : 2, recv - ReqAccountLevelSet - packet_srl=36, target_level=6
+2017-03-28 14:54:08 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 36,
+  uuid: 2,
+  account_level: 6,
+  account_exp: 84,
+  result: 0 } AckAccountLevelSet
+2017-03-28 14:54:09 - debug: UUID : 2, recv - ReqAccountLevelSet - packet_srl=37, target_level=7
+2017-03-28 14:54:09 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 37,
+  uuid: 2,
+  account_level: 7,
+  account_exp: 126,
+  result: 0 } AckAccountLevelSet
+2017-03-28 14:54:10 - debug: UUID : 2, recv - ReqAccountLevelSet - packet_srl=38, target_level=8
+2017-03-28 14:54:10 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 38,
+  uuid: 2,
+  account_level: 8,
+  account_exp: 180,
+  result: 0 } AckAccountLevelSet
+2017-03-28 14:54:12 - debug: UUID : 2, recv - ReqAccountLevelSet - packet_srl=39, target_level=9
+2017-03-28 14:54:12 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 39,
+  uuid: 2,
+  account_level: 9,
+  account_exp: 250,
+  result: 0 } AckAccountLevelSet
+2017-03-28 14:54:13 - debug: UUID : 2, recv - ReqAccountLevelSet - packet_srl=40, target_level=10
+2017-03-28 14:54:13 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 40,
+  uuid: 2,
+  account_level: 10,
+  account_exp: 336,
+  result: 0 } AckAccountLevelSet
+2017-03-28 14:54:14 - debug: UUID : 2, recv - ReqAccountLevelSet - packet_srl=41, target_level=11
+2017-03-28 14:54:14 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 41,
+  uuid: 2,
+  account_level: 11,
+  account_exp: 441,
+  result: 0 } AckAccountLevelSet
+2017-03-28 14:54:15 - debug: UUID : 2, recv - ReqAccountLevelSet - packet_srl=42, target_level=12
+2017-03-28 14:54:15 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 42,
+  uuid: 2,
+  account_level: 12,
+  account_exp: 567,
+  result: 0 } AckAccountLevelSet
+2017-03-28 14:54:16 - debug: UUID : 2, recv - ReqAccountLevelSet - packet_srl=43, target_level=13
+2017-03-28 14:54:16 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 43,
+  uuid: 2,
+  account_level: 13,
+  account_exp: 716,
+  result: 0 } AckAccountLevelSet
+2017-03-28 14:54:18 - debug: UUID : 2, recv - ReqAccountLevelSet - packet_srl=44, target_level=14
+2017-03-28 14:54:18 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 44,
+  uuid: 2,
+  account_level: 14,
+  account_exp: 889,
+  result: 0 } AckAccountLevelSet
+2017-03-28 14:54:19 - debug: UUID : 2, recv - ReqAccountLevelSet - packet_srl=45, target_level=15
+2017-03-28 14:54:19 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 45,
+  uuid: 2,
+  account_level: 15,
+  account_exp: 1090,
+  result: 0 } AckAccountLevelSet
+2017-03-28 14:54:20 - debug: UUID : 2, recv - ReqAccountLevelSet - packet_srl=46, target_level=16
+2017-03-28 14:54:20 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 46,
+  uuid: 2,
+  account_level: 16,
+  account_exp: 1319,
+  result: 0 } AckAccountLevelSet
+2017-03-28 14:54:21 - debug: UUID : 2, recv - ReqAccountLevelSet - packet_srl=47, target_level=17
+2017-03-28 14:54:21 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 47,
+  uuid: 2,
+  account_level: 17,
+  account_exp: 1578,
+  result: 0 } AckAccountLevelSet
+2017-03-28 14:54:23 - debug: UUID : 2, recv - ReqAccountLevelSet - packet_srl=48, target_level=18
+2017-03-28 14:54:23 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 48,
+  uuid: 2,
+  account_level: 18,
+  account_exp: 1871,
+  result: 0 } AckAccountLevelSet
+2017-03-28 14:54:24 - debug: UUID : 2, recv - ReqAccountLevelSet - packet_srl=49, target_level=19
+2017-03-28 14:54:24 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 49,
+  uuid: 2,
+  account_level: 19,
+  account_exp: 2198,
+  result: 0 } AckAccountLevelSet
+2017-03-28 14:54:25 - debug: UUID : 2, recv - ReqAccountLevelSet - packet_srl=50, target_level=20
+2017-03-28 14:54:25 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 50,
+  uuid: 2,
+  account_level: 20,
+  account_exp: 2561,
+  result: 0 } AckAccountLevelSet
+2017-03-28 14:54:31 - info: UUID : 2, recv - ReqChangeTeam - packet_srl=51, team_id=8, hero_id_list=[3, 6, 25, 23, 0, 0]
+2017-03-28 14:54:31 - info: UUID : 2, Send to Peer - data:
+ { hero_id_list: [ 3, 6, 25, 23 ],
+  packet_srl: 51,
+  team_id: 8,
+  result: 0 } AckChangeTeam
+2017-03-28 14:54:31 - debug: UUID : 2 recv - ReqTowerBattleSelect packet_srl=52, battle_bot_hero_list=[hero_hp=1, hero_level=10, promotion_step=1, evolution_step=3, slot_num=1, hero_id=6, hero_hp=1, hero_level=10, promotion_step=1, evolution_step=3, slot_num=2, hero_id=25, hero_hp=1, hero_level=10, promotion_step=1, evolution_step=3, slot_num=4, hero_id=3], battle_type=1, floor=1
+2017-03-28 14:54:31 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 52, result: 0 } AckInfinityTowerBattleSelect
+2017-03-28 14:54:31 - info: UUID : 2, recv - ReqChangeBattlePower - packet_srl=53, team_battle_power_list=[game_mode=8, battle_power=1806]
+2017-03-28 14:54:31 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 53, result: 0 } AckChangeBattlePower
+2017-03-28 14:54:56 - info: ★★★★★ 정리 이전 user_list_by_socket_id Size : 1, user_list_by_uuid Size : 1
+2017-03-28 14:54:56 - info: ★★★★★ uuid : 2, socket_id : EC8lUQlRdIyKL2t2AAAA, socket ip : ::ffff:172.20.70.70, reason : transport close 로그아웃.
+2017-03-28 14:54:56 - info: 확인용. 2017-03-28 14:54:56, 0 
+2017-03-28 14:54:56 - info: ★★★★★ 정리 이후 user_list_by_socket_id Size : 0, user_list_by_uuid Size : 1
+2017-03-28 14:55:21 - info: ☆ connected client from socket.id is PLmksKzzE7gr_RC-AAAB IP : ::ffff:172.20.70.70 ☆
+2017-03-28 14:55:22 - debug: ACCOUNT : lim, recv - ReqLogon - packet_srl=1, account=lim
+2017-03-28 14:55:22 - info: ★★★★★ uuid : 2, socket_id : PLmksKzzE7gr_RC-AAAB 로그인.
+2017-03-28 14:55:22 - info: ★★★★★ AddUser 접속 리스트 uuid : 2, socket id : PLmksKzzE7gr_RC-AAAB
+2017-03-28 14:55:22 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 1,
+  uuid: 2,
+  last_login_unix_time: 1490712922,
+  is_new_day: false,
+  result: 0 } AckLogon
+2017-03-28 14:55:22 - debug: UUID : 2 recv - ReqDefaultInfo - packet_srl=2, uuid=2
+2017-03-28 14:55:22 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 2,
+  nick: 'lim',
+  icon: 231,
+  level: 20,
+  exp: 2561,
+  gold: 11000,
+  cash: 0,
+  point_honor: 0,
+  point_alliance: 0,
+  point_challenge: 0,
+  max_stamina: 98,
+  max_skill_point: 20,
+  stamina: 98,
+  skill_point: 20,
+  stamina_remain_time: 0,
+  skill_point_remain_time: 0,
+  account_buff_point: 0,
+  max_equip_item_inventory_slot: 100,
+  buy_equip_item_inventory_slot: 0,
+  result: 0 } AckUser
+2017-03-28 14:55:23 - debug: UUID : 2 recv - ReqVip - packet_srl=3, uuid=2
+2017-03-28 14:55:23 - info: UUID : 2, Send to Peer - data:
+ { reward_steps: [],
+  packet_srl: 3,
+  step: 0,
+  accum_buy_cash: 0,
+  buy_stamina_count: 0,
+  buy_gold_count: 0,
+  buy_add_attend_count: 0,
+  result: 0 } AckVip
+2017-03-28 14:55:23 - debug: UUID : 2, recv - ReqStage - packet_srl=4, uuid=2
+2017-03-28 14:55:23 - info: UUID : 2, Send to Peer - data:
+ { chapter_list: 
+   [ { chapter_id: 101, take_reward_box_count: 0 },
+     { chapter_id: 201, take_reward_box_count: 0 } ],
+  stage_list: [],
+  packet_srl: 4,
+  result: 0 } AckStageInfo
+2017-03-28 14:55:24 - debug: recv - ReqDarkDungeon packet_srl=5
+2017-03-28 14:55:24 - info: UUID : 2, Send to Peer - data:
+ { darkdungeon_list: [], packet_srl: 5, result: 0 } AckDarkDungeon
+2017-03-28 14:55:24 - info: UUID : 2, recv - ReqMailReadInfo - packet_srl=6, uuid=2
+2017-03-28 14:55:24 - info: UUID : 2, Send to Peer - data:
+ { mail_read_infos: [], packet_srl: 6, result: 0 } AckMailReadInfo
+2017-03-28 14:55:24 - debug: UUID : 2, recv - ReqAttend - packet_srl=7
+2017-03-28 14:55:24 - info: UUID : 2, Send to Peer - data:
+ { attend_accum_reward_days: [],
+  packet_srl: 7,
+  attend_accum_day: 1,
+  last_attend_reward_day: 28,
+  buy_add_attend_count: 0,
+  result: 0 } AckAttendInfo
+2017-03-28 14:55:24 - debug: UUID : 2, recv - ReqMission - packet_srl=8
+2017-03-28 14:55:24 - info: UUID : 2, Send to Peer - data:
+ { mission_list: [], packet_srl: 8, result: 0 } AckMissionInfo
+2017-03-28 14:55:25 - debug: UUID : 2, recv - ReqInventory - packet_srl=9, uuid=2
+2017-03-28 14:55:25 - info: UUID : 2, Send to Peer - data:
+ { items: [], packet_srl: 9, result: 0 } AckInventory
+2017-03-28 14:55:25 - info: UUID : 2, recv - ReqEquipment - packet_srl=10
+2017-03-28 14:55:25 - info: UUID : 2, Send to Peer - data:
+ { equipment_list: [], packet_srl: 10, result: 0 } AckEquipment
+2017-03-28 14:55:25 - debug: UUID : 2, recv - ReqHero - packet_srl=11, uuid=2
+2017-03-28 14:55:25 - info: UUID : 2, Send to Peer - data:
+ { heroes: 
+   [ { hero_id: 3,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 3,
+       hero_exp: 0,
+       equip_set_count: 2,
+       battle_power: 0 },
+     { hero_id: 6,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 3,
+       hero_exp: 0,
+       equip_set_count: 2,
+       battle_power: 0 },
+     { hero_id: 23,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 3,
+       hero_exp: 0,
+       equip_set_count: 2,
+       battle_power: 0 },
+     { hero_id: 25,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 3,
+       hero_exp: 0,
+       equip_set_count: 2,
+       battle_power: 0 } ],
+  hero_equip_list: [],
+  packet_srl: 11,
+  result: 0 } AckHeroBases
+2017-03-28 14:55:26 - info: UUID : 2, recv - ReqHeroSkills - packet_srl=12, uuid=2, hero_id=3
+2017-03-28 14:55:26 - info: UUID : 2, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 301, skill_level: 1 },
+     { skill_id: 302, skill_level: 1 },
+     { skill_id: 303, skill_level: 1 },
+     { skill_id: 304, skill_level: 1 },
+     { skill_id: 311, skill_level: 1 },
+     { skill_id: 611, skill_level: 1 },
+     { skill_id: 321, skill_level: 1 },
+     { skill_id: 322, skill_level: 1 },
+     { skill_id: 323, skill_level: 1 } ],
+  packet_srl: 12,
+  hero_id: 3,
+  result: 0 } AckHeroSkills
+2017-03-28 14:55:26 - info: UUID : 2, recv - ReqHeroSkills - packet_srl=13, uuid=2, hero_id=6
+2017-03-28 14:55:26 - info: UUID : 2, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 601, skill_level: 1 },
+     { skill_id: 602, skill_level: 1 },
+     { skill_id: 603, skill_level: 1 },
+     { skill_id: 604, skill_level: 1 },
+     { skill_id: 611, skill_level: 1 },
+     { skill_id: 621, skill_level: 1 },
+     { skill_id: 622, skill_level: 1 },
+     { skill_id: 623, skill_level: 1 } ],
+  packet_srl: 13,
+  hero_id: 6,
+  result: 0 } AckHeroSkills
+2017-03-28 14:55:26 - info: UUID : 2, recv - ReqHeroSkills - packet_srl=14, uuid=2, hero_id=23
+2017-03-28 14:55:26 - info: UUID : 2, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 2301, skill_level: 1 },
+     { skill_id: 2302, skill_level: 1 },
+     { skill_id: 2303, skill_level: 1 },
+     { skill_id: 2304, skill_level: 1 },
+     { skill_id: 2311, skill_level: 1 },
+     { skill_id: 2321, skill_level: 1 },
+     { skill_id: 2322, skill_level: 1 } ],
+  packet_srl: 14,
+  hero_id: 23,
+  result: 0 } AckHeroSkills
+2017-03-28 14:55:27 - info: UUID : 2, recv - ReqHeroSkills - packet_srl=15, uuid=2, hero_id=25
+2017-03-28 14:55:27 - info: UUID : 2, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 2501, skill_level: 1 },
+     { skill_id: 2502, skill_level: 1 },
+     { skill_id: 2503, skill_level: 1 },
+     { skill_id: 2504, skill_level: 1 },
+     { skill_id: 2511, skill_level: 1 },
+     { skill_id: 2521, skill_level: 1 },
+     { skill_id: 2522, skill_level: 1 } ],
+  packet_srl: 15,
+  hero_id: 25,
+  result: 0 } AckHeroSkills
+2017-03-28 14:55:27 - info: UUID : 2, recv - ReqHeroArmySkill - packet_srl=16, hero_id=3
+2017-03-28 14:55:27 - info: UUID : 2, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 16,
+  hero_id: 3,
+  result: 0 } AckHeroArmySkill
+2017-03-28 14:55:27 - info: UUID : 2, recv - ReqHeroArmySkill - packet_srl=17, hero_id=6
+2017-03-28 14:55:27 - info: UUID : 2, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 17,
+  hero_id: 6,
+  result: 0 } AckHeroArmySkill
+2017-03-28 14:55:27 - info: UUID : 2, recv - ReqHeroArmySkill - packet_srl=18, hero_id=23
+2017-03-28 14:55:27 - info: UUID : 2, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 18,
+  hero_id: 23,
+  result: 0 } AckHeroArmySkill
+2017-03-28 14:55:27 - info: UUID : 2, recv - ReqHeroArmySkill - packet_srl=19, hero_id=25
+2017-03-28 14:55:27 - info: UUID : 2, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 19,
+  hero_id: 25,
+  result: 0 } AckHeroArmySkill
+2017-03-28 14:55:27 - debug: UUID : 2, recv - ReqInventory - packet_srl=20, uuid=2
+2017-03-28 14:55:27 - info: UUID : 2, Send to Peer - data:
+ { team_list: 
+   [ { hero_id_list: [Object], team_id: 1 },
+     { hero_id_list: [Object], team_id: 7 },
+     { hero_id_list: [Object], team_id: 8 } ],
+  packet_srl: 20,
+  result: 0 } AckTeam
+2017-03-28 14:55:28 - info: UUID : 2, recv - ReqShopIDs - packet_srl=21, uuid=2
+2017-03-28 14:55:28 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 21,
+  reset_count: 0,
+  normal_id: 1003,
+  pvp_id: 4001,
+  guild_id: 3003,
+  random_id: 0,
+  challenge_id: 5003,
+  random_open_unix_time: 0,
+  result: 0 } AckShopIDs
+2017-03-28 14:55:28 - debug: UUID : 2, recv - ReqGacha - packet_srl=22
+2017-03-28 14:55:28 - info: UUID : 2, Send to Peer - data:
+ { gacha_info_list: 
+   [ { gacha_id: 1,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 2,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 3,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 4,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 5,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 6,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 7,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 } ],
+  packet_srl: 22,
+  result: 0 } AckGachaInfo
+2017-03-28 14:55:29 - debug: UUID : 2, recv - ReqPvPInfo - packet_srl=23
+2017-03-28 14:55:29 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 23,
+  league_index: 1,
+  group_index: 0,
+  pvp_point: 1000,
+  remain_honor_point: 120,
+  lately_battle_power: 0,
+  win_weekly_pvp: 0,
+  lose_weekly_pvp: 0,
+  highest_reach_league_id: 1,
+  take_league_reward_id: 1,
+  remain_pvp_play_count: 10,
+  last_play_count_charge_date: 1490712929,
+  league_rank: 0,
+  group_rank: 0,
+  result: 0 } AckPvpInfo
+2017-03-28 14:55:29 - info: UUID : 2, recv - ReqAccountBuffInfo - packet_srl=24
+2017-03-28 14:55:29 - info: UUID : 2, Send to Peer - data:
+ { account_buff_list: null, packet_srl: 24, result: 0 } AckAccountBuffInfo
+2017-03-28 14:55:29 - debug: UUID : 2 recv - ReqTowerUserInfo packet_srl=25
+2017-03-28 14:55:29 - info: UUID : 2, Send to Peer - data:
+ { accum_score_reward_id_list: null,
+  packet_srl: 25,
+  floor: 1,
+  ticket: 0,
+  daily_score: 0,
+  accum_score: 0,
+  past_floor: 0,
+  past_rank: 30000,
+  past_score: 0,
+  max_skip_floor: 0,
+  result: 0 } AckInfinityTowerUser
+2017-03-28 14:55:29 - debug: UUID : 2 recv - ReqTowerBotInfo packet_srl=26
+2017-03-28 14:55:29 - info: UUID : 2, Send to Peer - data:
+ { battle_bot_list: null,
+  battle_bot_hero_list: 
+   [ { hero_id: 6,
+       hero_hp: 0,
+       hero_level: 10,
+       promotion_step: 1,
+       evolution_step: 3,
+       slot_num: 1 },
+     { hero_id: 25,
+       hero_hp: 0,
+       hero_level: 10,
+       promotion_step: 1,
+       evolution_step: 3,
+       slot_num: 2 },
+     { hero_id: 3,
+       hero_hp: 0,
+       hero_level: 10,
+       promotion_step: 1,
+       evolution_step: 3,
+       slot_num: 4 } ],
+  packet_srl: 26,
+  result: 0 } AckInfinityTowerBot
+2017-03-28 14:55:30 - debug: UUID : 2 recv - ReqTowerProcessInfo packet_srl=27
+2017-03-28 14:55:30 - info: UUID : 2, Send to Peer - data:
+ { buff_list: null,
+  packet_srl: 27,
+  floor: 1,
+  battle_type: 1,
+  battle_clear_grade: 0,
+  is_reward_box_open: false,
+  cash_reward_box_count: 0,
+  is_secret_maze_entrance: false,
+  secret_maze_type: 0,
+  is_secret_maze_reset: false,
+  secret_maze_battle_id: 0,
+  awake_buff: null,
+  all_clear: false,
+  result: 0 } AckInfinityTowerProcess
+2017-03-28 14:55:30 - debug: UUID : 2 recv - ReqTowerHeroInfo packet_srl=28
+2017-03-28 14:55:30 - info: UUID : 2, Send to Peer - data:
+ { hero_list: null, packet_srl: 28, result: 0 } AckInfinityTowerHero
+2017-03-28 14:55:30 - debug: UUID : 2, recv - ReqWeeklyDungeon - packet_srl=29
+2017-03-28 14:55:30 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 29, exec_count: 0, result: 0 } AckWeeklyDungeonExecCount
+2017-03-28 14:55:30 - debug: UUID : 2, recv - ReqGuild - packet_srl=30
+2017-03-28 14:55:30 - info: UUID : 2, Send to Peer - data:
+ { guild_skill_list: [], packet_srl: 30, result: 0 } AckGuildInfo
+2017-03-28 14:56:35 - info: ★★★★★ 정리 이전 user_list_by_socket_id Size : 1, user_list_by_uuid Size : 1
+2017-03-28 14:56:35 - info: ★★★★★ uuid : 2, socket_id : PLmksKzzE7gr_RC-AAAB, socket ip : ::ffff:172.20.70.70, reason : transport close 로그아웃.
+2017-03-28 14:56:35 - info: 확인용. 2017-03-28 14:56:35, 0 
+2017-03-28 14:56:35 - info: ★★★★★ 정리 이후 user_list_by_socket_id Size : 0, user_list_by_uuid Size : 1
+2017-03-28 15:05:09 - info: ☆ connected client from socket.id is ja7jk8Bc1MsTG7bBAAAC IP : ::ffff:172.20.70.70 ☆
+2017-03-28 15:05:10 - debug: ACCOUNT : lim, recv - ReqLogon - packet_srl=1, account=lim
+2017-03-28 15:05:10 - info: ★★★★★ uuid : 2, socket_id : ja7jk8Bc1MsTG7bBAAAC 로그인.
+2017-03-28 15:05:10 - info: ★★★★★ AddUser 접속 리스트 uuid : 2, socket id : ja7jk8Bc1MsTG7bBAAAC
+2017-03-28 15:05:10 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 1,
+  uuid: 2,
+  last_login_unix_time: 1490713510,
+  is_new_day: false,
+  result: 0 } AckLogon
+2017-03-28 15:05:10 - debug: UUID : 2 recv - ReqDefaultInfo - packet_srl=2, uuid=2
+2017-03-28 15:05:10 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 2,
+  nick: 'lim',
+  icon: 231,
+  level: 20,
+  exp: 2561,
+  gold: 11000,
+  cash: 0,
+  point_honor: 0,
+  point_alliance: 0,
+  point_challenge: 0,
+  max_stamina: 98,
+  max_skill_point: 20,
+  stamina: 98,
+  skill_point: 20,
+  stamina_remain_time: 0,
+  skill_point_remain_time: 0,
+  account_buff_point: 0,
+  max_equip_item_inventory_slot: 100,
+  buy_equip_item_inventory_slot: 0,
+  result: 0 } AckUser
+2017-03-28 15:05:11 - debug: UUID : 2 recv - ReqVip - packet_srl=3, uuid=2
+2017-03-28 15:05:11 - info: UUID : 2, Send to Peer - data:
+ { reward_steps: [],
+  packet_srl: 3,
+  step: 0,
+  accum_buy_cash: 0,
+  buy_stamina_count: 0,
+  buy_gold_count: 0,
+  buy_add_attend_count: 0,
+  result: 0 } AckVip
+2017-03-28 15:05:11 - debug: UUID : 2, recv - ReqStage - packet_srl=4, uuid=2
+2017-03-28 15:05:11 - info: UUID : 2, Send to Peer - data:
+ { chapter_list: 
+   [ { chapter_id: 101, take_reward_box_count: 0 },
+     { chapter_id: 201, take_reward_box_count: 0 } ],
+  stage_list: [],
+  packet_srl: 4,
+  result: 0 } AckStageInfo
+2017-03-28 15:05:12 - debug: recv - ReqDarkDungeon packet_srl=5
+2017-03-28 15:05:12 - info: UUID : 2, Send to Peer - data:
+ { darkdungeon_list: [], packet_srl: 5, result: 0 } AckDarkDungeon
+2017-03-28 15:05:12 - info: UUID : 2, recv - ReqMailReadInfo - packet_srl=6, uuid=2
+2017-03-28 15:05:12 - info: UUID : 2, Send to Peer - data:
+ { mail_read_infos: [], packet_srl: 6, result: 0 } AckMailReadInfo
+2017-03-28 15:05:12 - debug: UUID : 2, recv - ReqAttend - packet_srl=7
+2017-03-28 15:05:12 - info: UUID : 2, Send to Peer - data:
+ { attend_accum_reward_days: [],
+  packet_srl: 7,
+  attend_accum_day: 1,
+  last_attend_reward_day: 28,
+  buy_add_attend_count: 0,
+  result: 0 } AckAttendInfo
+2017-03-28 15:05:13 - debug: UUID : 2, recv - ReqMission - packet_srl=8
+2017-03-28 15:05:13 - info: UUID : 2, Send to Peer - data:
+ { mission_list: [], packet_srl: 8, result: 0 } AckMissionInfo
+2017-03-28 15:05:13 - debug: UUID : 2, recv - ReqInventory - packet_srl=9, uuid=2
+2017-03-28 15:05:13 - info: UUID : 2, Send to Peer - data:
+ { items: [], packet_srl: 9, result: 0 } AckInventory
+2017-03-28 15:05:13 - info: UUID : 2, recv - ReqEquipment - packet_srl=10
+2017-03-28 15:05:13 - info: UUID : 2, Send to Peer - data:
+ { equipment_list: [], packet_srl: 10, result: 0 } AckEquipment
+2017-03-28 15:05:14 - debug: UUID : 2, recv - ReqHero - packet_srl=11, uuid=2
+2017-03-28 15:05:14 - info: UUID : 2, Send to Peer - data:
+ { heroes: 
+   [ { hero_id: 3,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 3,
+       hero_exp: 0,
+       equip_set_count: 2,
+       battle_power: 0 },
+     { hero_id: 6,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 3,
+       hero_exp: 0,
+       equip_set_count: 2,
+       battle_power: 0 },
+     { hero_id: 23,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 3,
+       hero_exp: 0,
+       equip_set_count: 2,
+       battle_power: 0 },
+     { hero_id: 25,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 3,
+       hero_exp: 0,
+       equip_set_count: 2,
+       battle_power: 0 } ],
+  hero_equip_list: [],
+  packet_srl: 11,
+  result: 0 } AckHeroBases
+2017-03-28 15:05:14 - info: UUID : 2, recv - ReqHeroSkills - packet_srl=12, uuid=2, hero_id=3
+2017-03-28 15:05:14 - info: UUID : 2, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 301, skill_level: 1 },
+     { skill_id: 302, skill_level: 1 },
+     { skill_id: 303, skill_level: 1 },
+     { skill_id: 304, skill_level: 1 },
+     { skill_id: 311, skill_level: 1 },
+     { skill_id: 611, skill_level: 1 },
+     { skill_id: 321, skill_level: 1 },
+     { skill_id: 322, skill_level: 1 },
+     { skill_id: 323, skill_level: 1 } ],
+  packet_srl: 12,
+  hero_id: 3,
+  result: 0 } AckHeroSkills
+2017-03-28 15:05:14 - info: UUID : 2, recv - ReqHeroSkills - packet_srl=13, uuid=2, hero_id=6
+2017-03-28 15:05:14 - info: UUID : 2, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 601, skill_level: 1 },
+     { skill_id: 602, skill_level: 1 },
+     { skill_id: 603, skill_level: 1 },
+     { skill_id: 604, skill_level: 1 },
+     { skill_id: 611, skill_level: 1 },
+     { skill_id: 621, skill_level: 1 },
+     { skill_id: 622, skill_level: 1 },
+     { skill_id: 623, skill_level: 1 } ],
+  packet_srl: 13,
+  hero_id: 6,
+  result: 0 } AckHeroSkills
+2017-03-28 15:05:15 - info: UUID : 2, recv - ReqHeroSkills - packet_srl=14, uuid=2, hero_id=23
+2017-03-28 15:05:15 - info: UUID : 2, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 2301, skill_level: 1 },
+     { skill_id: 2302, skill_level: 1 },
+     { skill_id: 2303, skill_level: 1 },
+     { skill_id: 2304, skill_level: 1 },
+     { skill_id: 2311, skill_level: 1 },
+     { skill_id: 2321, skill_level: 1 },
+     { skill_id: 2322, skill_level: 1 } ],
+  packet_srl: 14,
+  hero_id: 23,
+  result: 0 } AckHeroSkills
+2017-03-28 15:05:15 - info: UUID : 2, recv - ReqHeroSkills - packet_srl=15, uuid=2, hero_id=25
+2017-03-28 15:05:15 - info: UUID : 2, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 2501, skill_level: 1 },
+     { skill_id: 2502, skill_level: 1 },
+     { skill_id: 2503, skill_level: 1 },
+     { skill_id: 2504, skill_level: 1 },
+     { skill_id: 2511, skill_level: 1 },
+     { skill_id: 2521, skill_level: 1 },
+     { skill_id: 2522, skill_level: 1 } ],
+  packet_srl: 15,
+  hero_id: 25,
+  result: 0 } AckHeroSkills
+2017-03-28 15:05:15 - info: UUID : 2, recv - ReqHeroArmySkill - packet_srl=16, hero_id=3
+2017-03-28 15:05:15 - info: UUID : 2, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 16,
+  hero_id: 3,
+  result: 0 } AckHeroArmySkill
+2017-03-28 15:05:15 - info: UUID : 2, recv - ReqHeroArmySkill - packet_srl=17, hero_id=6
+2017-03-28 15:05:15 - info: UUID : 2, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 17,
+  hero_id: 6,
+  result: 0 } AckHeroArmySkill
+2017-03-28 15:05:15 - info: UUID : 2, recv - ReqHeroArmySkill - packet_srl=18, hero_id=23
+2017-03-28 15:05:15 - info: UUID : 2, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 18,
+  hero_id: 23,
+  result: 0 } AckHeroArmySkill
+2017-03-28 15:05:16 - info: UUID : 2, recv - ReqHeroArmySkill - packet_srl=19, hero_id=25
+2017-03-28 15:05:16 - info: UUID : 2, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 19,
+  hero_id: 25,
+  result: 0 } AckHeroArmySkill
+2017-03-28 15:05:16 - debug: UUID : 2, recv - ReqInventory - packet_srl=20, uuid=2
+2017-03-28 15:05:16 - info: UUID : 2, Send to Peer - data:
+ { team_list: 
+   [ { hero_id_list: [Object], team_id: 1 },
+     { hero_id_list: [Object], team_id: 7 },
+     { hero_id_list: [Object], team_id: 8 } ],
+  packet_srl: 20,
+  result: 0 } AckTeam
+2017-03-28 15:05:16 - info: UUID : 2, recv - ReqShopIDs - packet_srl=21, uuid=2
+2017-03-28 15:05:16 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 21,
+  reset_count: 0,
+  normal_id: 1003,
+  pvp_id: 4001,
+  guild_id: 3003,
+  random_id: 0,
+  challenge_id: 5003,
+  random_open_unix_time: 0,
+  result: 0 } AckShopIDs
+2017-03-28 15:05:17 - debug: UUID : 2, recv - ReqGacha - packet_srl=22
+2017-03-28 15:05:17 - info: UUID : 2, Send to Peer - data:
+ { gacha_info_list: 
+   [ { gacha_id: 1,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 2,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 3,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 4,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 5,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 6,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 7,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 } ],
+  packet_srl: 22,
+  result: 0 } AckGachaInfo
+2017-03-28 15:05:17 - debug: UUID : 2, recv - ReqPvPInfo - packet_srl=23
+2017-03-28 15:05:17 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 23,
+  league_index: 1,
+  group_index: 0,
+  pvp_point: 1000,
+  remain_honor_point: 120,
+  lately_battle_power: 0,
+  win_weekly_pvp: 0,
+  lose_weekly_pvp: 0,
+  highest_reach_league_id: 1,
+  take_league_reward_id: 1,
+  remain_pvp_play_count: 10,
+  last_play_count_charge_date: 1490713517,
+  league_rank: 0,
+  group_rank: 0,
+  result: 0 } AckPvpInfo
+2017-03-28 15:05:17 - info: UUID : 2, recv - ReqAccountBuffInfo - packet_srl=24
+2017-03-28 15:05:17 - info: UUID : 2, Send to Peer - data:
+ { account_buff_list: null, packet_srl: 24, result: 0 } AckAccountBuffInfo
+2017-03-28 15:05:18 - debug: UUID : 2 recv - ReqTowerUserInfo packet_srl=25
+2017-03-28 15:05:18 - info: UUID : 2, Send to Peer - data:
+ { accum_score_reward_id_list: null,
+  packet_srl: 25,
+  floor: 0,
+  ticket: 0,
+  daily_score: 0,
+  accum_score: 0,
+  past_floor: 0,
+  past_rank: 30000,
+  past_score: 0,
+  max_skip_floor: 0,
+  result: 0 } AckInfinityTowerUser
+2017-03-28 15:05:18 - debug: UUID : 2 recv - ReqTowerBotInfo packet_srl=26
+2017-03-28 15:05:18 - info: UUID : 2, Send to Peer - data:
+ { battle_bot_list: null,
+  battle_bot_hero_list: null,
+  packet_srl: 26,
+  result: 0 } AckInfinityTowerBot
+2017-03-28 15:05:18 - debug: UUID : 2 recv - ReqTowerProcessInfo packet_srl=27
+2017-03-28 15:05:18 - info: UUID : 2, Send to Peer - data:
+ { buff_list: null,
+  packet_srl: 27,
+  floor: 0,
+  battle_type: 0,
+  battle_clear_grade: 0,
+  is_reward_box_open: false,
+  cash_reward_box_count: 0,
+  is_secret_maze_entrance: false,
+  secret_maze_type: 0,
+  is_secret_maze_reset: false,
+  awake_buff: 0,
+  all_clear: false,
+  result: 0 } AckInfinityTowerProcess
+2017-03-28 15:05:18 - debug: UUID : 2 recv - ReqTowerHeroInfo packet_srl=28
+2017-03-28 15:05:18 - info: UUID : 2, Send to Peer - data:
+ { hero_list: null, packet_srl: 28, result: 0 } AckInfinityTowerHero
+2017-03-28 15:05:19 - debug: UUID : 2, recv - ReqWeeklyDungeon - packet_srl=29
+2017-03-28 15:05:19 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 29, exec_count: 0, result: 0 } AckWeeklyDungeonExecCount
+2017-03-28 15:05:19 - debug: UUID : 2, recv - ReqGuild - packet_srl=30
+2017-03-28 15:05:19 - info: UUID : 2, Send to Peer - data:
+ { guild_skill_list: [], packet_srl: 30, result: 0 } AckGuildInfo
+2017-03-28 15:05:39 - debug: UUID : 2 recv - ReqTowerBattleSelect packet_srl=31, battle_bot_hero_list=[hero_hp=1, hero_level=10, promotion_step=1, evolution_step=3, slot_num=1, hero_id=25, hero_hp=1, hero_level=10, promotion_step=1, evolution_step=3, slot_num=2, hero_id=23, hero_hp=1, hero_level=10, promotion_step=1, evolution_step=3, slot_num=3, hero_id=3], battle_type=1, floor=1
+2017-03-28 15:05:39 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 31, result: 0 } AckInfinityTowerBattleSelect
+2017-03-28 15:06:15 - debug: UUID : 2 recv - ReqTowerBattleFinish clear_grade=0, packet_srl=32, battle_bot_hero_list=[hero_hp=1, hero_level=10, promotion_step=1, evolution_step=3, slot_num=1, hero_id=25, hero_hp=1, hero_level=10, promotion_step=1, evolution_step=3, slot_num=2, hero_id=23, hero_hp=1, hero_level=10, promotion_step=1, evolution_step=3, slot_num=3, hero_id=3], battle_type=1, floor=1, hero_list=[hero_hp=0, hero_id=3, hero_hp=0, hero_id=6, hero_hp=0, hero_id=25, hero_hp=0, hero_id=23]
+2017-03-28 15:06:15 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 32,
+  ticket: 3,
+  daily_score: 50,
+  accum_score: 50,
+  rank_score: 60,
+  challenge_point: 0,
+  result: 0 } AckInfinityTowerBattleFinish
+2017-03-28 15:06:15 - info: UUID : 2, recv - ReqChangeTeam - packet_srl=33, team_id=8, hero_id_list=[0, 0, 0, 0]
+2017-03-28 15:06:15 - info: UUID : 2, Send to Peer - data:
+ { hero_id_list: [ 0, 0, 0, 0 ],
+  packet_srl: 33,
+  team_id: 8,
+  result: 0 } AckChangeTeam
+2017-03-28 15:06:16 - info: UUID : 2, recv - ReqChangeBattlePower - packet_srl=34, team_battle_power_list=[game_mode=8, battle_power=0]
+2017-03-28 15:06:16 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 34, result: 0 } AckChangeBattlePower
+2017-03-28 15:08:37 - info: ★★★★★ 정리 이전 user_list_by_socket_id Size : 1, user_list_by_uuid Size : 1
+2017-03-28 15:08:37 - info: ★★★★★ uuid : 2, socket_id : ja7jk8Bc1MsTG7bBAAAC, socket ip : ::ffff:172.20.70.70, reason : transport close 로그아웃.
+2017-03-28 15:08:37 - info: 확인용. 2017-03-28 15:08:37, 0 
+2017-03-28 15:08:37 - info: ★★★★★ 정리 이후 user_list_by_socket_id Size : 0, user_list_by_uuid Size : 1
+2017-03-28 15:10:03 - info: ☆ connected client from socket.id is fKqyaFhmWYu_SCxMAAAD IP : ::ffff:172.20.70.70 ☆
+2017-03-28 15:10:05 - debug: ACCOUNT : lim, recv - ReqLogon - packet_srl=1, account=lim
+2017-03-28 15:10:05 - info: ★★★★★ uuid : 2, socket_id : fKqyaFhmWYu_SCxMAAAD 로그인.
+2017-03-28 15:10:05 - info: ★★★★★ AddUser 접속 리스트 uuid : 2, socket id : fKqyaFhmWYu_SCxMAAAD
+2017-03-28 15:10:05 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 1,
+  uuid: 2,
+  last_login_unix_time: 1490713805,
+  is_new_day: false,
+  result: 0 } AckLogon
+2017-03-28 15:10:05 - debug: UUID : 2 recv - ReqDefaultInfo - packet_srl=2, uuid=2
+2017-03-28 15:10:05 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 2,
+  nick: 'lim',
+  icon: 231,
+  level: 20,
+  exp: 2561,
+  gold: 11000,
+  cash: 0,
+  point_honor: 0,
+  point_alliance: 0,
+  point_challenge: 0,
+  max_stamina: 98,
+  max_skill_point: 20,
+  stamina: 98,
+  skill_point: 20,
+  stamina_remain_time: 0,
+  skill_point_remain_time: 0,
+  account_buff_point: 0,
+  max_equip_item_inventory_slot: 100,
+  buy_equip_item_inventory_slot: 0,
+  result: 0 } AckUser
+2017-03-28 15:10:06 - debug: UUID : 2 recv - ReqVip - packet_srl=3, uuid=2
+2017-03-28 15:10:06 - info: UUID : 2, Send to Peer - data:
+ { reward_steps: [],
+  packet_srl: 3,
+  step: 0,
+  accum_buy_cash: 0,
+  buy_stamina_count: 0,
+  buy_gold_count: 0,
+  buy_add_attend_count: 0,
+  result: 0 } AckVip
+2017-03-28 15:10:06 - debug: UUID : 2, recv - ReqStage - packet_srl=4, uuid=2
+2017-03-28 15:10:06 - info: UUID : 2, Send to Peer - data:
+ { chapter_list: 
+   [ { chapter_id: 101, take_reward_box_count: 0 },
+     { chapter_id: 201, take_reward_box_count: 0 } ],
+  stage_list: [],
+  packet_srl: 4,
+  result: 0 } AckStageInfo
+2017-03-28 15:10:07 - debug: recv - ReqDarkDungeon packet_srl=5
+2017-03-28 15:10:07 - info: UUID : 2, Send to Peer - data:
+ { darkdungeon_list: [], packet_srl: 5, result: 0 } AckDarkDungeon
+2017-03-28 15:10:07 - info: UUID : 2, recv - ReqMailReadInfo - packet_srl=6, uuid=2
+2017-03-28 15:10:07 - info: UUID : 2, Send to Peer - data:
+ { mail_read_infos: [], packet_srl: 6, result: 0 } AckMailReadInfo
+2017-03-28 15:10:07 - debug: UUID : 2, recv - ReqAttend - packet_srl=7
+2017-03-28 15:10:07 - info: UUID : 2, Send to Peer - data:
+ { attend_accum_reward_days: [],
+  packet_srl: 7,
+  attend_accum_day: 1,
+  last_attend_reward_day: 28,
+  buy_add_attend_count: 0,
+  result: 0 } AckAttendInfo
+2017-03-28 15:10:08 - debug: UUID : 2, recv - ReqMission - packet_srl=8
+2017-03-28 15:10:08 - info: UUID : 2, Send to Peer - data:
+ { mission_list: [], packet_srl: 8, result: 0 } AckMissionInfo
+2017-03-28 15:10:08 - debug: UUID : 2, recv - ReqInventory - packet_srl=9, uuid=2
+2017-03-28 15:10:08 - info: UUID : 2, Send to Peer - data:
+ { items: [], packet_srl: 9, result: 0 } AckInventory
+2017-03-28 15:10:08 - info: UUID : 2, recv - ReqEquipment - packet_srl=10
+2017-03-28 15:10:08 - info: UUID : 2, Send to Peer - data:
+ { equipment_list: [], packet_srl: 10, result: 0 } AckEquipment
+2017-03-28 15:10:09 - debug: UUID : 2, recv - ReqHero - packet_srl=11, uuid=2
+2017-03-28 15:10:09 - info: UUID : 2, Send to Peer - data:
+ { heroes: 
+   [ { hero_id: 3,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 3,
+       hero_exp: 0,
+       equip_set_count: 2,
+       battle_power: 0 },
+     { hero_id: 6,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 3,
+       hero_exp: 0,
+       equip_set_count: 2,
+       battle_power: 0 },
+     { hero_id: 23,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 3,
+       hero_exp: 0,
+       equip_set_count: 2,
+       battle_power: 0 },
+     { hero_id: 25,
+       hero_level: 1,
+       promotion_step: 1,
+       evolution_step: 3,
+       hero_exp: 0,
+       equip_set_count: 2,
+       battle_power: 0 } ],
+  hero_equip_list: [],
+  packet_srl: 11,
+  result: 0 } AckHeroBases
+2017-03-28 15:10:09 - info: UUID : 2, recv - ReqHeroSkills - packet_srl=12, uuid=2, hero_id=3
+2017-03-28 15:10:09 - info: UUID : 2, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 301, skill_level: 1 },
+     { skill_id: 302, skill_level: 1 },
+     { skill_id: 303, skill_level: 1 },
+     { skill_id: 304, skill_level: 1 },
+     { skill_id: 311, skill_level: 1 },
+     { skill_id: 611, skill_level: 1 },
+     { skill_id: 321, skill_level: 1 },
+     { skill_id: 322, skill_level: 1 },
+     { skill_id: 323, skill_level: 1 } ],
+  packet_srl: 12,
+  hero_id: 3,
+  result: 0 } AckHeroSkills
+2017-03-28 15:10:09 - info: UUID : 2, recv - ReqHeroSkills - packet_srl=13, uuid=2, hero_id=6
+2017-03-28 15:10:09 - info: UUID : 2, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 601, skill_level: 1 },
+     { skill_id: 602, skill_level: 1 },
+     { skill_id: 603, skill_level: 1 },
+     { skill_id: 604, skill_level: 1 },
+     { skill_id: 611, skill_level: 1 },
+     { skill_id: 621, skill_level: 1 },
+     { skill_id: 622, skill_level: 1 },
+     { skill_id: 623, skill_level: 1 } ],
+  packet_srl: 13,
+  hero_id: 6,
+  result: 0 } AckHeroSkills
+2017-03-28 15:10:10 - info: UUID : 2, recv - ReqHeroSkills - packet_srl=14, uuid=2, hero_id=23
+2017-03-28 15:10:10 - info: UUID : 2, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 2301, skill_level: 1 },
+     { skill_id: 2302, skill_level: 1 },
+     { skill_id: 2303, skill_level: 1 },
+     { skill_id: 2304, skill_level: 1 },
+     { skill_id: 2311, skill_level: 1 },
+     { skill_id: 2321, skill_level: 1 },
+     { skill_id: 2322, skill_level: 1 } ],
+  packet_srl: 14,
+  hero_id: 23,
+  result: 0 } AckHeroSkills
+2017-03-28 15:10:10 - info: UUID : 2, recv - ReqHeroSkills - packet_srl=15, uuid=2, hero_id=25
+2017-03-28 15:10:10 - info: UUID : 2, Send to Peer - data:
+ { skills: 
+   [ { skill_id: 2501, skill_level: 1 },
+     { skill_id: 2502, skill_level: 1 },
+     { skill_id: 2503, skill_level: 1 },
+     { skill_id: 2504, skill_level: 1 },
+     { skill_id: 2511, skill_level: 1 },
+     { skill_id: 2521, skill_level: 1 },
+     { skill_id: 2522, skill_level: 1 } ],
+  packet_srl: 15,
+  hero_id: 25,
+  result: 0 } AckHeroSkills
+2017-03-28 15:10:10 - info: UUID : 2, recv - ReqHeroArmySkill - packet_srl=16, hero_id=3
+2017-03-28 15:10:10 - info: UUID : 2, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 16,
+  hero_id: 3,
+  result: 0 } AckHeroArmySkill
+2017-03-28 15:10:10 - info: UUID : 2, recv - ReqHeroArmySkill - packet_srl=17, hero_id=6
+2017-03-28 15:10:10 - info: UUID : 2, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 17,
+  hero_id: 6,
+  result: 0 } AckHeroArmySkill
+2017-03-28 15:10:11 - info: UUID : 2, recv - ReqHeroArmySkill - packet_srl=18, hero_id=23
+2017-03-28 15:10:11 - info: UUID : 2, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 18,
+  hero_id: 23,
+  result: 0 } AckHeroArmySkill
+2017-03-28 15:10:11 - info: UUID : 2, recv - ReqHeroArmySkill - packet_srl=19, hero_id=25
+2017-03-28 15:10:11 - info: UUID : 2, Send to Peer - data:
+ { army_skill_list: [ { army_skill_id: 1, skill_level: 1 } ],
+  packet_srl: 19,
+  hero_id: 25,
+  result: 0 } AckHeroArmySkill
+2017-03-28 15:10:11 - debug: UUID : 2, recv - ReqInventory - packet_srl=20, uuid=2
+2017-03-28 15:10:11 - info: UUID : 2, Send to Peer - data:
+ { team_list: 
+   [ { hero_id_list: [Object], team_id: 1 },
+     { hero_id_list: [Object], team_id: 7 },
+     { hero_id_list: [Object], team_id: 8 } ],
+  packet_srl: 20,
+  result: 0 } AckTeam
+2017-03-28 15:10:12 - info: UUID : 2, recv - ReqShopIDs - packet_srl=21, uuid=2
+2017-03-28 15:10:12 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 21,
+  reset_count: 0,
+  normal_id: 1003,
+  pvp_id: 4001,
+  guild_id: 3003,
+  random_id: 0,
+  challenge_id: 5003,
+  random_open_unix_time: 0,
+  result: 0 } AckShopIDs
+2017-03-28 15:10:12 - debug: UUID : 2, recv - ReqGacha - packet_srl=22
+2017-03-28 15:10:12 - info: UUID : 2, Send to Peer - data:
+ { gacha_info_list: 
+   [ { gacha_id: 1,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 2,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 3,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 4,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 5,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 6,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 },
+     { gacha_id: 7,
+       daily_gacha_count: 0,
+       total_gacha_count: 0,
+       free_gacha_remain_time: 0 } ],
+  packet_srl: 22,
+  result: 0 } AckGachaInfo
+2017-03-28 15:10:12 - debug: UUID : 2, recv - ReqPvPInfo - packet_srl=23
+2017-03-28 15:10:12 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 23,
+  league_index: 1,
+  group_index: 0,
+  pvp_point: 1000,
+  remain_honor_point: 120,
+  lately_battle_power: 0,
+  win_weekly_pvp: 0,
+  lose_weekly_pvp: 0,
+  highest_reach_league_id: 1,
+  take_league_reward_id: 1,
+  remain_pvp_play_count: 10,
+  last_play_count_charge_date: 1490713812,
+  league_rank: 0,
+  group_rank: 0,
+  result: 0 } AckPvpInfo
+2017-03-28 15:10:13 - info: UUID : 2, recv - ReqAccountBuffInfo - packet_srl=24
+2017-03-28 15:10:13 - info: UUID : 2, Send to Peer - data:
+ { account_buff_list: null, packet_srl: 24, result: 0 } AckAccountBuffInfo
+2017-03-28 15:10:13 - debug: UUID : 2 recv - ReqTowerUserInfo packet_srl=25
+2017-03-28 15:10:13 - info: UUID : 2, Send to Peer - data:
+ { accum_score_reward_id_list: null,
+  packet_srl: 25,
+  floor: 1,
+  ticket: 3,
+  daily_score: 50,
+  accum_score: 50,
+  past_floor: 0,
+  past_rank: 30000,
+  past_score: 0,
+  max_skip_floor: 0,
+  result: 0 } AckInfinityTowerUser
+2017-03-28 15:10:13 - debug: UUID : 2 recv - ReqTowerBotInfo packet_srl=26
+2017-03-28 15:10:13 - info: UUID : 2, Send to Peer - data:
+ { battle_bot_list: null,
+  battle_bot_hero_list: 
+   [ { hero_id: 25,
+       hero_hp: 0,
+       hero_level: 10,
+       promotion_step: 1,
+       evolution_step: 3,
+       slot_num: 1 },
+     { hero_id: 23,
+       hero_hp: 0,
+       hero_level: 10,
+       promotion_step: 1,
+       evolution_step: 3,
+       slot_num: 2 },
+     { hero_id: 3,
+       hero_hp: 0,
+       hero_level: 10,
+       promotion_step: 1,
+       evolution_step: 3,
+       slot_num: 3 } ],
+  packet_srl: 26,
+  result: 0 } AckInfinityTowerBot
+2017-03-28 15:10:14 - debug: UUID : 2 recv - ReqTowerProcessInfo packet_srl=27
+2017-03-28 15:10:14 - info: UUID : 2, Send to Peer - data:
+ { buff_list: null,
+  packet_srl: 27,
+  floor: 1,
+  battle_type: 1,
+  battle_clear_grade: 0,
+  is_reward_box_open: false,
+  cash_reward_box_count: 0,
+  is_secret_maze_entrance: false,
+  secret_maze_type: 0,
+  is_secret_maze_reset: false,
+  secret_maze_battle_id: 0,
+  awake_buff: null,
+  all_clear: false,
+  result: 0 } AckInfinityTowerProcess
+2017-03-28 15:10:14 - debug: UUID : 2 recv - ReqTowerHeroInfo packet_srl=28
+2017-03-28 15:10:14 - info: UUID : 2, Send to Peer - data:
+ { hero_list: 
+   [ { hero_id: 3, hero_hp: 0 },
+     { hero_id: 6, hero_hp: 0 },
+     { hero_id: 25, hero_hp: 0 },
+     { hero_id: 23, hero_hp: 0 } ],
+  packet_srl: 28,
+  result: 0 } AckInfinityTowerHero
+2017-03-28 15:10:14 - debug: UUID : 2, recv - ReqWeeklyDungeon - packet_srl=29
+2017-03-28 15:10:14 - info: UUID : 2, Send to Peer - data:
+ { packet_srl: 29, exec_count: 0, result: 0 } AckWeeklyDungeonExecCount
+2017-03-28 15:10:15 - debug: UUID : 2, recv - ReqGuild - packet_srl=30
+2017-03-28 15:10:15 - info: UUID : 2, Send to Peer - data:
+ { guild_skill_list: [], packet_srl: 30, result: 0 } AckGuildInfo
+2017-03-28 15:10:44 - info: ★★★★★ 정리 이전 user_list_by_socket_id Size : 1, user_list_by_uuid Size : 1
+2017-03-28 15:10:44 - info: ★★★★★ uuid : 2, socket_id : fKqyaFhmWYu_SCxMAAAD, socket ip : ::ffff:172.20.70.70, reason : transport close 로그아웃.
+2017-03-28 15:10:44 - info: 확인용. 2017-03-28 15:10:44, 0 
+2017-03-28 15:10:44 - info: ★★★★★ 정리 이후 user_list_by_socket_id Size : 0, user_list_by_uuid Size : 1

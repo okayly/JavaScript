@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<style type="text/css">
+			label { color : blue; }
+		</style>
+
+		<meta charset="urf-8">
+		<title>bi-directional communication</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+		<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+		<script type="text/javascript">
+			var socket = io.connect('http://192.168.0.21:3000');
+			// var socket = io.connect('http://52.192.197.210:3000');
+			// var socket = io.connect('http://172.20.70.61:3000');
+			socket.on('connect', function() { console.log('connected server...'); });
+			
+			socket.on('RecvError', function (recv) {
+				Acklog(recv);
+				$('#error > #output').html(recv);
+			});
+			
+			// notice
+			socket.on('evt_notice', function (recv) { console.log(recv); });
+			
+		</script>
+
+		<script type="text/javascript">
+			var jsfiles = [ './Test.js', './Account.js', './Hero.js', './Team.js', './Battle.js', './Item.js', './Gacha.js', './Challenge.js', './RankMatch.js', './Mission.js', './Guild.js' ];
+
+			for (var i in jsfiles) {
+				console.log(jsfiles[i]);
+
+				var imported = document.createElement('script');
+				imported.src = jsfiles[i];
+				document.head.appendChild(imported);
+			}
+
+			function Reqlog(packet) {
+				console.log('Req -', JSON.stringify(packet));
+			}
+
+			function Acklog(packet) {
+				console.log('Ack -', packet);				
+			}
+
+		</script>
+	</head>
+	<body>
+		<p>
+			<div id="test">
+				<label>TEST</label><br/>
+				req_Test - 
+				<input type="button" id="reqTest" value="SEND" />
+				<br/>
+				<div id="output"></div>
+			</div>
+		</p>
+		<p>
+			<div id="error">
+				<label>ERROR</label>
+				- <div id="output"></div>
+			</div>
+		</p>
+		<p>
+			<div id="Create Material">
+				<label>CREATE ITEM</label><br/>
+				<div id="ReqCreateItem">
+					ReqCreateItem - <br/>
+					UUID : <input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+					ITEM_ID : <input type="text" id="item_id" size="10" placeholder="ITEM_ID" /><br/>
+					ITEM_COUNT : <input type="text" id="item_count" size="10" placeholder="ITEM_COUNT" value=1><br/>
+					<input type="button" id="reqCreateItem" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+			</div>
+			<br/>
+			<div id="ReqHeroEquipItemPromotion">
+				ReqHeroEquipItemPromotion - 
+				UUID : <input type="text" id="uuid" size="10" placeholder="UUID" />
+				HERO_ID : <input type="text" id="hero_id" size="10" placeholder="HERO_ID" value=1 />
+				ITEM_ID : <input type="text" id="item_id" size="10" placeholder="ITEM_ID" value=2010001 /><br/>
+				NEED_ITEM_IUID1 : <input type="text" id="need_item_iuid1" size="10" placeholder="IUID1" value=1 /><br/>
+				NEED_ITEM_IUID2 : <input type="text" id="need_item_iuid2" size="10" placeholder="IUID2" /><br/>
+				NEED_ITEM_IUID3 : <input type="text" id="need_item_iuid3" size="10" placeholder="IUID3" /><br/>
+				NEED_ITEM_IUID4 : <input type="text" id="need_item_iuid4" size="10" placeholder="IUID4" /><br/>
+				NEED_ITEM_IUID5 : <input type="text" id="need_item_iuid5" size="10" placeholder="IUID5" /><br/>
+				NEED_ITEM_IUID6 : <input type="text" id="need_item_iuid6" size="10" placeholder="IUID6" /><br/>
+				<input type="button" id="reqEquipItemPromotion" value="SEND" />
+				<br/>
+				<div id="output"></div>
+			</div>
+			<br/>
+			<div id="ReqHeroEquipItemEvolution">
+				ReqHeroEquipItemEvolution - 
+				UUID : <input type="text" id="uuid" size="10" placeholder="UUID" />
+				HERO_ID : <input type="text" id="hero_id" size="10" placeholder="HERO_ID" value=1 />
+				ITEM_ID : <input type="text" id="item_id" size="10" placeholder="ITEM_ID" value=2010001 /><br/>
+				NEED_ITEM_IUID1 : <input type="text" id="need_item_iuid1" size="10" placeholder="IUID1" value=1 /><br/>
+				NEED_ITEM_IUID2 : <input type="text" id="need_item_iuid2" size="10" placeholder="IUID2" /><br/>
+				NEED_ITEM_IUID3 : <input type="text" id="need_item_iuid3" size="10" placeholder="IUID3" /><br/>
+				NEED_ITEM_IUID4 : <input type="text" id="need_item_iuid4" size="10" placeholder="IUID4" /><br/>
+				NEED_ITEM_IUID5 : <input type="text" id="need_item_iuid5" size="10" placeholder="IUID5" /><br/>
+				NEED_ITEM_IUID6 : <input type="text" id="need_item_iuid6" size="10" placeholder="IUID6" /><br/>
+				<input type="button" id="reqEquipItemEvolution" value="SEND" />
+				<br/>
+				<div id="output"></div>
+			</div>
+		</p>
+		<p>
+			<div id="Account">
+				<label>ACCOUNT</label><br/>
+				<div id="ReqLogon">
+					ReqLogon - 
+					ACCOUNT : <input type="text" id="account" size="10" placeholder="ACCOUNT" />
+					<input type="button" id="reqLogon" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqAttendInfo">
+					ReqAttendInfo - 
+					<input type="button" id="reqAttendInfo" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqUser">
+					ReqUser - 
+					UUID : <input type="text" id="uuid" size="10" placeholder="UUID" />
+					<input type="button" id="reqUser" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqInventory">
+					ReqInventory - 
+					UUID : <input type="text" id="uuid" size="10" placeholder="UUID" />
+					<input type="button" id="reqInvetory" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqHeroBases">
+					ReqHeroBases - 
+					UUID : <input type="text" id="uuid" size="10" placeholder="UUID" />
+					<input type="button" id="reqHeroBases" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqAllGameModeTeam">
+					ReqAllGameModeTeam -
+					UUID : <input type="text" id="uuid" size="10" placeholder="UUID" />
+					<input type="button" id="reqAllGameModeTeam" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqStageInfo">
+					ReqStageInfo -
+					UUID : <input type="text" id="uuid" size="10" placeholder="UUID" />
+					<input type="button" id="reqStageInfo" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqVip">
+					ReqVip -
+					UUID : <input type="text" id="uuid" size="10" placeholder="UUID" />
+					<input type="button" id="reqVip" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqBuyGold">
+					ReqBuyGold -
+					UUID : <input type="text" id="uuid" size="10" placeholder="UUID" />
+					<input type="button" id="reqBuyGold" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqBuySkillPoint">
+					ReqBuySkillPoint -
+					UUID : <input type="text" id="uuid" size="10" placeholder="UUID" />
+					<input type="button" id="reqBuySkillPoint" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqChapterReward">
+					ReqChapterReward -
+					CHAPTER_ID : <input type="text" id="chapter_id" size="10" placeholder="CHAPTER_ID" />
+					REWARD_BOX_ID : <input type="text" id="reward_box_id" size="10" placeholder="REWARD_BOX_ID" />
+					<input type="button" id="reqChapterReward" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqGachaInfo">
+					ReqGachaInfo -
+					<input type="button" id="reqGachaInfo" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqChallengeInfo">
+					ReqChallengeInfo -
+					<input type="button" id="reqChallengeInfo" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqGuildInfo">
+					ReqGuildInfo -
+					<input type="button" id="reqGuildInfo" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqMissionInfo">
+					ReqMissionInfo -
+					<input type="button" id="reqMissionInfo" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqReConnect">
+					ReqReConnect -
+					UUID : <input type="text" id="uuid" size="10" placeholder="UUID" />
+					<input type="button" id="reqReConnect" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+			</div>
+		</p>
+		<p>
+			<div id="hero">
+				<label>HERO</label><br/>
+				<div id="ReqHeroEquipItem">
+					ReqHeroEquipItem - 
+					UUID : <input type="text" id="uuid" size="10" placeholder="UUID" />
+					HERO_ID : <input type="text" id="hero_id" size="10" placeholder="HERO_ID" />
+					<input type="button" id="reqHeroEquipItem" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>				
+				<div id="ReqHeroAllSkill">
+					ReqHeroAllSkill - 
+					UUID : <input type="text" id="uuid" size="10" placeholder="UUID" />
+					HERO_ID : <input type="text" id="hero_id" size="10" placeholder="HERO_ID" />
+					<input type="button" id="reqHeroAllSkill" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqHeroSkillLevelup">
+					ReqHeroSkillLevelup - 
+					UUID : <input type="text" id="uuid" size="10" placeholder="UUID" />
+					HERO_ID : <input type="text" id="hero_id" size="10" placeholder="HERO_ID" />
+					SKILL_ID : <input type="text" id="skill_id" size="10" placeholder="SKILL_ID" />
+					<input type="button" id="reqHeroSkillLevelup" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>				
+				<div id="ReqEquipItemLevelup">
+					ReqEquipItemLevelup -
+					UUID : <input type="text" id="uuid" size="10" placeholder="UUID" />
+					HERO_ID : <input type="text" id="hero_id" size="10" placeholder="HERO_ID" value=1 />
+					ITEM_ID : <input type="text" id="item_id" size="10" placeholder="ITEM_ID" value=2010001>
+					<input type="button" id="reqEquipItemLevelup" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<div id="ReqEquipItemLevelupAuto">
+					ReqEquipItemLevelupAuto -
+					UUID : <input type="text" id="uuid" size="10" placeholder="UUID" />
+					HERO_ID : <input type="text" id="hero_id" size="10" placeholder="HERO_ID" value=1 />
+					ITEM_ID : <input type="text" id="item_id" size="10" placeholder="ITEM_ID" value=2010001>
+					<input type="button" id="reqEquipItemLevelupAuto" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqHeroSummon">
+					ReqHeroSummon - 
+					UUID : <input type="text" id="uuid" size="10" placeholder="UUID" />
+					IUID : <input type="text" id="iuid" size="10" placeholder="IUID" />
+					HERO_ID : <input type="text" id="hero_id" size="10" placeholder="HERO_ID" />
+					<input type="button" id="reqHeroSummon" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqHeroEvolution">
+					ReqHeroEvolution - 
+					UUID : <input type="text" id="uuid" size="10" placeholder="UUID" />
+					IUID : <input type="text" id="iuid" size="10" placeholder="IUID" />
+					HERO_ID : <input type="text" id="hero_id" size="10" placeholder="HERO_ID" />
+					<input type="button" id="reqHeroEvolution" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqHeroLevelup">
+					ReqHeroLevelup - 
+					UUID : <input type="text" id="uuid" size="10" placeholder="UUID" />
+					HERO_ID : <input type="text" id="hero_id" size="10" placeholder="HERO_ID" />
+					IUID : <input type="text" id="iuid" size="10" placeholder="IUID" />
+					ITEM_COUNT : <input type="text" id="item_count" size="10" placeholder="ITEM_COUNT" />
+					<input type="button" id="reqHeroLevelup" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqHeroPromotion">
+					ReqHeroPromotion - 
+					UUID : <input type="text" id="uuid" size="10" placeholder="UUID" />
+					HERO_ID : <input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+					NEED_ITEM_IUID1 : <input type="text" id="need_item_iuid1" size="10" placeholder="IUID1" /><br/>
+					NEED_ITEM_IUID2 : <input type="text" id="need_item_iuid2" size="10" placeholder="IUID2" /><br/>
+					NEED_ITEM_IUID3 : <input type="text" id="need_item_iuid3" size="10" placeholder="IUID3" /><br/>
+					NEED_ITEM_IUID4 : <input type="text" id="need_item_iuid4" size="10" placeholder="IUID4" /><br/>
+					NEED_ITEM_IUID5 : <input type="text" id="need_item_iuid5" size="10" placeholder="IUID5" /><br/>
+					NEED_ITEM_IUID6 : <input type="text" id="need_item_iuid6" size="10" placeholder="IUID6" /><br/>
+					<input type="button" id="reqHeroPromotion" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+			</div>
+		</p>
+		<p>
+			<div id="team">
+				<label>TEAM</label><br/>
+				<div id="ReqChangeTeam">
+					ReqChangeTeam - <br/>
+					GAME_MODE : <input type="text" id="game_mode" size="10" placeholder="GAME_MODE" /><br/>
+					SLOT01 : <input type="text" id="slot01" size="20" placeholder="SLOT1 HERO_ID" /><br/>
+					SLOT02 : <input type="text" id="slot02" size="20" placeholder="SLOT2 HERO_ID" /><br/>
+					SLOT03 : <input type="text" id="slot03" size="20" placeholder="SLOT3 HERO_ID" /><br/>
+					SLOT04 : <input type="text" id="slot04" size="20" placeholder="SLOT4 HERO_ID" /><br/>
+					SLOT05 : <input type="text" id="slot05" size="20" placeholder="SLOT5 HERO_ID" /><br/>
+					SLOT06 : <input type="text" id="slot06" size="20" placeholder="SLOT6 HERO_ID" /><br/>
+					SLOT07 : <input type="text" id="slot07" size="20" placeholder="SLOT7 HERO_ID" /><br/>
+					SLOT08 : <input type="text" id="slot08" size="20" placeholder="SLOT8 HERO_ID" /><br/>
+					<input type="button" id="reqChangeTeam" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+			</div>
+		</p>
+		<p>
+			<div id="gacha">
+				<label>GACHA</label><br/>
+				<div id="ReqGacha">
+					ReqGacha - <br/>
+					GACHA_ID : <input type="text" id="gacha_id" size="10" placeholder="GACHA_ID" /><br/>
+					<input type="button" id="reqGacha" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+			</div>
+		</p>
+		<p>
+			<div id="battle">
+				<label>BATTLE</label>
+				<div id="req_battle_start">
+					req_battle_start - 
+					CHAPTER_ID : <input type="text" id="chapter_id" size="10" placeholder="CHAPTER_ID" /><br/>
+					STAGE_ID : <input type="text" id="stage_id" size="10" placeholder="STAGE_ID" /><br/>
+					<input type="button" id="reqBattleStart" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="req_battle_finish">
+					req_battle_finish - 
+					CLEAR_GRADE : <input type="text" id="clear_grade" size="10" placeholder="CLEAR_GRADE" /><br/>
+					<input type="button" id="reqBattleFinish" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="req_battle_sweep">
+					req_battle_sweep - 
+					CHAPTER_ID : <input type="text" id="chapter_id" size="10" placeholder="CHAPTER_ID" /><br/>
+					STAGE_ID : <input type="text" id="stage_id" size="10" placeholder="STAGE_ID" /><br/>
+					SWEEP_COUNT : <input type="text" id="sweep_count" size="10" placeholder="SWEEP_COUNT" /><br/>
+					<input type="button" id="reqBattleSweep" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+			</div>
+		</p>
+		<p>
+			<div id="challenge">
+				<label>CHALLENGE</label>
+				<div id="ReqChallengeStart">
+					ReqChallengeStart - 
+					DUNGEON_GROUP_ID : <input type="text" id="dungeon_group_id" size="10" placeholder="DUNGEON_GROUP_ID" /><br/>
+					DUNGEON_ID : <input type="text" id="dungeon_id" size="10" placeholder="DUNGEON_ID" /><br/>
+					GAME_MODE : <input type="text" id="game_mode" size="10" placeholder="GAME_MODE" /><br/>
+					SLOT1 : <input type="text" id="slot1" size="10" placeholder="SLOT1" /><br/>
+					SLOT2 : <input type="text" id="slot2" size="10" placeholder="SLOT2" /><br/>
+					SLOT3 : <input type="text" id="slot3" size="10" placeholder="SLOT3" /><br/>
+					SLOT4 : <input type="text" id="slot4" size="10" placeholder="SLOT4" /><br/>
+					SLOT5 : <input type="text" id="slot5" size="10" placeholder="SLOT5" /><br/>
+					SLOT6 : <input type="text" id="slot6" size="10" placeholder="SLOT6" /><br/>
+					TAG_SLOT1 : <input type="text" id="tag_slot1" size="10" placeholder="TAG_SLOT1" /><br/>
+					TAG_SLOT2 : <input type="text" id="tag_slot2" size="10" placeholder="TAG_SLOT2" /><br/>
+					TAG_SLOT3 : <input type="text" id="tag_slot3" size="10" placeholder="TAG_SLOT3" /><br/>
+					<input type="button" id="reqChallengeStart" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqChallengeFinish">
+					ReqChallengeFinish - 
+					DUNGEON_GROUP_ID : <input type="text" id="dungeon_group_id" size="10" placeholder="DUNGEON_GROUP_ID" /><br/>
+					DUNGEON_ID : <input type="text" id="dungeon_id" size="10" placeholder="DUNGEON_ID" /><br/>
+					CLEAR_GRADE : <input type="text" id="clear_grade" size="10" placeholder="CLEAR_GRADE" /><br/>
+					GAME_MODE : <input type="text" id="game_mode" size="10" placeholder="GAME_MODE" /><br/>
+					<input type="button" id="reqChallengeFinish" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqChallengeSweep">
+					ReqChallengeSweep - 
+					DUNGEON_GROUP_ID : <input type="text" id="dungeon_group_id" size="10" placeholder="DUNGEON_GROUP_ID" /><br/>
+					DUNGEON_ID : <input type="text" id="dungeon_id" size="10" placeholder="DUNGEON_ID" /><br/>
+					<input type="button" id="reqChallengeSweep" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+			</div>
+		</p>
+		<p>
+			<div id="RankMatch">
+				<label>RANK_MATCH</label>
+				<div id="ReqFindMatchPlayer">
+					ReqFindMatchPlayer - 
+					<input type="button" id="reqFindMatchPlayer" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqPlayerDetailInfo">
+					ReqPlayerDetailInfo - 
+					TARGET_UUID : <input type="text" id="target_uuid" size="10" placeholder="TARGET_UUID" /><br/>
+					GAME_MODE : <input type="text" id="game_mode" size="10" placeholder="GAME_MODE" value=7 /><br/>
+					<input type="button" id="reqPlayerDetailInfo" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqRankMatchStart">
+					ReqRankMatchStart - 
+					TARGET_UUID : <input type="text" id="target_uuid" size="10" placeholder="TARGET_UUID" /><br/>
+					TARGET_RANK : <input type="text" id="target_rank" size="10" placeholder="TARGET_RANK" /><br/>
+					<input type="button" id="reqRankMatchStart" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqRankMatchFinish">
+					ReqRankMatchFinish - 
+					BATTLE_RESULT : <input type="text" id="battle_result" size="10" placeholder="BATTLE_RESULT" value='true' /><br/>
+					<input type="button" id="reqRankMatchFinish" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqPlayCountReward">
+					ReqPlayCountReward - 
+					REWARD_ID : <input type="text" id="reward_id" size="10" placeholder="REWARD_ID" /><br/>
+					<input type="button" id="reqPlayCountReward" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqWinningStreakReward">
+					ReqWinningStreakReward - 
+					REWARD_ID : <input type="text" id="reward_id" size="10" placeholder="REWARD_ID" /><br/>
+					<input type="button" id="reqWinningStreakReward" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqRankAchievementReward">
+					ReqRankAchievementReward - 
+					REWARD_ID : <input type="text" id="reward_id" size="10" placeholder="REWARD_ID" /><br/>
+					<input type="button" id="reqRankAchievementReward" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqBuyReplaceMatchPlayer">
+					ReqBuyReplaceMatchPlayer - 
+					<input type="button" id="reqBuyReplaceMatchPlayer" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqBuyRankMatchCount">
+					ReqBuyRankMatchCount - 
+					<input type="button" id="reqBuyRankMatchCount" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqInitMatchRemainTime">
+					ReqInitMatchRemainTime - 
+					<input type="button" id="reqInitMatchRemainTime" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqRankList">
+					ReqRankList - 
+					PAGE_NUM : <input type="text" id="page_num" size="10" placeholder="PAGE_NUM" /><br/>
+					<input type="button" id="reqRankList" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqRankMatchRecord">
+					ReqRankMatchRecord - 
+					<input type="button" id="reqRankMatchRecord" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqRankMatchRecordDetailInfo">
+					ReqRankMatchRecordDetailInfo - 
+					BATTLE_DATE : <input type="text" id="battle_date" size="10" placeholder="BATTLE_DATE" /><br/>
+					<input type="button" id="reqRankMatchRecordDetailInfo" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+			</div>
+		</p>
+		<p>
+			<div id="Mission">
+				<label>MISSION</label>
+				<div id="ReqMissionReward">
+					ReqMissionReward - 
+					MISSION_ID : <input type="text" id="mission_id" size="10" placeholder="MISSION_ID" /><br/>
+					<input type="button" id="reqMissionReward" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+			</div>
+		</p>
+		<p>
+			<div id="Guild">
+				<label>GUILD</label>
+				<div id="ReqCreateGuild">
+					ReqCreateGuild - 
+					GUILD_NAME : <input type="text" id="guild_name" size="10" placeholder="GUILD_NAME" /><br/>
+					GUILD_MARD : <input type="text" id="guild_mark" size="10" placeholder="GUILD_MARK" value=1 /><br/>
+					<input type="button" id="reqCreateGuild" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqRecommandGuild">
+					ReqRecommandGuild - 
+					<input type="button" id="reqRecommandGuild" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqGuildDetailInfo">
+					ReqGuildDetailInfo - 
+					GUILD_ID : <input type="text" id="guild_id" size="10" placeholder="GUILD_ID" value=1 /><br/>
+					<input type="button" id="reqGuildDetailInfo" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqGuildJoin">
+					ReqGuildJoin - 
+					GUILD_ID : <input type="text" id="guild_id" size="10" placeholder="GUILD_ID" value=1 /><br/>
+					<input type="button" id="reqGuildJoin" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqGuildPendingApprovalList">
+					ReqGuildPendingApprovalList - 
+					<input type="button" id="reqGuildPendingApprovalList" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqGuildPendingApprovalProcess">
+					ReqGuildPendingApprovalProcess - 
+					TARGET_UUID : <input type="text" id="target_uuid" size="10" placeholder="TARGET_UUID" value=1 /><br/>
+					PROCESS_TYPE : <input type="text" id="process_type" size="10" placeholder="PROCESS_TYPE" value=1 /><br/>
+					<input type="button" id="reqGuildPendingApprovalProcess" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqGuildMemberBan">
+					ReqGuildMemberBan - 
+					TARGET_UUID : <input type="text" id="target_uuid" size="10" placeholder="TARGET_UUID" value=1 /><br/>
+					<input type="button" id="reqGuildMemberBan" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqFindGuild">
+					ReqFindGuild - 
+					GUILD_NAME : <input type="text" id="guild_name" size="10" placeholder="GUILD_NAME" /><br/>
+					<input type="button" id="reqFindGuild" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqWithdrawalAtGuild">
+					ReqWithdrawalAtGuild - 
+					<input type="button" id="reqWithdrawalAtGuild" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqChangeGuildInfo">
+					ReqChangeGuildInfo - 
+					GUILD_MARK : <input type="text" id="guild_mark" size="10" placeholder="GUILD_MARK" value=1 /><br/>
+					GUILD_NOTICE : <input type="text" id="guild_notice" size="10" placeholder="GUILD_NOTICE" value="그런거 없다." /><br/>
+					AUTO_MASTER_CHANGE : <input type="text" id="auto_master_change" size="10" placeholder="AUTO_MASTER_CHANGE" value=false /><br/>
+					JOIN_OPTION : <input type="text" id="join_option" size="10" placeholder="JOIN_OPTION" value=1 /><br/>
+					<input type="button" id="reqChangeGuildInfo" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqGuildInvitation">
+					ReqGuildInvitation - 
+					USER_NICK : <input type="text" id="user_nick" size="10" placeholder="USER_NICK" /><br/>
+					<input type="button" id="reqGuildInvitation" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqGuildInvitationList">
+					ReqGuildInvitationList - 
+					<input type="button" id="reqGuildInvitationList" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqGuildInvitationProcess">
+					ReqGuildInvitationProcess - 
+					GUILD_ID : <input type="text" id="guild_id" size="10" placeholder="GUILD_ID" /><br/>
+					PROCESS_TYPE : <input type="text" id="process_type" size="10" placeholder="PROCESS_TYPE" value=true /><br/>
+					<input type="button" id="reqGuildInvitationProcess" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqChangeAuth">
+					ReqChangeAuth - 
+					TARGET_UUID : <input type="text" id="target_uuid" size="10" placeholder="TARGET_UUID" /><br/>
+					AUTH_TYPE : <input type="text" id="auth_type" size="10" placeholder="AUTH_TYPE" /><br/>
+					<input type="button" id="reqChangeAuth" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+				<div id="ReqChangeAuthConfirm">
+					ReqChangeAuthConfirm - 
+					<input type="button" id="reqChangeAuthConfirm" value="SEND" />
+					<br/>
+					<div id="output"></div>
+				</div>
+				<br/>
+			</div>
+		</p>
+	</body>
+</html>

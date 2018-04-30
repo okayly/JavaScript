@@ -1,0 +1,22 @@
+{
+	"Req":
+	{
+		"BuyGold":"ReqBuyGold"
+		, "BuyStamina":"ReqBuyStamina"
+		, "BuyCash":"ReqBuyCash"
+		, "BuySkillPoint":"ReqBuySkillPoint"
+		, "BuyProphecySpringAbleCount":"ReqBuyProphecySpringAbleCount"
+		, "BuyEquipItemInventorySlot":"ReqBuyEquipItemInventorySlot"
+		, "BuyPvpAbleCount" : "ReqBuyPvpAbleCount"
+	}
+	, "Ack":
+	{
+		"BuyGold":"AckBuyGold"
+		, "BuyStamina":"AckBuyStamina"
+		, "BuyCash":"AckBuyCash"
+		, "BuySkillPoint":"AckBuySkillPoint"
+		, "BuyProphecySpringAbleCount":"AckBuyProphecySpringAbleCount"
+		, "BuyEquipItemInventorySlot":"AckBuyEquipItemInventorySlot"
+		, "BuyPvpAbleCount" : "AckBuyPvpAbleCount"
+	}
+}

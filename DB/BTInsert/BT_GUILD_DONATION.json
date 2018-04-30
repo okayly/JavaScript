@@ -1,0 +1,43 @@
+{
+	"WorksheetName":"BT_GUILD_DONATION",
+	"ExportDate":"2016/05/03 11:52:13",
+	"ExportUser":"MSDN-SPECIAL",
+	"Rows":
+	[
+		{
+			"DonationID":1, 
+			"NeedGold":0, 
+			"NeedCash":0, 
+			"GuildPoint":5, 
+			"AlliancePoint":5
+		},
+		{
+			"DonationID":2, 
+			"NeedGold":30000, 
+			"NeedCash":0, 
+			"GuildPoint":10, 
+			"AlliancePoint":10
+		},
+		{
+			"DonationID":3, 
+			"NeedGold":150000, 
+			"NeedCash":0, 
+			"GuildPoint":50, 
+			"AlliancePoint":50
+		},
+		{
+			"DonationID":4, 
+			"NeedGold":0, 
+			"NeedCash":30, 
+			"GuildPoint":30, 
+			"AlliancePoint":30
+		},
+		{
+			"DonationID":5, 
+			"NeedGold":0, 
+			"NeedCash":150, 
+			"GuildPoint":150, 
+			"AlliancePoint":150
+		}
+	]
+}

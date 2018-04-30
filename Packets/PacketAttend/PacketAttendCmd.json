@@ -1,0 +1,14 @@
+{
+	"Req":
+	{
+		"AttendDailyReward":"ReqAttendDailyReward"
+		, "AddAttendDailyReward":"ReqAddAttendDailyReward"
+		, "AttendAccumReward":"ReqAttendAccumReward"
+	}
+	, "Ack":
+	{
+		"AttendDailyReward":"AckAttendDailyReward"
+		, "AddAttendDailyReward":"AckAddAttendDailyReward"
+		, "AttendAccumReward":"AckAttendAccumReward"
+	}
+}

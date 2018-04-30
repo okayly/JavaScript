@@ -1,0 +1,16 @@
+{
+	"Evt":
+	{
+		"LoseRankMatch":"EvtLoseRankMatch",
+		"MissionUpdate":"EvtMissionUpdate",
+		"AllowGuildJoin":"EvtAllowGuildJoin",
+		"BanAtGuild":"EvtBanAtGuild",
+		"ChangeAuth":"EvtChangeAuth",
+		"FriendRequest":"EvtFriendRequest",
+		"FriendAccept":"EvtFriendAccept",
+		"FriendRecvStamina":"EvtFriendRecvStamina",
+		"FriendDelete":"EvtFriendDelete",
+		"RandomShopOpend":"EvtRandomShopOpend",
+		"GuildSkillUp":"EvtGuildSkillUp"
+	}
+}

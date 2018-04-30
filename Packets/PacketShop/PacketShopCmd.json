@@ -1,0 +1,22 @@
+{
+	"Req":
+	{
+		"ShopIDs":"ReqShopIDs"
+		, "ShopBuy":"ReqShopBuy"
+		, "ShopReset":"ReqShopReset"
+		, "ShopResetCount":"ReqShopResetCount"
+		, "RandomShopIsOpen":"ReqRandomShopIsOpen"
+		, "RandomShopOpen":"ReqRandomShopOpen"
+		, "BuyHeroExp":"ReqShopBuyHeroExp"
+	}
+	, "Ack":
+	{
+		"ShopIDs":"AckShopIDs"
+		, "ShopBuy":"AckShopBuy"
+		, "ShopReset":"AckShopReset"
+		, "ShopResetCount":"AckShopResetCount"
+		, "RandomShopIsOpen":"AckRandomShopIsOpen"
+		, "RandomShopOpen":"AckRandomShopOpen"
+		, "BuyHeroExp":"AckShopBuyHeroExp"
+	}
+}

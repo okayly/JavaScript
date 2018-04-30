@@ -1,0 +1,17 @@
+{
+	"PC":
+	{
+		"Name":"Design",
+		"ServerID":"5",
+		"Account":"pocatcom",
+		"Pass":"P@ssw0rd"
+	},
+	"DB":
+	{
+		"DBName":"mKUF_Design",
+		"DBAcc":"pocatcom",
+		"DBPw":"P@ssw0rd",
+		"DBIP":"192.168.0.29",
+		"DBPort":"3306"
+	}
+}

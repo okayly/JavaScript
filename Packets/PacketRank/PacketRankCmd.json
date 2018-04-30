@@ -1,0 +1,34 @@
+{
+	"Req":
+	{
+		  "FindMatchPlayer":"ReqFindMatchPlayer"
+		, "PlayerDetailInfo":"ReqPlayerDetailInfo"
+		, "MatchStart":"ReqRankMatchStart"
+		, "MatchFinish":"ReqRankMatchFinish"
+		, "PlayCountReward":"ReqPlayCountReward"
+		, "WinningStreakReward":"ReqWinningStreakReward"
+		, "AchievementReward":"ReqRankAchievementReward"
+		, "BuyMatchCount":"ReqBuyRankMatchCount"
+		, "BuyReplaceMatchPlayer":"ReqBuyReplaceMatchPlayer"
+		, "InitMatchRemainTime":"ReqInitMatchRemainTime"
+		, "RankList":"ReqRankList"
+		, "RecordList":"ReqRankMatchRecord"
+		, "RecordDetailInfo":"ReqRankMatchRecordDetailInfo"
+	}
+	, "Ack":
+	{
+		  "FindMatchPlayer":"AckFindMatchPlayer"
+		, "PlayerDetailInfo":"AckPlayerDetailInfo"
+		, "MatchStart":"AckRankMatchStart"
+		, "MatchFinish":"AckRankMatchFinish"
+		, "PlayCountReward":"AckPlayCountReward"
+		, "WinningStreakReward":"AckWinningStreakReward"
+		, "AchievementReward":"AckRankAchievementReward"
+		, "BuyMatchCount":"AckBuyRankMatchCount"
+		, "BuyReplaceMatchPlayer":"AckBuyReplaceMatchPlayer"
+		, "InitMatchRemainTime":"AckInitMatchRemainTime"
+		, "RankList":"AckRankList"
+		, "RecordList":"AckRankMatchRecord"
+		, "RecordDetailInfo":"AckRankMatchRecordDetailInfo"
+	}
+}

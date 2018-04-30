@@ -1,0 +1,218 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_weekly_reward`(
+	in p_UUID BIGINT,
+    in p_STAMINA INT,
+    in p_ADD_ACCOUNT_EXP INT,
+    in p_ADD_HERO_EXP INT,
+    in p_ADD_GOLD BIGINT,
+    in p_TEAM_ID INT,
+    in p_ITEM_ID_1 INT, in p_ITEM_COUNT_1 INT,
+    in p_ITEM_ID_2 INT, in p_ITEM_COUNT_2 INT,
+    in p_ITEM_ID_3 INT, in p_ITEM_COUNT_3 INT
+)
+BEGIN
+	
+	# exception handler 
+    declare exit handler for SQLEXCEPTION
+	begin
+		rollback;
+        -- select Errors;
+        show Errors;
+	end;
+    
+    start transaction;
+    
+    # 가상 테이블 삭제.
+    drop temporary table if exists reward_items;
+    drop temporary table if exists heros;
+    drop temporary table if exists result_item;
+    drop temporary table if exists result_hero;
+	
+	# 보상을 위한 가상 테이블 만들기. 
+	begin
+		create temporary table reward_items ( item_id int, item_count int);
+        if (p_ITEM_ID_1 <> 0) then insert into reward_items values  (p_ITEM_ID_1, p_ITEM_COUNT_1); end if;
+        if (p_ITEM_ID_2 <> 0) then insert into reward_items values  (p_ITEM_ID_2, p_ITEM_COUNT_2); end if;
+        if (p_ITEM_ID_3 <> 0) then insert into reward_items values  (p_ITEM_ID_3, p_ITEM_COUNT_3); end if;
+		
+        # 커서를 위한 가상 테이블 만들기.
+		create temporary table heros ( hero_id int);
+		insert into heros select SLOT1 from GT_TEAMs where TEAM_ID = p_TEAM_ID and UUID = p_UUID and SLOT1 <> 0;
+		insert into heros select SLOT2 from GT_TEAMs where TEAM_ID = p_TEAM_ID and UUID = p_UUID and SLOT2 <> 0;
+		insert into heros select SLOT3 from GT_TEAMs where TEAM_ID = p_TEAM_ID and UUID = p_UUID and SLOT3 <> 0;
+		insert into heros select SLOT4 from GT_TEAMs where TEAM_ID = p_TEAM_ID and UUID = p_UUID and SLOT4 <> 0;
+        
+        # 결과 반환용 테이블.
+		create temporary table result_item ( iuid bigint, item_id int, item_count int);
+        create temporary table result_hero ( hero_id int, hero_exp int, hero_level int);
+	 end;
+     
+	# 보상 본문 위치.
+	begin
+		# 1. User 보상 적용. (gold, exp, level) 
+		begin
+            declare m_current_user_level int default 0;
+            declare m_current_user_exp   int default 0;
+            declare m_target_user_level  int default 0;
+            declare m_target_user_exp    int default 0;
+            declare m_sum_user_exp 		 int default 0;
+            
+            select USER_LEVEL, USER_EXP into m_current_user_level, m_current_user_exp from GT_USERs where UUID = p_UUID;
+            set m_sum_user_exp = m_current_user_exp + p_ADD_ACCOUNT_EXP;
+            
+            select A.TARGET_LEVEL, A.ACCOUNT_TOTAL_EXP into m_target_user_level, m_target_user_exp
+			from (
+				select TARGET_LEVEL, ACCOUNT_TOTAL_EXP 
+                from BT_EXPs where ACCOUNT_TOTAL_EXP <= m_sum_user_exp 
+            ) as A order by A.TARGET_LEVEL desc limit 1;
+            
+            # 계정 레벨 업 function
+            if ( m_target_user_level > m_current_user_level ) then
+				begin                
+					declare m_recovery_stamina int default 0;
+                    declare m_max_stamina int default 0;
+                    declare m_open_account_buff int default 0;
+                    declare m_account_buff_point int default 0;
+                    
+                    select OPEN_ACCOUNTBUFF into m_open_account_buff from BT_LEVEL_UNLOCKs where TARGET_LEVEL = m_target_user_level;
+                    select RECOVERY_STAMINA into m_recovery_stamina from BT_LEVEL_UNLOCKs where TARGET_LEVEL = m_target_user_level;
+                    select MAX_STAMINA into m_max_stamina from BT_LEVEL_UNLOCKs where TARGET_LEVEL = m_target_user_level;
+                    
+                    if ( m_open_account_buff = 1 ) then
+						begin
+                            # 레벨 1업당 3포인트 지급.(TODO: 테이블에서 가져와야 한다.)
+							declare m_buff_point int default 3;
+                            
+							set m_account_buff_point = (m_target_user_level - m_current_user_level) * m_buff_point;
+						end;
+                    end if;
+
+                    update GT_USERs set USER_LEVEL = m_target_user_level, USER_EXP = m_sum_user_exp, GOLD = GOLD + p_ADD_GOLD, STAMINA = p_STAMINA + m_recovery_stamina, MAX_STAMINA = m_max_stamina, ACCOUNT_BUFF_POINT = ACCOUNT_BUFF_POINT + m_account_bufF_point, LAST_STAMINA_CHANGE_DATE = now() where UUID = p_UUID;
+                end;
+			else
+				begin
+                	update GT_USERs set USER_EXP = m_sum_user_exp, GOLD = GOLD + p_ADD_GOLD, STAMINA = p_STAMINA, LAST_STAMINA_CHANGE_DATE = now() where UUID = p_UUID;
+                end;
+			end if;
+		end;
+	
+		# 2. Hero 보상 적용. (exp, level)
+		begin
+			declare hero_cur_state int default 0;
+            declare m_hero_id int default 0;
+            declare m_user_level int default 0;
+			declare m_sum_exp int default 0;
+			declare m_result_level int default 0;
+			declare m_result_exp int default 0;
+			declare m_current_level int default 0;
+			declare m_current_exp int default 0;
+			declare m_target_level int default 0;
+			declare m_target_exp int default 0;
+
+			declare hero_cur cursor for select hero_id from heros;
+            declare continue handler for sqlstate '02000' set hero_cur_state = 1;
+            
+            select USER_LEVEL into m_user_level from GT_USERs where UUID = p_UUID;
+            open hero_cur;
+				repeat
+					fetch hero_cur into m_hero_id;
+                    if not hero_cur_state then
+
+						select USER_LEVEL into m_user_level from GT_USERs where UUID = p_UUID;
+						select HERO_LEVEL, EXP into m_current_level, m_current_exp 
+							from GT_HEROes where UUID = p_UUID and HERO_ID = m_hero_id LIMIT 1;
+						
+						set m_sum_exp = m_current_exp + p_ADD_HERO_EXP;
+						
+						select A.TARGET_LEVEL, A.HERO_TOTAL_EXP into m_target_level, m_target_exp
+						from (
+							select TARGET_LEVEL, HERO_TOTAL_EXP from BT_EXPs where HERO_TOTAL_EXP <= m_sum_exp
+						) as A 
+						where A.TARGET_LEVEL <= m_user_level + 1 and A.TARGET_LEVEL <= (select TARGET_LEVEL from BT_EXPs order by TARGET_LEVEL desc limit 1)
+						order by A.TARGET_LEVEL desc limit 1;
+
+						if ( m_target_level > m_user_level ) then
+							update GT_HEROes set EXP = m_target_exp, HERO_LEVEL = m_user_level where UUID = p_UUID and HERO_ID = m_hero_id;
+
+                            set m_result_level = m_user_level;
+							set m_result_exp = m_target_exp;
+						else
+							update GT_HEROes set EXP = m_sum_exp, HERO_LEVEL = m_target_level where UUID = p_UUID and HERO_ID = m_hero_id;            
+
+							set m_result_level = m_target_level;
+							set m_result_exp = m_sum_exp;
+						end if;
+                            
+                        # 결과 반환을 위한 임시테이블 삽입.
+						insert into result_hero values (m_hero_id, m_result_exp, m_result_level);
+					end if; # if not hero_cur_state then
+				until hero_cur_state end repeat;
+			close hero_cur;
+		end;
+	
+		# 3. 보상 아이템 지급.
+        begin
+			declare item_cur_state int default 0;
+			declare m_item_id bigint;
+            declare m_item_count int;
+            declare m_inven_item_cnt int;
+            declare m_current_stack_cnt int;
+            declare m_cate int;
+            
+            declare m_result_iuid bigint;
+            declare m_result_count int default 0;
+        
+			declare item_cur cursor for select item_id, item_count from reward_items;
+            declare continue handler for sqlstate '02000' set item_cur_state = 1;
+
+            open item_cur;
+				repeat
+					fetch item_cur into m_item_id, m_item_count;
+                    if not item_cur_state then
+							
+						# 인벤토리에 아이템이 존재 하는 지 검사.
+                        select count(*) into m_inven_item_cnt from GT_INVENTORies where UUID = p_UUID and ITEM_ID = m_item_id and EXIST_YN = true;
+                        if ( m_inven_item_cnt = 0 ) then
+							# 없다면 inert.
+							insert GT_INVENTORies (UUID, ITEM_ID, ITEM_COUNT, EXIST_YN) values (p_UUID, m_item_id, m_item_count, true);
+
+                            set m_result_iuid = (SELECT LAST_INSERT_ID());
+                            set m_result_count = m_item_count;
+                        else
+							select IUID, ITEM_COUNT into m_result_iuid, m_current_stack_cnt from GT_INVENTORies where UUID = p_UUID and ITEM_ID = m_item_id and EXIST_YN = true;                                
+
+                            set m_result_count = m_current_stack_cnt+m_item_count;
+							update GT_INVENTORies set ITEM_COUNT = m_result_count where UUID = p_UUID and ITEM_ID = m_item_id;
+						end if;
+                        
+                        # 결과 반환을 위한 임시테이블 삽입.
+                        if ( m_result_iuid <> 0 && m_result_count <> 0 ) then 
+							insert into result_item values (m_result_iuid, m_item_id, m_result_count); 
+                        end if;
+                        
+                    end if;
+				until item_cur_state end repeat;
+			close item_cur;
+        end;
+    end;
+    
+    # 4. 요일던전 플레이 횟수 증가
+    begin
+		update GT_DAILY_CONTENTSes set EXEC_WEEKLY_DUNGEON_PLAY_COUNT = EXEC_WEEKLY_DUNGEON_PLAY_COUNT + 1 where UUID = p_UUID and EXIST_YN = true;
+    end;
+    
+    # 결과 반환.
+    begin
+		select * from GT_USERs where UUID = p_UUID;        
+        select * from result_hero;
+        select * from result_item;
+        select EXEC_WEEKLY_DUNGEON_PLAY_COUNT from GT_DAILY_CONTENTSes where UUID = p_UUID and EXIST_YN = true;
+    end;
+    
+    # 가상 테이블 삭제.
+    drop temporary table if exists reward_items;
+    drop temporary table if exists heros;
+    drop temporary table if exists result_item;
+    drop temporary table if exists result_hero;
+
+commit;
+END

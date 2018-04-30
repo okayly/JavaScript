@@ -1,0 +1,28 @@
+{
+	"WorksheetName":"BT_SHOP_RESET_COST",
+	"ExportDate":"2016/04/19 17:34:33",
+	"ExportUser":"MSDN-SPECIAL",
+	"Rows":
+	[
+		{
+			"ResetCount":1, 
+			"NeedCash":10
+		},
+		{
+			"ResetCount":2, 
+			"NeedCash":30
+		},
+		{
+			"ResetCount":3, 
+			"NeedCash":50
+		},
+		{
+			"ResetCount":4, 
+			"NeedCash":100
+		},
+		{
+			"ResetCount":5, 
+			"NeedCash":200
+		}
+	]
+}

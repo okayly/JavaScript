@@ -1,0 +1,12 @@
+{
+	"Req":
+	{
+		"UserCount":"ReqUserCount",
+		"SendReservationMail":"ReqDuckSendReservationMail"
+	}
+	, "Ack":
+	{
+		"UserCount":"AckUserCount",
+		"SendReservationMail":"AckDuckSendReservationMail"
+	}
+}

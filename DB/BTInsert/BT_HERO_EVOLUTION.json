@@ -1,0 +1,44 @@
+{
+	"WorksheetName":"BT_HERO_EVOLUTION",
+	"ExportDate":"2016/04/25 22:22:14",
+	"ExportUser":"김기인-PC",
+	"Rows":
+	[
+		{
+			"Step":1, 
+			"NeedGold":0, 
+			"HeroStoneCount":10, 
+			"HeroStoneExchange":7
+		},
+		{
+			"Step":2, 
+			"NeedGold":10000, 
+			"HeroStoneCount":30, 
+			"HeroStoneExchange":14
+		},
+		{
+			"Step":3, 
+			"NeedGold":80000, 
+			"HeroStoneCount":50, 
+			"HeroStoneExchange":21
+		},
+		{
+			"Step":4, 
+			"NeedGold":270000, 
+			"HeroStoneCount":100, 
+			"HeroStoneExchange":28
+		},
+		{
+			"Step":5, 
+			"NeedGold":640000, 
+			"HeroStoneCount":150, 
+			"HeroStoneExchange":35
+		},
+		{
+			"Step":6, 
+			"NeedGold":1250000, 
+			"HeroStoneCount":200, 
+			"HeroStoneExchange":42
+		}
+	]
+}

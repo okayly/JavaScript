@@ -1,0 +1,10 @@
+{
+	"Req":
+	{
+		"Version":"ReqVersion"
+	}
+	, "Ack":
+	{
+		"Version":"AckVersion"
+	}
+}

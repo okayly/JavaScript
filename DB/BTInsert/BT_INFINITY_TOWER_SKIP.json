@@ -1,0 +1,43 @@
+{
+	"WorksheetName":"BT_INFINITY_TOWER_SKIP",
+	"ExportDate":"2016/11/29 14:26:06",
+	"ExportUser":"DESKTOP-0EGEOLA",
+	"Rows":
+	[
+		{
+			"BattleSkipID":1, 
+			"BattleSkipCount":0, 
+			"MaxBattleSkipFloor":25, 
+			"SKIP_VIP3":0
+		},
+		{
+			"BattleSkipID":2, 
+			"BattleSkipCount":1, 
+			"MaxBattleSkipFloor":25, 
+			"SKIP_VIP3":0
+		},
+		{
+			"BattleSkipID":3, 
+			"BattleSkipCount":2, 
+			"MaxBattleSkipFloor":22, 
+			"SKIP_VIP3":0
+		},
+		{
+			"BattleSkipID":4, 
+			"BattleSkipCount":3, 
+			"MaxBattleSkipFloor":17, 
+			"SKIP_VIP3":0
+		},
+		{
+			"BattleSkipID":5, 
+			"BattleSkipCount":4, 
+			"MaxBattleSkipFloor":13, 
+			"SKIP_VIP3":0
+		},
+		{
+			"BattleSkipID":6, 
+			"BattleSkipCount":5, 
+			"MaxBattleSkipFloor":9
+		}
+	]
+}

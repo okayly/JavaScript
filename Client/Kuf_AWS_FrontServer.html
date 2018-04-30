@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<style type="text/css">
+			.tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
+			.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#333;background-color:#fff;}
+			.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#fff;background-color:#f38630;}
+			.tg .tg-yw4l{vertical-align:top}
+		</style>
+		
+		<meta charset="utf-8">
+		<title>KUF - LoginServer</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+		<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+		<script type="text/javascript">
+			var socket = io.connect('http://52.78.25.165:7951');		// Login Server
+			console.log(socket);
+			socket.on('connect', function() {
+				console.log('connected server...');
+			});
+			
+			socket.on('RecvError', function (recv) {
+				Acklog(recv);
+				$('#error > #output').html(recv);
+			});
+			
+			// notice
+			socket.on('evt_notice', function (recv) { console.log(recv); });
+		</script>
+
+		<script type="text/javascript">
+			global_packet_srl = 0;
+			
+			var jsfiles = [ './FrontServer_AWS.js' ];
+
+			for (var i in jsfiles) {
+				console.log(jsfiles[i]);
+
+				var imported = document.createElement('script');
+				imported.src = jsfiles[i];
+				document.head.appendChild(imported);
+			}
+
+			function Reqlog(packet) {
+				console.log('Req -', JSON.stringify(packet));
+			}
+
+			function Acklog(packet) {
+				console.log('Ack -', packet);
+			}
+
+		</script>
+	</head>
+	<body>
+		<p>
+			<div id="error">
+				<label>ERROR</label>
+				<div id="output"></div>
+			</div>
+		</p>
+	
+		<table class="tg">
+			<tr><th class="tg-yw4l"><label>GAME SERVER SELECT</label></th></tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqGameServer">
+						ReqGameServer
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqFileDownLoad">
+						ReqFileDownLoad
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

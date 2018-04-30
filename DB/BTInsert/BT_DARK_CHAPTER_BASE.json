@@ -1,0 +1,38 @@
+{
+	"WorksheetName":"BT_DARK_CHAPTER_BASE",
+	"ExportDate":"2017/03/27 17:50:40",
+	"ExportUser":"DESKTOP-0EGEOLA",
+	"Rows":
+	[
+		{
+			"ChapterID":701, 
+			"ChapterName":271000, 
+			"LimitLevel":5, 
+			"ResetTime":1800
+		},
+		{
+			"ChapterID":702, 
+			"ChapterName":272000, 
+			"LimitLevel":20, 
+			"ResetTime":3600
+		},
+		{
+			"ChapterID":703, 
+			"ChapterName":273000, 
+			"LimitLevel":30, 
+			"ResetTime":7200
+		},
+		{
+			"ChapterID":704, 
+			"ChapterName":274000, 
+			"LimitLevel":40, 
+			"ResetTime":18000
+		},
+		{
+			"ChapterID":705, 
+			"ChapterName":275000, 
+			"LimitLevel":50, 
+			"ResetTime":36000
+		}
+	]
+}

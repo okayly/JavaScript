@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	<style type="text/css">
+		.tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
+		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#333;background-color:#fff;}
+		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#fff;background-color:#f38630;}
+		.tg .tg-yw4l{vertical-align:top}
+	</style>
+	
+	<meta charset="utf-8">
+	<title>KUF - Hero</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+	<script type="text/javascript">
+		var jsfiles = [ './Main.js', './Account.js', './Tower.js' ];
+
+		for (var i in jsfiles) {
+			console.log(jsfiles[i]);
+
+			var imported = document.createElement('script');
+			imported.src = jsfiles[i];
+			document.head.appendChild(imported);
+		}
+	</script>
+
+	</head>
+	<body>
+		<h3>TOWER</h3>
+		<p>
+			<div id="Display">
+				<h3>Display</h3>
+				<div id="output"></div>
+			</div>
+		</p>
+		<a href="./Kuf_JW_Account.html">BACK</a>
+		<br/>
+		<br/>
+		<table class="tg">
+			<tr>
+				<th class="tg-yw4l">SERVER PORT</th>
+				<td>
+					<div id="ConnectServer">
+						<select id="port">
+							<option value="7953">JW</option>
+							<option value="7952">JW_Test</option>
+							<option value="2016">Design</option>
+							<!-- <option value="3000">Contents</option>
+							<option value="4634">Build</option> -->
+						</select>
+						<input type="button" id="connect" value="Connect"/>
+						<input type="button" id="disconnect" value="Diconnect"/>
+					</div>
+				</td>			
+			<tr>
+				<th class="tg-yw4l">TEST</th>
+				<td class="tg-yw4l">
+					<div id="ReqTest">
+						ReqTest<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<th class="tg-yw4l">VERSION</th>
+				<td class="tg-yw4l">
+					<div id="ReqVersion">
+						ReqVersion<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l">ACCOUNT</th>
+				<td class="tg-yw4l">
+					<div id="ReqLogon">
+						ReqLogon<br/>
+						ACCOUNT:<input type="text" id="account" size="10" placeholder="ACCOUNT" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqUser">
+						ReqUser<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label>INFINITY TOWER</label></th>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerReset">
+						ReqInfinityTowerReset<br/>
+						<input type="button" id="send" value="SEND" />
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label>INFO</label></th>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerUser">
+						ReqInfinityTowerUser
+						<input type="button" id="send" value="SEND" />
+						<div id="output"></div>
+					</div><br/>
+					<div id="ReqInfinityTowerHero">
+						ReqInfinityTowerHero
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div><br/>
+					<div id="ReqInfinityTowerBot">
+						ReqInfinityTowerBot
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerClear">
+						ReqInfinityTowerClear
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div><br/>
+					<div id="ReqInfinityTowerProcess">
+						ReqInfinityTowerProcess
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label>SECRET MAZE FLOOR</label></th>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerSecretMazeType">
+						ReqInfinityTowerSecretMazeType<br/>
+						FLOOR:<select id="floor">							
+							<option value="22" selected>22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+						</select><br/>
+						SECRET_MAZE_TYPE:<select id="secret_maze_type">
+							<option value="1">BATTLE</option>
+							<option value="2">REWARD_BOX</option>
+							<option value="3">BUFF</option>
+						</select><br/>
+						SECRET_MAZE_BATTLE_ID:<select id="secret_maze_battle_id">
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerSecretMazeEntrance">
+						ReqInfinityTowerSecretMazeEntrance<br/>
+						FLOOR:<select id="floor">
+							<option value="22" selected>22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerSecretMazeReset">
+						ReqInfinityTowerSecretMazeReset<br/>
+						FLOOR:<select id="floor">
+							<option value="22" selected>22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+						</select><br/>
+						SECRET_MAZE_TYPE:<select id="secret_maze_type">
+							<option value="1">BATTLE</option>
+							<option value="2">REWARD_BOX</option>
+							<option value="3">BUFF</option>
+						</select><br/>
+						SECRET_MAZE_BATTLE_ID:<select id="secret_maze_battle_id">
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label>BATTLE FLOOR</label></th>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerBattleFloorEntrance">
+						ReqInfinityTowerBattleFloorEntrance<br/>
+						FLOOR:<select id="floor">
+							<option value="1" selected>1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">21</option>
+							<option value="32">22</option>
+							<option value="33">23</option>
+							<option value="34">24</option>
+							<option value="35">25</option>
+							<option value="36">26</option>
+							<option value="37">27</option>
+							<option value="38">28</option>
+							<option value="39">29</option>
+							<option value="40">20</option>
+							<option value="41">21</option>
+							<option value="42">22</option>
+							<option value="43">23</option>
+							<option value="44">24</option>
+							<option value="45">25</option>
+							<option value="46">26</option>
+							<option value="47">27</option>
+							<option value="48">28</option>
+							<option value="49">29</option>
+							<option value="50">20</option>
+						</select><br/>
+						BATTLE_TYPE:<select id="battle_type">
+							<option value="0">0(선택안함)</option>
+							<option value="3" selected>3(상급)</option>
+							<option value="2">2(중급)</option>
+							<option value="1">1(하급)</option>
+							<option value="4">4(각성)</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerBattleSelect">
+						ReqInfinityTowerBattleSelect<br/>
+						FLOOR:<select id="floor">
+							<option value="1" selected>1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">21</option>
+							<option value="32">22</option>
+							<option value="33">23</option>
+							<option value="34">24</option>
+							<option value="35">25</option>
+							<option value="36">26</option>
+							<option value="37">27</option>
+							<option value="38">28</option>
+							<option value="39">29</option>
+							<option value="40">20</option>
+							<option value="41">21</option>
+							<option value="42">22</option>
+							<option value="43">23</option>
+							<option value="44">24</option>
+							<option value="45">25</option>
+							<option value="46">26</option>
+							<option value="47">27</option>
+							<option value="48">28</option>
+							<option value="49">29</option>
+							<option value="50">20</option>
+						</select><br/>
+						BATTLE_TYPE:<select id="battle_type">
+							<option value="0">0(선택안함)</option>
+							<option value="3" selected>3(상급)</option>
+							<option value="2">2(중급)</option>
+							<option value="1">1(하급)</option>
+							<option value="4">4(각성)</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerBattleFinish">
+						ReqInfinityTowerBattleFinish<br/>
+						FLOOR:<select id="floor">
+							<option value="1" selected>1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">21</option>
+							<option value="32">22</option>
+							<option value="33">23</option>
+							<option value="34">24</option>
+							<option value="35">25</option>
+							<option value="36">26</option>
+							<option value="37">27</option>
+							<option value="38">28</option>
+							<option value="39">29</option>
+							<option value="40">20</option>
+							<option value="41">21</option>
+							<option value="42">22</option>
+							<option value="43">23</option>
+							<option value="44">24</option>
+							<option value="45">25</option>
+							<option value="46">26</option>
+							<option value="47">27</option>
+							<option value="48">28</option>
+							<option value="49">29</option>
+							<option value="50">20</option>
+						</select><br/>
+						BATTLE_TYPE:<select id="battle_type">
+							<option value="0">0(선택안함)</option>
+							<option value="3" selected>3(상급)</option>
+							<option value="2">2(중급)</option>
+							<option value="1">1(하급)</option>
+							<option value="4">4(각성)</option>
+						</select><br/>
+						CLEAR_GRADE:<select id="clear_grade">
+							<option value="3" selected>3(상)</option>
+							<option value="2">2(중)</option>
+							<option value="1" >1(하)</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label>BUFF FLOOR</label></th>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerBuffList">
+						ReqInfinityTowerBuffList<br/>
+						FLOOR:<select id="floor">
+							<option value="1">1</option>
+							<option value="2" selected>2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">21</option>
+							<option value="32">22</option>
+							<option value="33">23</option>
+							<option value="34">24</option>
+							<option value="35">25</option>
+							<option value="36">26</option>
+							<option value="37">27</option>
+							<option value="38">28</option>
+							<option value="39">29</option>
+							<option value="40">20</option>
+							<option value="41">21</option>
+							<option value="42">22</option>
+							<option value="43">23</option>
+							<option value="44">24</option>
+							<option value="45">25</option>
+							<option value="46">26</option>
+							<option value="47">27</option>
+							<option value="48">28</option>
+							<option value="49">29</option>
+							<option value="50">20</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerBuyBuff">
+						ReqInfinityTowerBuyBuff<br/>
+						FLOOR:<select id="floor">
+							<option value="1">1</option>
+							<option value="2" selected>2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">21</option>
+							<option value="32">22</option>
+							<option value="33">23</option>
+							<option value="34">24</option>
+							<option value="35">25</option>
+							<option value="36">26</option>
+							<option value="37">27</option>
+							<option value="38">28</option>
+							<option value="39">29</option>
+							<option value="40">20</option>
+							<option value="41">21</option>
+							<option value="42">22</option>
+							<option value="43">23</option>
+							<option value="44">24</option>
+							<option value="45">25</option>
+							<option value="46">26</option>
+							<option value="47">27</option>
+							<option value="48">28</option>
+							<option value="49">29</option>
+							<option value="50">20</option>
+						</select><br/>
+						SLOT_ID:<select id='slot_id'>
+							<option value="1" selected>1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select><br/>
+						BUFF_ID:<select id='buff_id'>
+							<option value="1" selected>1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label>REWARD FLOOR</label></th>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerRewardBox">
+						ReqInfinityTowerRewardBox<br/>
+						FLOOR:<select id="floor">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4" selected>4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">21</option>
+							<option value="32">22</option>
+							<option value="33">23</option>
+							<option value="34">24</option>
+							<option value="35">25</option>
+							<option value="36">26</option>
+							<option value="37">27</option>
+							<option value="38">28</option>
+							<option value="39">29</option>
+							<option value="40">20</option>
+							<option value="41">21</option>
+							<option value="42">22</option>
+							<option value="43">23</option>
+							<option value="44">24</option>
+							<option value="45">25</option>
+							<option value="46">26</option>
+							<option value="47">27</option>
+							<option value="48">28</option>
+							<option value="49">29</option>
+							<option value="50">20</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerCashRewardBox">
+						ReqInfinityTowerCashRewardBox<br/>
+						FLOOR:<select id="floor">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4" selected>4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>				
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label>REWARD - SCORE</label></th>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerAccumScoreReward">
+						ReqInfinityTowerAccumScoreReward<br/>
+						REWARD_ID:<select id="reward_id">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" />
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="ReqInfinityTowerScoreRankList">
+						ReqInfinityTowerScoreRankList<br/>
+						PAGE_NUM:<select id="page_num">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td>
+					<div id="ReqInfinityTowerRankerDetailInfo">
+						ReqInfinityTowerRankerDetailInfo<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>						
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="ReqInfinityTowerAllClear">
+						ReqInfinityTowerAllClear<br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqInfinityTowerBattleSkip">
+						ReqInfinityTowerBattleSkip<br/>
+						FLOOR:<select id="floor">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" />
+						<div id="output"></div>
+					</div>
+				</td>
+				<td>
+					<div id="ReqInfinityTowerBattleAllSkip">
+						ReqInfinityTowerBattleAllSkip<br/>
+						START_FLOOR:<select id="start_floor">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select><br/>
+						<input type="button" id="send" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

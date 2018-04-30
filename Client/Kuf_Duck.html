@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<style type="text/css">
+			.tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;}
+			.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#333;background-color:#fff;}
+			.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#fff;background-color:#f38630;}
+			.tg .tg-yw4l{vertical-align:top}
+		</style>
+		
+		<meta charset="utf-8">
+		<title>KUF - 메일 보내기</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+		<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+		<script type="text/javascript">
+			// var socket = io.connect('http://52.192.197.210:3000');	// AWS
+			// var socket = io.connect('http://172.20.70.61:3000');	// Contents
+			// var socket = io.connect('http://172.20.70.61:2016');		// Design
+			// var socket = io.connect('http://172.20.70.61:7952');	// JWTest
+			var socket = io.connect('http://172.20.70.61:7953');	// JW
+			socket.on('connect', function() { console.log('connected server...'); });
+			
+			socket.on('RecvError', function (recv) {
+				Acklog(recv);
+				$('#error > #output').html(recv);
+			});
+			
+			// notice
+			socket.on('evt_notice', function (recv) { console.log(recv); });
+
+			$('#connect_server').change(function (p_selected) {
+				console.log('p_selected:', p_selected);
+			});
+
+		</script>
+
+		<script type="text/javascript">
+			global_packet_srl = 0;
+			
+			var jsfiles = [ './Account.js', './Duck.js', './Mail.js' ];
+
+			for (var i in jsfiles) {
+				console.log(jsfiles[i]);
+
+				var imported = document.createElement('script');
+				imported.src = jsfiles[i];
+				document.head.appendChild(imported);
+			}
+
+			function Reqlog(packet) {
+				console.log('Req -', JSON.stringify(packet));
+			}
+
+			function Acklog(packet) {
+				console.log('Ack -', packet);
+			}
+
+		</script>
+	</head>
+	<body>
+		<p>
+			<div id="error">
+				<label>OUT PUT</label>
+				<div id="output"></div>
+			</div>
+		</p>	
+		<table class="tg">
+			<tr><th class="tg-yw4l"><label>ACCOUNT</label></th></tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqLogon">
+						ReqLogon<br/>
+						ACCOUNT:<input type="text" id="account" size="10" placeholder="ACCOUNT" /><br/>
+						<input type="button" id="reqLogon" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th class="tg-yw4l"><label>계정 레벨 설정<br>TARGET_LEVEL의 경험치 99%를 얻는다.</label></th>
+				<th class="tg-yw4l"><label>영웅 레벨 설정<br>TARGET_LEVEL의 경험치 99%를 얻는다.</label></th>
+			</tr>
+			<tr>
+				<td class="tg-yw4l">
+					<div id="ReqAccountLevelSet">
+						ReqAccountLevelSet<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						TARGET_LEVEL:<input type="text" id="target_level" size="10" placeholder="LEVEL" /><br/>
+						<input type="button" id="reqAccountLevelSet" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqHeroLevelSet">
+						ReqHeroLevelSet<br/>
+						UUID:<input type="text" id="uuid" size="10" placeholder="UUID" /><br/>
+						HERO_ID:<input type="text" id="hero_id" size="10" placeholder="HERO_ID" /><br/>
+						TARGET_LEVEL:<input type="text" id="target_level" size="10" placeholder="LEVEL" /><br/>
+						<input type="button" id="reqHeroLevelSet" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+				<td class="tg-yw4l">
+					<div id="ReqMakeInventoryItem">
+						ReqMakeInventoryItem<br/>
+						<input type="button" id="reqMakeInventoryItem" value="SEND" /><br/>
+						<div id="output"></div>
+					</div>
+				</td>
+			</tr>
+			<tr><th class="tg-yw4l" colspan="9"><label>MAIL - ReqMailSend</label></th></tr>
+			<div id="ReqMailSend">
+				<tr>
+					<td class="tg-yw4l">
+						<label>받는 사람 UUID:</label>
+						<input type="text" id="uuid" size="10" placeholder="UUID" numberonly="true" />
+					</td>
+					<td class="tg-yw4l">
+						<label>보내는 사람 UUID:</label>
+						<input type="text" id="sender" size="10" placeholder="UUID" numberonly="true" />
+					</td>
+					<td class="tg-yw4l">
+						<label>우편 종류:</label>
+						<input type="radio" name="mail_type" id="mail_type" value="TEXT" size="10" />TEXT
+						<input type="radio" name="mail_type" id="mail_type" value="ITEM" size="10" checked />ITEM
+						<!-- <input type="radio" name="type" id="mail_type" value="GM" size="10" />GM
+						<input type="radio" name="type" id="mail_type" value="SYSTEM" size="10" />SYSTEM -->
+					</td>
+				</tr>
+				<tr>
+					<td class="tg-yw4l">
+						<label>우편 제목</label>
+						<input type="text" id="subject" size="10" placeholder="SUBJECT" />
+					</td>
+					<td class="tg-yw4l">
+						<label>우편 내용</label>
+						<input type="text" id="contents" size="10" placeholder="CONTENTS" />
+					</td>
+					<td>
+					</td>
+				</tr>
+				<tr>
+					<td class="tg-yw4l">
+						<label>01.REWARD_TYPE:</label>
+						<select id="reward_01_type">
+							<option value="0" selected>없음</option>
+							<option value="1">아이템</option>
+							<option value="2">GOLD</option>
+							<option value="3">CASH</option>
+							<option value="4">HONOR POINT</option>
+							<option value="5">ALLIANCE POINT</option>
+							<option value="6">CHALLENGE POINT</option>
+						</select>
+					</td>
+					<td class="tg-yw4l">
+						<label>REWARD_ITEM_ID:</label>
+						<input type="text" id="reward_01_item_id" size="10" placeholder="ITEM_ID" numberonly="true" />
+					</td>
+					<td class="tg-yw4l">
+						<label>REWARD_COUNT:</label>
+						<input type="text" id="reward_01_count" size="10" placeholder="COUNT" />
+					</td>
+				</tr>
+				<tr>
+					<td class="tg-yw4l">
+						<label>02.REWARD_TYPE:</label>
+						<select id="reward_02_type">
+							<option value="0" selected>없음</option>
+							<option value="1">아이템</option>
+							<option value="2">GOLD</option>
+							<option value="3">CASH</option>
+							<option value="4">HONOR POINT</option>
+							<option value="5">ALLIANCE POINT</option>
+							<option value="6">CHALLENGE POINT</option>
+						</select>
+					</td>
+					<td class="tg-yw4l">
+						<label>REWARD_ITEM_ID:</label>
+						<input type="text" id="reward_02_item_id" size="10" placeholder="ITEM_ID" numberonly="true" />
+					</td>
+					<td class="tg-yw4l">
+						<label>REWARD_COUNT:</label>
+						<input type="text" id="reward_02_count" size="10" placeholder="COUNT" numberonly="true" />
+					</td>
+				</tr>
+				<tr>
+					<td class="tg-yw4l">
+						<label>03.REWARD_TYPE:</label>
+						<select id="reward_03_type">
+							<option value="0" selected>없음</option>
+							<option value="1">아이템</option>
+							<option value="2">GOLD</option>
+							<option value="3">CASH</option>
+							<option value="4">HONOR POINT</option>
+							<option value="5">ALLIANCE POINT</option>
+							<option value="6">CHALLENGE POINT</option>
+						</select>
+					</td>
+					<td class="tg-yw4l">
+						<label>REWARD_ITEM_ID:</label>
+						<input type="text" id="reward_03_item_id" size="10" placeholder="ITEM_ID" numberonly="true" />
+					</td>
+					<td class="tg-yw4l">
+						<label>REWARD_COUNT:</label>
+						<input type="text" id="reward_03_count" size="10" placeholder="COUNT" numberonly="true" />
+					</td>
+				</tr>
+				<tr>
+					<td class="tg-yw4l">
+						<label>04.REWARD_TYPE:</label>
+						<select id="reward_04_type">
+							<option value="0" selected>없음</option>
+							<option value="1">아이템</option>
+							<option value="2">GOLD</option>
+							<option value="3">CASH</option>
+							<option value="4">HONOR POINT</option>
+							<option value="5">ALLIANCE POINT</option>
+							<option value="6">CHALLENGE POINT</option>
+						</select>
+					</td>
+					<td class="tg-yw4l">
+						<label>REWARD_ITEM_ID:</label>
+						<input type="text" id="reward_04_item_id" size="10" placeholder="ITEM_ID" numberonly="true" />
+					</td>
+					<td class="tg-yw4l">
+						<label>REWARD_COUNT:</label>
+						<input type="text" id="reward_04_count" size="10" placeholder="COUNT" numberonly="true" />
+					</td>
+				</tr>
+				<tr>
+					<td class="tg-yw4l">
+						<label>05.REWARD_TYPE:</label>
+						<select id="reward_05_type">
+							<option value="0" selected>없음</option>
+							<option value="1">아이템</option>
+							<option value="2">GOLD</option>
+							<option value="3">CASH</option>
+							<option value="4">HONOR POINT</option>
+							<option value="5">ALLIANCE POINT</option>
+							<option value="6">CHALLENGE POINT</option>
+						</select>
+					</td>
+					<td class="tg-yw4l">
+						<label>REWARD_ITEM_ID:</label>
+						<input type="text" id="reward_05_item_id" size="10" placeholder="ITEM_ID" numberonly="true" />
+					</td>
+					<td class="tg-yw4l">
+						<label>REWARD_COUNT:</label>
+						<input type="text" id="reward_05_count" size="10" placeholder="COUNT" numberonly="true" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="button" id="reqMailSend" value="SEND" /><br>
+					</td>
+				</tr>
+				<div id="output"></div>
+			</div>
+		</table>
+	</body>
+</html>
