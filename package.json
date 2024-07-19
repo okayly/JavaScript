@@ -14,7 +14,7 @@
         "mysql":"2.9.0",        
         "mocha":"2.3.2",
         "winston":"1.0.2",
-        "moment":"2.19.3",
+        "moment":"2.29.4",
         "nodemailer":"6.9.9",
         "hashmap":"2.0.4"
     }
